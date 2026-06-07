@@ -1,0 +1,92 @@
+{
+  "ticker": "ARQQ",
+  "run_id": "run-20260607T221837-68464d",
+  "dossier": {
+    "fair_value_per_share": 2.15,
+    "intrinsic_value_floor": 1.3,
+    "fair_value_low": 1.15,
+    "fair_value_high": 4.4,
+    "valuation_method": "Probability-weighted scenario valuation (rNPV) with time discounting at a 15% systematic-risk cost of equity; four end-state scenarios with bottoms-up EV bridges (per-line conversion-probability-weighted customers x ARR x blended multiple) divided by future diluted share counts to capture dilution-to-breakeven. Stress-tested at a 45% failure weight; cross-checked vs an aggregate-equity dilution-haircut, a net-cash floor (after the $7M settlement claim), a raise-price sensitivity table, and a teardown of the lone HC Wainwright $60 bull target. Robust anchor = net cash (~$1.3) + thin option (~$1.3-2.2); $2.15 is the tail-inclusive expected value.",
+    "confidence": 0.63,
+    "thesis_summary": "Arqit is a near-pre-revenue (~$1.2M TTM) quantum-safe encryption company burning ~$50M/yr against ~$29M cash (less a $7M settlement due mid-2026), with real but architecturally-disadvantaged tech (it consumes the free, natively-shipping NIST PQC that is commoditizing its mainstream market), ZERO contracted revenue minimums, ~12 months runway, and an unresolved SEC investigation. Probability-weighted FMV ~$2.15/share over a ~$1.3 net-cash floor; critically, ex the 5% 'broad platform' tail the operating business is worth only ~$0.94 \u2014 BELOW its own cash. Against a $190.0M market cap (~$11.46/share; CEO sold at $13.51) the stock is ~80% overvalued. Rating: SELL/AVOID.",
+    "key_value_drivers": [
+      "The 5% broad-platform tail contributes ~57% of fair value; ex-tail operating value (~$0.94) is below the net-cash floor \u2014 value is cash + a fragile option",
+      "ATM raise-clearing price: per-share niche-success value swings from ~$1.90 (raise at $4) to ~$3.01 (raise at $13)",
+      "Probability the defense/CSfC niche converts non-binding announcements into hard, contracted dollars (none contracted today; FY25 = 7 contracts, $530K)",
+      "Magnitude of the $80-150M dilution to fund ~$50M/yr burn to breakeven (16.6M -> ~30-45M shares)",
+      "Whether free native NIST PQC in AWS/Windows/Chrome/Cisco fully disintermediates the mainstream TAM"
+    ],
+    "key_risks": [
+      "Near-certain further equity dilution of $80-150M at potentially depressed prices (reflexive doom-loop)",
+      "~12 months gross cash runway, tightened by the $7M settlement cash-out ~mid-2026",
+      "Structural disintermediation by free, natively-shipped NIST PQC algorithms",
+      "Unresolved SEC fact-finding investigation into the Centricus SPAC projections; $7M securities-fraud settlement fully accrued (final hearing 1 June 2026)",
+      "Zero contracted revenue minimums in any disclosed deal (Intel TDX, Sparkle, DoD, RSG/Fabric, Vodafone)",
+      "Disclosure opacity: single segment, no customer concentration, lumpy point-in-time revenue",
+      "Short-side: thin float + 5.4M ITM warrants + 'quantum' theme = squeeze/borrow risk despite correct fundamentals"
+    ],
+    "what_would_change_my_mind": [
+      "A disclosed multi-year defense program of record with hard, multi-million-dollar contract value",
+      "A telco/enterprise converting a 'volume-defined license' into disclosed eight-figure recurring revenue",
+      "A strategic investment or partnership that removes the financing overhang",
+      "Formal closure of the SEC inquiry with no enforcement action",
+      "Confirming the bear: a dilutive raise at a depressed price, an SEC enforcement action, or flat revenue through FY2027"
+    ],
+    "diluted_shares_used": 22500000.0,
+    "citations": [
+      {
+        "source_kind": "fundamentals",
+        "quote": "marketCap 190,014,066; enterpriseValueTTM 163,326,066; priceToBook ~7.06; evToSales ~150x; cashPerShare 1.74; bookValuePerShare 1.72",
+        "accession": null,
+        "section": "get_ratios",
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "FY2025 revenue $530K (H1 $67K / H2 $463K); H1 FY2026 revenue $623K; operating cash burn H1 FY26 -$25.26M (~$50M/yr); cash $28.86M at 31 Mar 2026",
+        "accession": null,
+        "section": "get_financials",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "FY2025 20-F: single operating segment 'provision of cybersecurity services' (SKA Platform), revenue recognized at a point in time, 7 contracts FY2025; legal-proceedings provision $7.0M (securities class action, term sheet 20 Oct 2025, prelim approval 3 Feb 2026, final hearing 1 Jun 2026); no live convertible loan (Series B converted 2021); trade+other receivables ~$3.04M with nil FY2025 ECL",
+        "accession": null,
+        "section": "20-F FY2025 (Item 8 / notes)",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Basic shares 16,580,855 at 31 Mar 2026; Sept-2024 private warrants 5,393,562 outstanding at $2.50 (ITM); fully diluted ~22-23.5M; $250M shelf, ~$100M+ ATM capacity remaining",
+        "accession": null,
+        "section": "20-F FY2025 / H1 FY26 6-K",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "CEO Andrew Leaver sold 7,595 shares at avg $13.51 on April 6, 2026 (price corroboration for downside calc)",
+        "accession": null,
+        "section": "get_news",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "Sparkle Quantum-Safe Interconnect across 20 Equinix data centers; Vodafone Tomorrow Street portfolio addition; 829% YoY H1 FY26 revenue growth off a ~$67K base",
+        "accession": null,
+        "section": "get_news",
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "judge_approved": true,
+    "judge_score": 93,
+    "judge_gaps": [
+      "The broad-platform tail probability (5%) and the niche/muddle splits remain irreducibly judgmental \u2014 a formal Monte Carlo over the probability and multiple distributions would quantify the FV's standard error rather than relying on discrete sensitivity cases (refinement, not a flaw; the author errs conservatively)",
+      "Beta (~1.8) is poorly defined for a binary microcap; though the systematic-only framing is defensible and erring higher would only strengthen the bear, an explicit acknowledgment of beta instability would be ideal",
+      "GF Value (~$7.57) is used as corroboration without independent derivation \u2014 immaterial to the thesis"
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}
