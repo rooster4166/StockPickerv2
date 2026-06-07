@@ -1,0 +1,12 @@
+# Core LLM SDK
+anthropic>=0.69
+
+# Free market data + filings
+yfinance>=0.2.40
+requests>=2.31
+
+# yfinance pulls pandas; pin a floor so trend math is stable
+pandas>=2.0
+
+# Dev / test
+pytest>=8.0
