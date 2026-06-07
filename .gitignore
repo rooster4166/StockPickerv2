@@ -1,0 +1,34 @@
+# Secrets — never commit
+.env
+Docs/API key.txt
+**/API key.txt
+
+# Data / caches / audit logs (may contain sensitive prompt text)
+data/
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Autonomous-mode artifacts (local control + hook config)
+AUTONOMOUS_ACTIVE
+.claude/settings.local.json
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,187 @@
+# Micro-Cap Value Engine — Project Plan & Design Specification
+### A run-once, buy-and-hold LLM research desk for under-covered $50–300M stocks
+
+---
+
+## 0. Executive Summary
+
+The system runs once a year, reads and values **every** US stock with a $50–300M market cap, and buys a ranked basket of the ones it judges materially undervalued — then holds for a year. The edge is a single, proven idea: an LLM can read and integrate the full public record on a neglected company better than the handful of humans covering it, and *no research firm will do this work* because the names are too small to move a fund. We are deploying an investment-firm-grade research desk against the companies that have none.
+
+This is not a hypothesis. A deliberately crude version — one large "would Buffett buy this, ignoring that it's too small to bother with?" prompt, run forward across the same universe a year ago — returned ~300% on paper, including a 28x (ATXI) and solid mid-cap value winners (ZUMZ, BBW, ICCC, ATEX). The selection edge is forward-validated. This document specifies the optimized rebuild and the plan to validate and deploy it **fast, before the window closes.**
+
+> **The discipline that governs the whole build:** the simple baseline is already strong, so every added piece of structure must *earn its place by beating that baseline.* Complexity that doesn't beat "deep research on everything" gets cut.
+
+---
+
+## Part A — Strategy & Thesis
+
+### A.1 The edge, precisely located
+Value is driven by a large body of public-but-unprocessed information (multi-period filings, business model, industry and adjacent industries, news). An LLM absorbs all of it and reasons to an independent fair value. The edge exists **only where the mispricing is an information-*processing* gap, not an information-*asymmetry* gap** — i.e., where the decisive facts are public but undigested, not where locals hold private knowledge the model can't access. The system is engineered to fish only there.
+
+### A.2 Why an individual, why now
+A fund can't deploy meaningful size into a micro-cap without moving it, so it never staffs the analysis — a permanent vacuum. An individual historically couldn't fill it either (it took a research team's labor). LLMs remove that barrier, and the individual's small size becomes the asset: a one-time entry trades in a thin market without moving it. The opportunity is a **closing window** — LLM research will eventually crowd these names — which is the argument for moving now, not later.
+
+### A.3 The proven baseline (the evidence base)
+Forward test, one year ago → today, full $50–300M universe, one Buffett-value prompt per name, buy-and-forget. ~300% paper return, right-skewed (one 28x plus several solid value winners, some losers outweighed). No real money — a proof of concept. **What is validated: selection. What is not: real-money capture in illiquid names.**
+
+### A.4 Strategy parameters (settled)
+- **Universe:** every US-listed common stock, $50M–$300M market cap (~1,500–2,000 names).
+- **Cadence:** run once per year; reconstitute annually.
+- **Holding:** buy and hold one year; buy-and-forget, with optional catastrophe-only alerts.
+- **Style:** Graham/Buffett value — undervaluation with a margin of safety. The right-skew (occasional huge winner) is an *emergent property* of buying cheap with downside protection, not something we hunt for.
+- **Cost:** not a binding constraint. Run the heavy pipeline on the entire universe.
+
+---
+
+## Part B — System Design Specification
+
+### B.1 End-to-end flow
+
+```mermaid
+flowchart TD
+    START["Run ONCE per year"] --> UNI["Universe: every US stock<br/>$50M - $300M market cap"]
+    UNI -->|"one name at a time"| GATE{"Cheap reject-gate:<br/>any plausible case<br/>it's undervalued?"}
+    GATE -->|"Obvious NO (high confidence only)"| DROP["Discard - no deep work"]
+    GATE -->|"Plausible / in doubt"| DEEP_ENGINE
+
+    subgraph DEEP_ENGINE["Deep-dive engine - dependency-ordered, price-blinded"]
+        P1["1 Financial trends (ALL 10-K/10-Q)"] --> P2["2 Business model"]
+        P2 --> P3["3 Industry + adjacent exposure"]
+        P3 --> P4["4 News + catalysts"]
+        P4 --> G2["5 CONSOLIDATION GATE -> assumption set"]
+        G2 --> P6["6 Valuation (adaptive: DCF / rNPV / NAV / comps)<br/>code-executed, PRICE-BLINDED"]
+        P6 --> P7["7 Red-team (fresh, disconfirming)"]
+    end
+
+    DEEP_ENGINE --> ENS["Ensemble: N runs -> value range + confidence<br/>(confidence informs SIZING, never a filter)"]
+    ENS --> UNDER{"Undervalued vs fair value,<br/>net of margin of safety?"}
+    UNDER -->|"No"| PASS["Pass"]
+    UNDER -->|"Yes"| POOL["Candidate pool"]
+    POOL --> RANK["Cross-sectional rank by undervaluation<br/>(preserve natural right-skew)"]
+    RANK --> SIZE["Size by rank x confidence,<br/>liquidity-capped; many names"]
+    SIZE --> BUY["One-time patient accumulation<br/>(passive limit orders over days/weeks)"]
+    BUY --> HOLD["HOLD 1 year<br/>(optional catastrophe-only alerts)"]
+    HOLD -->|"reconstitute"| UNI
+```
+
+### B.2 Per-name cascade — the conservative early-stop
+Each name enters a cheap **reject-gate** first: a quick valuation sanity check asking only "is there any plausible case this is undervalued?" Names that are *obviously* overpriced or disqualified (no viable business, imminent insolvency with no asset value) are dropped without deep work. Everything plausible — or ambiguous — proceeds.
+
+> **Critical calibration.** Because cost is not a constraint, the gate exists only for speed and a cleaner candidate set, so it must fire **only on unambiguous, high-confidence rejects.** The asymmetry is brutal: dropping a name early that would have been the next 28x costs you the 28x; running a full deep dive on one that turns out overpriced costs a few dollars. The rule is *"when in doubt, keep going."*
+
+### B.3 The deep-dive engine
+A persistent **orchestrator (PM)** delegates deep dives to specialist subagents and synthesizes their cited briefs, in strict dependency order:
+
+1. **Financial trends** — consolidate *every* available 10-K/10-Q into multi-period trends (revenue, margins, cash flow, balance sheet, dilution). Never a single filing.
+2. **Business model** — how it makes money: segments, unit economics, drivers.
+3. **Industry + adjacent exposure** (parallel) — TAM, growth, competitive position, comps, and indirect dependencies a human would skip (the oil-feedstock case).
+4. **News + catalysts** — recent developments and anything that could force convergence within the holding year.
+5. **Consolidation gate** — the PM fuses everything into one grounded assumption set. *Enforced in code:* valuation cannot run until this exists.
+6. **Valuation** — method chosen to fit the business (multi-stage DCF for stable cash generators, rNPV/scenario for binary-catalyst names, NAV/sum-of-the-parts for asset-heavy, comparables where peers are clean). Assumptions reasoned by the LLM; arithmetic **executed in code** (deterministic). Computed **price-blinded** — the model never sees the market quote until the fair value is final.
+7. **Red-team** — a *different, decorrelated* model seeking disconfirming external evidence (short theses, going-concern language, litigation, auditor changes), not the same model politely arguing.
+
+Engine properties carried from prior specs: **context isolation** (subagents reason in their own windows, return distilled cited briefs), **persistent sessions** (the PM re-queries the *same* context-holding agent for follow-ups, and spawns a *fresh* agent when it wants an unanchored opinion), and **judgment-in-LLM / math-in-code.**
+
+### B.4 Ensemble for confidence (not for pruning)
+Run each surviving name a few times with decorrelated configurations. Use the dispersion of the fair-value estimates as a **confidence signal that feeds position sizing** — *not* as a hard filter. We never discard a flagged-undervalued name just because runs disagreed; disagreement shrinks its size, it doesn't kill it. This preserves the breadth and convexity that produced the POC's returns.
+
+### B.5 Cross-sectional ranking & sizing
+Rank the undervalued candidate pool *against each other* by margin of safety (fair value vs. price), which cancels uniform model bias — if the engine is systematically optimistic, every estimate inflates together and the *ranking* is preserved. Size each position by rank × confidence, capped by liquidity (a fraction of average daily volume), spread across many names. Long-only.
+
+### B.6 Execution — one-time patient accumulation
+Because we buy once and hold a year, illiquidity is a far smaller enemy than in active trading: work passive limit orders over days or weeks per name to build the book without moving prices. No turnover, no repeated spread-paying.
+
+### B.7 Hold, monitor, reconstitute
+Default is buy-and-forget for a year (not fiddling is part of why value works). Optional cheap insurance: alerts for *catastrophic thesis-breakers only* — going concern, financing distress, fraud allegations, delisting — ignoring price moves entirely. Re-run and reconstitute annually.
+
+### B.8 Implementation — the key new/changed code
+
+```python
+# Per-name cascade with a conservative early-stop
+def analyze_name(ticker, data):
+    gate = cheap_gate(ticker, data)          # quick "plausibly undervalued?" check
+    if gate["verdict"] == "obvious_no" and gate["confidence"] >= 0.85:
+        return {"ticker": ticker, "action": "drop", "reason": gate["reason"]}
+    return ensemble_deepdive(ticker, data)   # everything plausible OR ambiguous proceeds
+
+# Ensemble for an estimate + confidence (confidence sizes, never filters)
+import statistics
+def ensemble_deepdive(ticker, data, n=3):
+    runs = [Orchestrator(ticker, data, **cfg).analyze()    # price-blinded each run
+            for cfg in decorrelated_configs(n)]
+    medians = [r["fair_value"]["median"] for r in runs]
+    dispersion = statistics.pstdev(medians) / statistics.mean(medians)
+    confidence = max(0.0, 1.0 - dispersion / DISP_NORM)    # information, not a gate
+    return {"ticker": ticker, "fair_value": blend(runs),
+            "p_catalyst": blend_catalyst(runs), "confidence": confidence}
+
+# Cross-sectional ranking + sizing across the undervalued pool
+def build_portfolio(results, price, capital, MOS=0.30):
+    pool = []
+    for r in results:
+        if r.get("action") == "drop":
+            continue
+        gap = (r["fair_value"]["median"] - price[r["ticker"]]) / price[r["ticker"]]
+        if gap < MOS:                         # require a margin of safety
+            continue
+        pool.append((gap * r["confidence"], r))     # rank metric (relative)
+    pool.sort(reverse=True)
+    book = []
+    for score, r in pool:                     # many names, liquidity-capped
+        size = min(0.10 * adv_dollar(r["ticker"]), capital * weight_from(score))
+        book.append({"ticker": r["ticker"], "dollars": size})
+    return book                                # one-time patient accumulation
+```
+
+The deep-engine internals (the persistent `Agent` class, the phased orchestrator with the code-enforced consolidation gate, the code-executed valuation) are as specified in the design spec and are unchanged here.
+
+---
+
+## Part C — Validation Plan
+
+The central question is **not** "does the edge exist" (forward-validated) but "does the heavy pipeline beat the cheap baseline, and can we capture it with real money?"
+
+- **C.1 The A/B (primary gate).** Run the rebuilt heavy pipeline and the original one-prompt-per-name baseline on the **same fresh forward cohort** (pick today, evaluate later, or against a held-out historical window selected with no lookahead). Compare hit rate, median, mean, return distribution, drawdown, and alpha net of small-cap beta. *Decision rule:* deploy the heavy pipeline only if it beats the baseline; if it doesn't, keep the baseline and add only ranking, sizing, and execution on top.
+- **C.2 Self-backtest.** Re-run the heavy pipeline against last year's universe and check two things: does it still surface your winners (especially ATXI), and does it now *avoid* the losers the shallow pass took? If the new machinery misses your best trade, that's the early-stop or ensemble clipping convexity — fix before deploying.
+- **C.3 Real-money bridge.** The untested gap. Put small real capital into the more-liquid names from a live run and measure *actual* slippage and fills versus the paper marks. This calibrates how much the paper returns survive contact with real markets.
+- **C.4 Alpha vs. beta.** Confirm returns are selection, not a hot micro-cap regime (the POC's magnitude makes this near-certain, but verify on each cohort).
+
+---
+
+## Part D — Project Plan (buildout roadmap)
+
+Sequenced to capture the window immediately while validating the upgrade in parallel.
+
+**Phase 0 — Deploy the proven baseline now (parallel, week 0).**
+The simple Buffett-prompt sweep is proven and cheap. Run it on the current universe and begin a small, real, patient accumulation in the more-liquid undervalued names. *Deliverable:* a live baseline book + a real-money slippage log (doubles as C.3). *Purpose:* don't wait for the perfect engine to start capturing the window.
+
+**Phase 1 — Build the heavy engine (weeks 1–4).**
+Implement the persistent `Agent` class, the phased orchestrator with the code-enforced consolidation gate, adaptive code-executed valuation, the decorrelated red-team, the conservative cheap reject-gate, ensemble-for-confidence, and cross-sectional ranking/sizing. *Gate:* engine runs end-to-end on a sample of names and produces ranked, sized output with audit logs.
+
+**Phase 2 — Validate (weeks 4–6).**
+Run C.1 (A/B vs. baseline) and C.2 (self-backtest on last year). *Go/no-go gate:* heavy must beat simple. If not, fall back to baseline + sizing/execution layer.
+
+**Phase 3 — Real-money bridge (weeks 6–8).**
+Scale C.3: real capital across the more-liquid winners from a heavy-pipeline run; measure realized vs. paper. *Gate:* realized capture is acceptable after slippage.
+
+**Phase 4 — Full deployment & annual cadence (week 8+).**
+Run the validated engine across the full universe once, buy the ranked book via patient accumulation, hold a year with catastrophe-only alerts, and reconstitute annually. Maintain a resolved-case library to harden future A/Bs.
+
+---
+
+## Part E — Risks, Limits & Honest Caveats
+
+- **Paper ≠ realized.** The 300% was paper; execution, spreads, and fills in illiquid names are unproven until C.3. Buy-and-hold's one-time entry mitigates this but does not erase it.
+- **Soft-information ceiling.** No edge where decisive facts are private; the reject-gate will sometimes fail to avoid such names.
+- **Over-engineering.** The heavy pipeline may not beat the simple sweep — hence the hard A/B gate; affording to run it everywhere does not make it better.
+- **Model monoculture.** Decorrelation reduces but never eliminates shared bias; the cross-section defends against *uniform* bias, not bias correlated with the trade itself.
+- **Buy-and-forget risk.** Without catastrophe alerts, a mid-year thesis break (fraud, going concern) is eaten in full — a deliberate, defensible tradeoff.
+- **Value traps & no-catalyst dead money.** Cheap-for-a-reason names and correct-but-never-converging theses; the red-team and catalyst weighting mitigate, not eliminate.
+- **Capacity ceiling.** The strategy works *because* it is small; size and crowding eventually close it. Treat it as a window to harvest, not a permanent compounder.
+- **This is a real strategy, not advice.** It carries real loss potential, plus data-licensing, brokerage, tax, and securities-compliance obligations. Validate (A/B, paper, small real-money bridge) and seek appropriate professional/legal review before committing material capital.
+
+---
+
+## Part F — Summary
+
+The plan keeps the soul of what already worked — a value lens, pointed at the $50–300M names institutions ignore for size, read by an LLM — and adds only the structure that plausibly improves it: deeper per-name analysis to cut value traps and sharpen conviction, ensembling for a real confidence signal, and cross-sectional ranking to cancel the engine's own bias and allocate capital. It runs once, buys patiently, and holds a year, exactly as the proof of concept did. Every addition is gated on beating that proof of concept, and deployment moves fast — because the entire premise is to staff a research desk these companies have never had, before everyone else realizes they can too.
