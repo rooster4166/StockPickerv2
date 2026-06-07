@@ -1,0 +1,105 @@
+{
+  "ticker": "ANIX",
+  "run_id": "run-20260607T221837-913126",
+  "dossier": {
+    "fair_value_per_share": 0.74,
+    "intrinsic_value_floor": 0.38,
+    "fair_value_low": 0.42,
+    "fair_value_high": 1.4,
+    "valuation_method": "NAV + probability-weighted, time-discounted rNPV of pipeline (composite of event branches, explicit royalty curve), net of financing dilution; science-contingent pre-revenue biotech",
+    "confidence": 0.45,
+    "thesis_summary": "Anixa is an asset-light, pre-revenue oncology developer = ~$12.8M net liquid assets (~$0.38/sh, essentially all Treasuries/MMF) plus the risk-adjusted value of an in-licensed pipeline it intends to out-license to pharma. The off-the-shelf alpha-lactalbumin TNBC vaccine (Phase 1 complete, all endpoints met, 74% immune response, DoD-funded) drives ~45% of expected value; ovarian CAR-T lira-cel and the AMHR2 ovarian vaccine are smaller, earlier, lower-probability options. Probability-weighted FMV ~$0.74/share vs ~$0.38 net-cash floor; distribution is right-skewed/bimodal, governed by single-digit success probabilities in cancer vaccines and solid-tumor CAR-T. At ~$2.70 the stock implies ~73% downside; recommendation AVOID/underweight. NOLs (~$175M) near-worthless (100% valuation allowance + Section 382); insiders own only ~5% in real shares amid ~4.3%/yr option dilution and a ~$40-50M Phase 2 financing gap.",
+    "key_value_drivers": [
+      "Breast-cancer vaccine PoS (central 6%) and peak sales / net royalty after Cleveland Clinic/Wistar pass-through (explicit royalty curve: ~$540M royalties + ~$60-110M milestones at launch)",
+      "Net liquid assets (~$14.2M) and cash-burn/dilution (~$7M/yr, ~2yr runway, ~4.3%/yr option dilution + $100M ATM; ~$40-50M Phase 2 financing gap)",
+      "Out-license economics; single-asset Phase-1/2 cancer-vaccine comps ~$20-55M upfront + biobucks + high-single-to-mid-teens royalties",
+      "Free/subsidized development via DoD (breast Phase 1) and NCI PREVENT (ovarian vaccine)",
+      "Solid-tumor CAR-T lira-cel optionality (low probability, zero approved precedent)"
+    ],
+    "key_risks": [
+      "Cancer vaccines ~1 approval ever (Provenge); immunogenicity is not efficacy; no preventative-endpoint precedent",
+      "Solid-tumor CAR-T zero approvals ever; lira-cel efficacy anecdotal at sub-therapeutic doses",
+      "~2 years cash; ~1.4M options/yr (~4.3%) + ATM dilution; ~40% option overhang; ~$40-50M Phase 2 funding gap",
+      "Anixa holds licenses only and shares upside with Cleveland Clinic/Wistar",
+      "Heavily promoted small-float name with short-squeeze/catalyst-pop risk; insiders own only ~5% in real shares",
+      "NOLs (~$175M) near-worthless due to 100% valuation allowance + undetermined Section 382 limitation"
+    ],
+    "what_would_change_my_mind": [
+      "Phase 2 clinical efficacy (not just immune response) for the breast vaccine",
+      "A pharma partnership with disclosed upfront/milestone/royalty economics",
+      "Objective RECIST responses for lira-cel at therapeutic doses",
+      "Non-dilutive (grant/partner) funding of the breast Phase 2",
+      "A deeply dilutive financing or program discontinuation (downside)"
+    ],
+    "diluted_shares_used": 40000000.0,
+    "citations": [
+      {
+        "source_kind": "filing",
+        "quote": "all primary study endpoints were met, ii) protocol defined immune responses were observed in 74% of the study subjects, iii) the vaccine was safe and well-tolerated by study participants at the MTD",
+        "accession": "10-K FY2025",
+        "section": "Item 1",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "This study, which has been fully funded by a U.S. Department of Defense grant to Cleveland Clinic",
+        "accession": "10-K FY2025",
+        "section": "Item 1",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "We hope to achieve a profitable outcome by eventually licensing our technologies to large pharmaceutical companies",
+        "accession": "10-K FY2025",
+        "section": "Item 1",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Federal NOL carryforward ~$106,253,000; California NOL ~$68,597,000; gross deferred tax asset $39,449K fully offset by a $39,449K valuation allowance; has not completed a Section 382 study",
+        "accession": "10-K FY2025",
+        "section": "Note 7 (Income Taxes)",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "CEO Amit Kumar FY2025 total compensation $2,546,684; ~1,440,000 options granted company-wide FY2025; all directors & officers beneficially own 26.4% but ~9.5M of 11.3M are options (actual owned shares ~1.8M / ~5%)",
+        "accession": "DEF 14A 2026",
+        "section": "DEF 14A",
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Total cash + short-term investments = $14,202K at Jan 31 2026; total liabilities ~$1.4M, no real debt; ~$7M/yr operating cash burn; 33,463,440 basic shares, ~47.4M fully diluted, zero preferred outstanding",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Oncology Phase 1 to approval LOA ~5.3% (BIO 2011-2020) / ~3.4% (MIT Wong); solid-tumor CAR-T zero approvals to date; therapeutic cancer vaccines only one approval ever (Provenge)",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "Anixa Biosciences Advances Breast Cancer Vaccine Toward Phase 2 After Positive Phase 1 Results; Cytovance Selected for cGMP Manufacturing (Apr 1, 2026)",
+        "accession": null,
+        "section": null,
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "judge_approved": true,
+    "judge_score": 94,
+    "judge_gaps": [
+      "Branch weights (25% middling vs 64% failure) are reasoned but asserted rather than derived from intermediate-stage transition probabilities; tying them mechanically to the stage-PoS would add rigor",
+      "Central peak-sales of $1.5B is a single-point estimate doing meaningful work in the success branch \u2014 fully sensitivity-tested, but a fuller treatment might probability-weight the peak itself",
+      "Could state more explicitly that neglected/promoted nano-cap biotechs persistently trade above rNPV, reinforcing why the mispricing may not converge (implicit in the AVOID-not-short call)"
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}
