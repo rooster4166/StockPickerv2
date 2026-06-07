@@ -1,0 +1,92 @@
+{
+  "ticker": "ACRE",
+  "run_id": "run-20260607T221837-7786df",
+  "dossier": {
+    "fair_value_per_share": 4.77,
+    "intrinsic_value_floor": 4.0,
+    "fair_value_low": 3.75,
+    "fair_value_high": 6.0,
+    "valuation_method": "Warranted price-to-book [(ROE-g)/(CoE-g)] on a loan-level-derived economic book value with a derived bottom-up normalized-ROE bridge, probability-weighted across three credit-resolution scenarios (composite of excess-returns branches); cross-checked vs. a probability-weighted dividend-discount model (~$4.3-$5.3) and CRE-mREIT peer P/B (~$4.9)",
+    "confidence": 0.62,
+    "thesis_summary": "ACRE is a sub-scale, externally-managed senior CRE mortgage REIT in turnaround, valued on the credibility of its ~$8.90 common book (pre-CECL $11.39; $138.3M/768bps reserve already taken) and the through-cycle ROE it can earn on it. Its two non-accruals are already carried at a ~35% markdown (~$170M net vs ~$261M gross), with the more-impaired Chicago office (90%+ occupied, positive NCF) more heavily reserved; residual risk is the lighter-reserved Brooklyn condo sellout plus a dividend funded from capital. A derived normalized ROE of ~7-8% (capped by thin spreads, ~3% sub-scale G&A and the 1.5% base fee) on a derived economic book yields warranted P/B ~0.54x -> FMV ~$4.77, with a firm ~$7 economic-NAV floor and ~30% upside if the two loans resolve cleanly.",
+    "key_value_drivers": [
+      "Brooklyn condo sellout outcome (lighter-reserved, asymmetric, ~65-70% LGD-given-loss if it fails; specific reserve not separately disclosed)",
+      "Chicago office resolution vs its conservative mark (more-impaired but heavier-reserved within the ~$91M two-loan reserve / ~35% combined markdown)",
+      "Derived normalized ROE (6-9%) vs systematic cost of equity (~12.8%), structurally capped by thin senior spreads + ~3% sub-scale G&A + 1.5% base fee",
+      "Dividend coverage by distributable earnings (currently uncovered; ~100% of 2025 book decline was the dividend, not credit)",
+      "Re-levering 1.9x -> ~3x and redeploying ~$170M of zero-yielding non-accruals into SOFR+2.25-2.75% loans"
+    ],
+    "key_risks": [
+      "Brooklyn condo sellout shortfall / forced bulk sale (lighter-reserved, asymmetric)",
+      "Chicago office clears below its mark",
+      "Distributable EPS keeps missing the $0.15 quarterly dividend -> third cut",
+      "External-management 1.5% base fee drag plus 20%-over-8%-hurdle incentive skim capping upside",
+      "Recourse, mark-to-market repo (~$1.18B): a ~10% collateral markdown implies ~$118M margin calls vs liquidity that fell to ~$101M by early May 2026 -> would exceed liquidity in a severe shock",
+      "Lower SOFR compressing absolute net interest income"
+    ],
+    "what_would_change_my_mind": [
+      "Chicago and Brooklyn resolved within ~10% of marks (-> ~$6+)",
+      "Two consecutive quarters of distributable EPS covering the $0.15 dividend",
+      "A further large CECL build or new risk-4/5 migration (-> ~$3)",
+      "A third dividend cut, confirming the grind/deterioration path"
+    ],
+    "diluted_shares_used": 55370000.0,
+    "citations": [
+      {
+        "source_kind": "fundamentals",
+        "quote": "bookValuePerShareTTM: 8.9009; Q1 2026 total_equity 492,418,000 on 55,322,222 shares; total_debt 1,271,633,999; no preferred; pre-CECL BVPS = 8.90 + 138.3M/55.37M = ~11.39; equity trend 747.5/625.8/540.1/509.6/492.4M FY22-Q1'26",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "our nonaccrual loans, which total approximately $170 million of carrying value, net of applicable CECL reserves; Chicago office carrying value $141 million; Brooklyn condo carrying value $120 million",
+        "accession": null,
+        "section": "Q3 2025 earnings call",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Chicago office carrying value of $140 million, approximately 44% of the risk-rated four and five loan portfolio; Brooklyn condo carrying value $130 million, approximately 41%; total CECL reserve $127 million at year-end 2025",
+        "accession": null,
+        "section": "Q4 2025 earnings call",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Total CECL reserve $138.3 million or 768 basis points of total loans; increased the CECL reserve for the Chicago loan by approximately $5 million; net debt-to-equity excl. CECL 1.9x; upsized the Morgan Stanley facility to $350 million and extended by three years; upsized the Citibank facility to $425 million; available capital $163M incl $86M cash at 3/31/26",
+        "accession": null,
+        "section": "Q1 2026 earnings call / 10-Q",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "base management fee of 1.5% of our stockholders' equity per year, an incentive fee and expense reimbursements; leverage not to exceed 4.5-to-1; Secured Term Loan $90,000 thousand at 5.25% rising 0.25% per quarter, due November 12, 2026, with $10.0 million repaid in each of January, April, July and October 2025; Wells Fargo $600M to Feb-2028; Citibank to Jan-2027; FL4 CLO ($99.9M) redeemed January 2026",
+        "accession": null,
+        "section": "10-K Item 7",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "Empirical base rates: KBRA conduit office severity 51.4% loss-only / 33.5% all-defaulted; senior ~65% LTV balance-sheet loans ~0.4-0.6x CMBS severity (office ~25-35%); FDIC C&D LGD-given-loss ~65-70%; ~24-month CRE workout. Peer P/B vs 12/31/25 book: BXMT 0.94x, ARI 0.88x, BRSP 0.78x, KREF 0.53x, GPMT 0.24x, CMTG 0.22x",
+        "accession": null,
+        "section": null,
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "judge_approved": false,
+    "judge_score": 88,
+    "judge_gaps": [
+      "The central two-way variable \u2014 Brooklyn condo's specific CECL reserve and likely loss-given-sellout \u2014 remains unquantified (honestly flagged as undisclosed); a best-in-existence report would extract or tightly bound it from the 10-Q's loan-by-loan/Schedule IV CECL detail or fair-value disclosures, since the entire edge hinges on it",
+      "The '~$170M net / ~$261M gross / ~35% markdown' anchor carries minor ambiguity over whether management's $170M-net figure covers exactly the two loans or all non-accruals; a definitive reconciliation of each loan's amortized cost vs specific allowance would remove it",
+      "ROE bridge uses a 1.5%-of-GAAP-equity base fee (~$7.2M) versus the ~1.9% effective run-rate (~$9.6M) implied by the management agreement's equity definition \u2014 understating fee drag and modestly overstating derived ROE",
+      "A few CECL-trend figures in the multi-year table are approximate (~$110M FY2023, ~$145M FY2024) rather than pulled exactly",
+      "The conclusion is a measured 'fairly valued / pass unless <$4.40' \u2014 sound and well-supported, but a modest mispricing edge rather than a differentiated, high-conviction call, which inherently limits its actionable upside"
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}
