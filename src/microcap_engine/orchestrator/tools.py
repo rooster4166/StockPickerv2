@@ -209,7 +209,10 @@ def tool_specs() -> list[dict]:
                                        "fully worked, with the discount-rate build-up, "
                                        "sensitivity, a cross-check); the probability-weighted "
                                        "distribution (NOT a bull/bear split); risks; conclusion. "
-                                       "Teach the reader — do not be terse.",
+                                       "Teach the reader — do not be terse. Write CLEAN GitHub-"
+                                       "flavored markdown: for approximations use the '≈' symbol "
+                                       "or the word 'about' — do NOT use a '~' tilde, which GitHub "
+                                       "renders as strikethrough.",
                     },
                     "dossier": FinalDossier.model_json_schema(),
                 },

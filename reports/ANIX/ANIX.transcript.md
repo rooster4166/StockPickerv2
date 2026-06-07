@@ -198,7 +198,7 @@ TRANSCRIPTS: none available.
 > 
 > The financials are tight — roughly $1.2M in cash against $7M annual burn, so they'll need to raise capital soon. With about 33M shares outstanding and total equity around $15M, there's clearly other assets on the balance sheet beyond just cash, likely an investment portfolio from their earlier work. This is fundamentally a science-contingent valuation problem, so I need to dig into the pipeline details, understand the clinical data more deeply, and model out the probability-adjusted NPV for each program.
 
-**PM note:** This is a pre-revenue, clinical-stage biotech — a science-contingent valuation (rNPV / probability-weighted). The value lives entirely in the pipeline. Note: cash is only ~$1.5M but common equity is ~$15M, so there's ~$14M of other assets I need to understand. Let me parallelize deep work.
+**PM note:** This is a pre-revenue, clinical-stage biotech — a science-contingent valuation (rNPV / probability-weighted). The value lives entirely in the pipeline. Note: cash is only ≈$1.5M but common equity is ≈$15M, so there's ≈$14M of other assets I need to understand. Let me parallelize deep work.
 
 ### ⚙️ `read_filing_section`
 
@@ -224,7 +224,7 @@ false FY 0000715446 0000715446 2024-11-01 2025-10-31 0000715446 2025-04-30 00007
 
 ### ⚙️ `spawn_analyst`
 
-_input:_ `{"role": "biotech equity analyst", "question": "Reconstruct Anixa Biosciences' (ANIX) full clinical pipeline from its most recent 10-K and 10-Qs and earnings calls. For EACH program \u2014 (1) triple-negative breast cancer preventative vaccine (with Cleveland Clinic / Dr. Tuohy, targeting alpha-lactalbumin), (2) ovarian cancer CAR-T 'lira-cel' (chimeric endocrine receptor T-cell targeting FSHR, with Moffitt), (3) ovarian cancer preventative vaccine (AMHR2), (4) COVID-19 antiviral with MolGenie \u2014 tell me: current development stage, trial design and enrollment, latest data readouts, who funds the trials (Anixa vs grants/partners like NCI/DOD/Cleveland Clinic), ownership/royalty/licensing economics Anixa holds, IP/patent status and expiry, and expected upcoming milestones/timing. Also clarify the partnership/economic structure: does Anixa own these assets outright or license them, and what would Anixa keep in a commercial outcome.", "context": "Anixa is a San Jose clinical-stage biotech, formerly ITUS Corp. Pre-revenue, ~$1.5M cash as of Q1 FY2026, burning ~$7M/yr, ~33M shares."}`
+_input:_ `{"role": "biotech equity analyst", "question": "Reconstruct Anixa Biosciences' (ANIX) full clinical pipeline from its most recent 10-K and 10-Qs and earnings calls. For EACH program \u2014 (1) triple-negative breast cancer preventative vaccine (with Cleveland Clinic / Dr. Tuohy, targeting alpha-lactalbumin), (2) ovarian cancer CAR-T 'lira-cel' (chimeric endocrine receptor T-cell targeting FSHR, with Moffitt), (3) ovarian cancer preventative vaccine (AMHR2), (4) COVID-19 antiviral with MolGenie \u2014 tell me: current development stage, trial design and enrollment, latest data readouts, who funds the trials (Anixa vs grants/partners like NCI/DOD/Cleveland Clinic), ownership/royalty/licensing economics Anixa holds, IP/patent status and expiry, and expected upcoming milestones/timing. Also clarify the partnership/economic structure: does Anixa own these assets outright or license them, and what would Anixa keep in a commercial outcome.", "context": "Anixa is a San Jose clinical-stage biotech, formerly ITUS Corp. Pre-revenue, ≈$1.5M cash as of Q1 FY2026, burning ≈$7M/yr, ≈33M shares."}`
 
 _returned:_
 
@@ -242,7 +242,7 @@ Anixa is a **virtual/asset-light oncology developer** running **two active clini
 
 The business model is deliberately structured so that **third parties pay for most clinical work**: the breast vaccine Phase 1 was 100% funded by a DoD grant to Cleveland Clinic, and the ovarian vaccine is being developed essentially for free inside NCI's PREVENT program (10-K FY2025, Item 1). **Anixa does not own any of these assets outright — all are in-licensed**, and Anixa's commercial endgame is explicitly to **sub-license/sell to big pharma**, not commercialize itself (10-K FY2025, Item 7: "achieve a profitable outcome by eventually licensing our technologies to large pharmaceutical companies").
 
-**One material correction for the PM on liquidity:** the "~$1.5M cash" figure is only the cash *line*. Anixa actually held **~$15.2M in cash + short-term investments at Oct 31 2025** ($15,174,000; 10-K FY2025, Item 7) and total equity of **$15.08M at Jan 31 2026** (Q1-FY2026 balance sheet). At a ~$7M/yr operating-cash burn (FY2025 op cash flow −$7,173,000; 10-K FY2025, Item 7), that's **~2 years of runway**, not months — though management still uses its $100M ATM and sold 772,001 shares for ~$2.4M net in FY2025 (10-K FY2025, Item 7). Share count ~33.2M (Q1-FY2026).
+**One material correction for the PM on liquidity:** the "≈$1.5M cash" figure is only the cash *line*. Anixa actually held **≈$15.2M in cash + short-term investments at Oct 31 2025** ($15,174,000; 10-K FY2025, Item 7) and total equity of **$15.08M at Jan 31 2026** (Q1-FY2026 balance sheet). At a ≈$7M/yr operating-cash burn (FY2025 op cash flow −$7,173,000; 10-K FY2025, Item 7), that's **≈2 years of runway**, not months — though management still uses its $100M ATM and sold 772,001 shares for ≈$2.4M net in FY2025 (10-K FY2025, Item 7). Share count ≈33.2M (Q1-FY2026).
 
 ---
 
@@ -258,11 +258,11 @@ The business model is deliberately structured so that **third parties pay for mo
 
 **Latest data (SABCS, Dec 11 2025; 10-K FY2025, Item 1):** (i) **all primary endpoints met**; (ii) **protocol-defined immune responses in 74% of subjects**; (iii) safe/well-tolerated at MTD, AEs mostly injection-site irritation (two Grade 3 injection-site events in Cohort Ic); (iv) preliminary IHC of tumors showed α-lactalbumin expression ranging absent→strong (correlation analysis ongoing). Keytruda combo produced antigen-specific T-cell responses with no major added toxicity. Participants followed 5 years.
 
-**Funding:** Phase 1 was **"fully funded by a U.S. Department of Defense grant to Cleveland Clinic"** — Anixa paid ~$0 of the trial itself (10-K FY2025, Item 1). **BUT** for Phase 2, Anixa is now spending: it selected **Cytovance Biologics for cGMP manufacturing** (PR Apr 1 2026). Planned Phase 2 = potential combination with Keytruda in the **neoadjuvant setting in newly-diagnosed patients** (10-K FY2025, Item 1). *Phase 2 funding split and start timing are not yet disclosed — see gaps.*
+**Funding:** Phase 1 was **"fully funded by a U.S. Department of Defense grant to Cleveland Clinic"** — Anixa paid ≈$0 of the trial itself (10-K FY2025, Item 1). **BUT** for Phase 2, Anixa is now spending: it selected **Cytovance Biologics for cGMP manufacturing** (PR Apr 1 2026). Planned Phase 2 = potential combination with Keytruda in the **neoadjuvant setting in newly-diagnosed patients** (10-K FY2025, Item 1). *Phase 2 funding split and start timing are not yet disclosed — see gaps.*
 
 **Economics:** Exclusive **worldwide royalty-bearing license** from Cleveland Clinic. Anixa owes upfront cash, regulatory-milestone payments, tiered royalties on net sales (lower rate where no valid patent claim), minimum annual royalties, and an annual maintenance fee — **actual rates/amounts NOT disclosed** (research-verified against 2019 8-K). Cleveland Clinic keeps royalties on any commercial outcome.
 
-**IP/expiry:** Active global build-out — **Mexico patent issued, protection "into 2040"** (PR Apr 29 2026); **Korean notice of allowance** (PR Mar 9 2026). Implies core priority ~2020, term ~2040. Exact US claim expiry not itemized in the 10-K.
+**IP/expiry:** Active global build-out — **Mexico patent issued, protection "into 2040"** (PR Apr 29 2026); **Korean notice of allowance** (PR Mar 9 2026). Implies core priority ≈2020, term ≈2040. Exact US claim expiry not itemized in the 10-K.
 
 **Next milestones:** Phase 2 protocol design/initiation; IHC correlation analysis; ongoing 5-yr follow-up.
 
@@ -281,7 +281,7 @@ The business model is deliberately structured so that **third parties pay for mo
 
 **Latest data:** Well-tolerated at all four dose levels. Signs of efficacy described as **anecdotal** (possible T-cell infiltration, tumor necrosis, survival beyond expectation). **Updated readout (PR May 11 2026, presented at ISCT 2026):** multiple patients surviving substantially beyond expected median; **one patient at 28 months**, several others alive in continued follow-up. First three cohorts were expected to be sub-therapeutic doses.
 
-**Funding:** Run with Moffitt; **Anixa funds this one** — FY2025 R&D for CAR-T was **~$1,950,000** (FY2024: ~$2,648,000) (10-K 
+**Funding:** Run with Moffitt; **Anixa funds this one** — FY2025 R&D for CAR-T was **≈$1,950,000** (FY2024: ≈$2,648,000) (10-K 
 ```
 
 ### ⚙️ `research`
@@ -318,7 +318,7 @@ Of the 14 major disease areas studied, Hematology had the highest LOA from Phase
 - For example, oncology has a 3.4% success rate in our sample vs. 5.1% in prior studies. However, after declining to 1.7% in 2012, this rate has improved to 2.5% and 8.3% in 2014 and 2015, respectively.
 - The overall POS for oncology drug development programs is about two-thirds the previously reported estimates of 5.1% in Thomas and others (2016) and 6.7% in Hay and others (2014).
 
-**Takeaway on the spread:** Oncology Phase 1→approval clusters around **~3.4% (Wong/MIT) to ~5–6.7% (BIO/Hay)**, depending on definition. The headline number that the MIT group emphasizes: only 3.4 percent of all cancer drug development programs from 2000 to 2015 moved from phase 1 to regulatory approval, despite the fact that oncology accounted for 42 percent of all drug development programs in that dataset.
+**Takeaway on the spread:** Oncology Phase 1→approval clusters around **≈3.4% (Wong/MIT) to ≈5–6.7% (BIO/Hay)**, depending on definition. The headline number that the MIT group emphasizes: only 3.4 percent of all cancer drug development programs from 2000 to 2015 moved from phase 1 to regulatory approval, despite the fact that oncology accounted for 42 percent of all drug development programs in that dataset.
 
 **Phase-1 transition caveat:** Reported Phase-1 success rates are highly geography/reporting-sensitive. A Cancer Cell (2022) analysis noted the reported historical phase 1 success rate (68.9%) and also... the global rate between 2011 and 2020 (48.8%) — i.e., even moving past Phase 1 is roughly a coin flip globally for oncology.
 
@@ -351,7 +351,7 @@ The Wong/Siah/Lo oncology follow-on (MIT Project ALPHA, summarized in DIA Global
 > 
 > For the breast vaccine specifically, I'm estimating peak sales around $1.5B in an optimistic approval scenario—accounting for both the TNBC adjuvant/neoadjuvant market and potential preventative use in high-risk populations. Since Anixa out-licenses, they'll capture maybe 8-10% of net sales as royalty after paying Cleveland Clinic their cut, plus upfront and milestone payments. Rather than trying to value each program separately, I should build out discrete scenarios for the whole company—one where both programs fail, one where the breast vaccine succeeds, and one where both succeed—and assign probabilities to each to get a composite valuation per share.
 
-**PM note:** I now have a strong picture: Anixa is an asset-light, in-licensed oncology developer with ~$15M of liquid assets (cash + Treasuries + a Bitcoin ETF position), ~2 years runway, ~33M shares, and a pipeline whose dev costs are heavily subsidized by DoD/NCI. Value = net cash + risk-adjusted (rNPV) pipeline. The lead asset is the α-lactalbumin breast cancer vaccine (Phase 1 complete, advancing to Phase 2); the ovarian CAR-T (lira-cel) is early Phase 1; the AMHR2 ovarian vaccine is NCI-funded preclinical.
+**PM note:** I now have a strong picture: Anixa is an asset-light, in-licensed oncology developer with ≈$15M of liquid assets (cash + Treasuries + a Bitcoin ETF position), ≈2 years runway, ≈33M shares, and a pipeline whose dev costs are heavily subsidized by DoD/NCI. Value = net cash + risk-adjusted (rNPV) pipeline. The lead asset is the α-lactalbumin breast cancer vaccine (Phase 1 complete, advancing to Phase 2); the ovarian CAR-T (lira-cel) is early Phase 1; the AMHR2 ovarian vaccine is NCI-funded preclinical.
 
 Let me close key gaps: diluted share count/options, peak-sales potential, and comparable cancer-vaccine deal economics.
 
@@ -377,12 +377,12 @@ Both data points fully nailed down. Here's the precise breakdown.
 **Stock options outstanding** (10-K Note 4, at Oct 31 2025):
 - 2010 Plan: **786,283** options, all outstanding & exercisable, WAEP **$2.73** (intrinsic $1.22M)
 - 2018 Plan: **12,411,094** options, WAEP **$3.60** (9,295,268 exercisable; intrinsic $7.37M / $5.51M exercisable)
-- Combined Oct 31 2025: **13,197,377** options @ ~$3.55 blended
+- Combined Oct 31 2025: **13,197,377** options @ ≈$3.55 blended
 - **Per the 10-Q (Note 6), options outstanding grew to 13,897,094 by Jan 31 2026** (the 2018 plan auto-replenishes to 2,000,000 available each Jan 1; 1,440,000 granted in FY2025 at $2.41).
 
-**Warrants:** **300,000** @ **$6.5625**, **expiring March 22, 2026** (10-K Note 4). Out of the money (intrinsic $0); since the stock is well below $6.56, these **expire worthless ~2 weeks after the 10-Q filing** — effectively zero dilution.
+**Warrants:** **300,000** @ **$6.5625**, **expiring March 22, 2026** (10-K Note 4). Out of the money (intrinsic $0); since the stock is well below $6.56, these **expire worthless ≈2 weeks after the 10-Q filing** — effectively zero dilution.
 
-**ESPP:** Immaterial — 3,036 shares purchased in FY2025 (~$7K); buys at ≥85% of market. Not a meaningful dilution line.
+**ESPP:** Immaterial — 3,036 shares purchased in FY2025 (≈$7K); buys at ≥85% of market. Not a meaningful dilution line.
 
 **Series A convertible preferred — answers the PM's specific question:** 140 shares authorized, **ZERO issued or outstanding** at both Oct 31 2025 and Jan 31 2026 (both balance sheets). **It converts into NO common shares because none exist.** ⚠️ Note: the earlier data-tool flag about "preferred as a senior claim ahead of common" is **incorrect for ANIX** — there is no preferred outstanding and no senior claim.
 
@@ -393,10 +393,10 @@ Both data points fully nailed down. Here's the precise breakdown.
 | + Options outstanding | 13,897,094 |
 | + Warrants (expiring worthless 3/22/26) | 300,000 |
 | + Preferred conversion | 0 |
-| **Gross fully diluted (max)** | **~47.66M** |
-| **Ex-expiring warrants** | **~47.36M** |
+| **Gross fully diluted (max)** | **≈47.66M** |
+| **Ex-expiring warrants** | **≈47.36M** |
 
-Caveat: this is the *maximum* (all options exercised). The blended option strike is ~$3.55 and a large block sits at $4.02–$5.30, so **most options are out-of-the-money**; true treasury-stock-method dilution at current prices is far smaller (which is why reported diluted = basic). For valuation, model **~47.4M fully diluted as the overhang ceiling**, but recognize the in-the-money/economic count is closer to the ~33.5M basic plus a few million ITM options.
+Caveat: this is the *maximum* (all options exercised). The blended option strike is ≈$3.55 and a large block sits at $4.02–$5.30, so **most options are out-of-the-money**; true treasury-stock-method dilution at current prices is far smaller (which is why reported diluted = basic). For valuation, model **≈47.4M fully diluted as the overhang ceiling**, but recognize the in-the-money/economic count is closer to the ≈33.5M basic plus a few million ITM options.
 
 ## (2) CASH + INVESTMENTS COMPOSITION & NET ASSET VALUE
 
@@ -411,27 +411,27 @@ Caveat: this is the *maximum* (all options exercised). The blended option strike
 
 Plus a small amount of straight bank cash (balance-sheet cash & equivalents were $1,244K / $1,547K). **Total cash + short-term investments = $15,174K at Oct 31 2025 and $14,202K at Jan 31 2026** (= $1,547K cash + $12,655K ST investments per the 10-Q balance sheet).
 
-**Key flag for the PM:** the **"Bitcoin ETF" is trivial — only ~$9–11K** (rounding error, not a treasury-strategy position). The portfolio is **~99% money-market + held-to-maturity U.S. Treasuries**. And the headline "~$1.5M cash" is just the cash line — **real liquidity is ~$14.2M.**
+**Key flag for the PM:** the **"Bitcoin ETF" is trivial — only ≈$9–11K** (rounding error, not a treasury-strategy position). The portfolio is **≈99% money-market + held-to-maturity U.S. Treasuries**. And the headline "≈$1.5M cash" is just the cash line — **real liquidity is ≈$14.2M.**
 
 **Net asset / liquidation value (Jan 31 2026):**
 - Total assets $15,233K − total liabilities $1,387K = **$13,846K total equity**
 - Common shareholders' equity = **$15,077K** (NCI is −$1,231K, i.e., the Wistar/Certainty minority is a *negative* book item that adds back to common)
-- Net liquid value = $14,202K cash+investments − $1,387K total liabilities = **~$12,815K, ≈ $0.38/share** net-cash floor (on 33.46M shares); ~$0.45/share on common book equity.
+- Net liquid value = $14,202K cash+investments − $1,387K total liabilities = **≈$12,815K, ≈ $0.38/share** net-cash floor (on 33.46M shares); ≈$0.45/share on common book equity.
 - Liabilities are tiny and non-debt: AP $148K, accrued $1,046K (incl. $626K accrued royalty/contingent legal, $366K payroll), lease $193K. Total debt is negligible. **This is essentially a cash shell with liquid assets — clean liquidation profile.**
 
 ## (3) BURN RUN-RATE & IS IT RISING INTO PHASE 2?
 
 **Run-rate:**
-- FY2025 operating cash burn: **$7,173K** (~$1.79M/qtr) (10-K cash flow)
-- Q1-FY2026 operating cash burn: **$2,610K** — but inflated by working-capital drag (accrued expenses fell $715K as annual payroll/bonus accrual was paid down, $839K→$366K). **Underlying cash burn ≈ net loss $2,585K less $796K stock-comp ≈ ~$1.8M/qtr core**, consistent with ~$7M/yr.
-- Runway: ~$14.2M / ~$7M ≈ **~2 years**, before ATM use. They raised $1.625M net via ATM in Q1-FY2026; $100M ATM shelf remains.
+- FY2025 operating cash burn: **$7,173K** (≈$1.79M/qtr) (10-K cash flow)
+- Q1-FY2026 operating cash burn: **$2,610K** — but inflated by working-capital drag (accrued expenses fell $715K as annual payroll/bonus accrual was paid down, $839K→$366K). **Underlying cash burn ≈ net loss $2,585K less $796K stock-comp ≈ ≈$1.8M/qtr core**, consistent with ≈$7M/yr.
+- Runway: ≈$14.2M / ≈$7M ≈ **≈2 years**, before ATM use. They raised $1.625M net via ATM in Q1-FY2026; $100M ATM shelf remains.
 
 **Is burn rising into Phase 2? NOT YET — it's flat-to-declining:**
 - Q1-FY2026 **R&D $1,102K vs $1,552K in Q1-FY2025** (down); FY2025 R&D $5,071K vs FY2024 $6,396K (down). Management attributes the decline to **timing of manufacturing activities** (10-K Item 7).
-- Contractual forward commitments (10-K Note 6 / 10-Q Note 10): R&D agreements covering **(i) Phase 2 breast-vaccine manufacturing, (ii) lung/colon/prostate vaccine discovery, (iii) CAR-T development** total only **~$1.8M of future payments spread over up to 4 years**, plus **~$150K/yr license commitments.**
-- **Conclusion:** No large Phase 2 step-up is contractually visible yet — the Cytovance manufacturing spend is modest and spread out. Burn should stay ~$7M/yr near-term. A step-up will come **only when the Phase 2 trial actually launches** (scale/timing undisclosed) — and note Anixa's model offloads trial cost to partners/grants where possible, so a DoD/partner-funded Phase 2 could keep the step-up muted. **Watch the next 1–2 quarters of R&D for the inflection.**
+- Contractual forward commitments (10-K Note 6 / 10-Q Note 10): R&D agreements covering **(i) Phase 2 breast-vaccine manufacturing, (ii) lung/colon/prostate vaccine discovery, (iii) CAR-T development** total only **≈$1.8M of future payments spread over up to 4 years**, plus **≈$150K/yr license commitments.**
+- **Conclusion:** No large Phase 2 step-up is contractually visible yet — the Cytovance manufacturing spend is modest and spread out. Burn should stay ≈$7M/yr near-term. A step-up will come **only when the Phase 2 trial actually launches** (scale/timing undisclosed) — and note Anixa's model offloads trial cost to partners/grants where possible, so a DoD/partner-funded Phase 2 could keep the step-up muted. **Watch the next 1–2 quarters of R&D for the inflection.**
 
-**Bottom line for the model:** ~33.5M basic / ~47.4
+**Bottom line for the model:** ≈33.5M basic / ≈47.4
 ```
 
 ### ⚙️ `research`
@@ -446,7 +446,7 @@ I'll research this systematically. Let me start with several parallel searches o
 
 ## Bottom line
 
-A TNBC therapeutic/neoadjuvant vaccine (almost certainly used **in combination with a checkpoint inhibitor**, the way every leading program is being developed) is a **plausible $1–4B peak-sales asset**, with upside to ~$5B only if it works across multiple settings (early high-risk adjuvant + metastatic) and globally. The TNBC market is meaningfully smaller than melanoma or lung, so it would likely be **one indication within a broader personalized-vaccine franchise** rather than a standalone blockbuster.
+A TNBC therapeutic/neoadjuvant vaccine (almost certainly used **in combination with a checkpoint inhibitor**, the way every leading program is being developed) is a **plausible $1–4B peak-sales asset**, with upside to ≈$5B only if it works across multiple settings (early high-risk adjuvant + metastatic) and globally. The TNBC market is meaningfully smaller than melanoma or lung, so it would likely be **one indication within a broader personalized-vaccine franchise** rather than a standalone blockbuster.
 
 ---
 
@@ -455,13 +455,13 @@ A TNBC therapeutic/neoadjuvant vaccine (almost certainly used **in combination w
 **TNBC share of breast cancer:** TNBC accounts for approximately 10% to 20% of all diagnosed breast cancer cases globally, though registry data put the true molecular share lower — a total of 2,725,735 breast cancers were diagnosed in women from 2011–2019, of which 238,848 (or 8.8%) were TNBCs.
 
 **United States:**
-- Breast cancer overall: ~310,000 invasive female cases/year (current ACS estimates).
+- Breast cancer overall: ≈310,000 invasive female cases/year (current ACS estimates).
 - US incidence rate: based on data from 2021, in the US the overall age-adjusted incidence of triple-negative breast cancer is 14.5 cases per 100,000 women, and between 2016 and 2021, the overall incidence of triple-negative breast cancer increased by 2.4% each year.
-- **Estimated US TNBC diagnoses: ~30,000–60,000/year** (a reasonable central estimate is **~35,000–45,000**).
+- **Estimated US TNBC diagnoses: ≈30,000–60,000/year** (a reasonable central estimate is **≈35,000–45,000**).
 
 **Worldwide:**
 - Globally, breast cancer in females is now the leading cause of cancer, with an estimated 2.3 million new cases in 2020.
-- **Estimated global TNBC diagnoses: ~230,000–460,000/year** (central ~200,000–280,000 using the ~8.8–12% molecular share).
+- **Estimated global TNBC diagnoses: ≈230,000–460,000/year** (central ≈200,000–280,000 using the ≈8.8–12% molecular share).
 
 Note: a vaccine would address only a *slice* of this — likely high-risk early-stage/locally-advanced patients (adjuvant/neoadjuvant) and/or metastatic, not all diagnoses.
 
@@ -473,29 +473,29 @@ Personalized cancer vaccines are individually manufactured, which keeps cost-of-
 - **Historical anchor (Provenge):** US price was $31,000 per infusion; a full course of treatment is three infusions over a one-month period, or $93k — and the high price combined with the company's late management of reimbursement resulted in another year of delay in accessing the market (a cautionary tale; Dendreon went bankrupt).
 - **Personalized neoantigen manufacturing cost today:** manufacturing innovations focus on automated platforms, reducing production timelines from nine weeks to under four weeks for personalized vaccines, while costs remain challenging at over $100,000 per patient.
 
-**Realistic list price per course: ~$100,000–$200,000** (likely on top of a checkpoint inhibitor). Net of rebates/access, model **~$70k–$130k net**. This excludes the cost of the companion Keytruda/checkpoint inhibitor.
+**Realistic list price per course: ≈$100,000–$200,000** (likely on top of a checkpoint inhibitor). Net of rebates/access, model **≈$70k–$130k net**. This excludes the cost of the companion Keytruda/checkpoint inhibitor.
 
 ---
 
 ## 3. Peak-sales estimate for a TNBC vaccine
 
-Using ~$105k net price and varying eligible-treated patients:
+Using ≈$105k net price and varying eligible-treated patients:
 
 | Scenario | Treated patients | Net price | Peak sales |
 |---|---|---|---|
-| US only, modest penetration | ~15,000 | $105k | **~$1.5B** |
-| US + EU, broad uptake | ~30,000 | $105k | **~$3.1B** |
-| Global, high uptake (multi-setting) | ~50,000 | $105k | **~$5.3B** |
+| US only, modest penetration | ≈15,000 | $105k | **≈$1.5B** |
+| US + EU, broad uptake | ≈30,000 | $105k | **≈$3.1B** |
+| Global, high uptake (multi-setting) | ≈50,000 | $105k | **≈$5.3B** |
 
 **Realistic TNBC-specific peak: roughly $1–4B**, contingent on (a) a positive Phase 3 in a defined setting (e.g., high-risk early TNBC adjuvant, analogous to KEYNOTE-522), (b) checkpoint-combination approval, and (c) reimbursement at a six-figure price.
 
-**Why TNBC caps lower than melanoma/lung:** Merck/Moderna's lead program illustrates the relative sizing. For mRNA-4157, peak sales in melanoma could hit $1 billion, while lung cancer and others may bring in two to three times that per one analyst. TNBC's eligible high-risk population sits between melanoma and lung in size, supporting a **~$1–4B** envelope for the indication alone.
+**Why TNBC caps lower than melanoma/lung:** Merck/Moderna's lead program illustrates the relative sizing. For mRNA-4157, peak sales in melanoma could hit $1 billion, while lung cancer and others may bring in two to three times that per one analyst. TNBC's eligible high-risk population sits between melanoma and lung in size, supporting a **≈$1–4B** envelope for the indication alone.
 
 ---
 
 ## 4. Analyst peak-sales modeled for leading cancer vaccines
 
-- **Moderna/Merck mRNA-4157 (V940):** broadly, analysts estimate that it could generate billions in sales; one specific view puts melanoma peak around $1 billion, with lung cancer and others bringing in two to three times that — i.e., a **multi-billion franchise (~$2–4B+ across indications)**, not from any single tumor.
+- **Moderna/Merck mRNA-4157 (V940):** broadly, analysts estimate that it could generate billions in sales; one specific view puts melanoma peak around $1 billion, with lung cancer and others bringing in two to three times that — i.e., a **multi-billion franchise (≈$2–4B+ across indications)**, not from any single tumor.
 - **BioNTech autogene cevumeran (BNT122):** developed with Genentech/Roche; note a recent setback — a randomized Phase 2 trial evaluating autogene cevumeran in combination with pembrolizumab versus pembrolizumab alone in first-line advanced melanoma did not meet its primary efficacy endpoint. The program continues in adjuvant settings (pancreatic, urothelial). BioNTech also runs **BNT327 (bispecific) Phase 2 dose-optimization spec
 ```
 
@@ -507,7 +507,7 @@ Using ~$105k net price and varying eligible-treated patients:
 > 
 > For the pipeline, the breast vaccine is the lead program with Phase 1 complete and Phase 2 ahead, while the CAR-T lira-cel is in Phase 1 for solid tumors (a challenging indication), the ovarian vaccine targeting AMHR2 is still preclinical with NCI funding, and there's a discovery program that's essentially negligible. The key insight here is that Anixa's breast vaccine is an off-the-shelf peptide vaccine targeting a single shared antigen rather than a personalized neoantigen approach, which dramatically reduces manufacturing complexity and cost compared to personalized mRNA vaccines. This actually positions it more like a conventional biologic in terms of pricing potential, though in a therapeutic or preventative setting for triple-negative breast cancer, the price point could still be substantial. The real differentiated value lies in prevention—if it can prevent TNBC in high-risk populations like BRCA carriers, that's transformative but requires a long and expensive trial. The near-term Phase 2 path is faster, combining it with Keytruda in a neoadjuvant setting.
 > 
-> I'm building a sum-of-the-parts valuation using risk-adjusted NPV for each program, then summing with net cash and adjusting for dilution. For the breast vaccine specifically, I'm modeling the economics through Anixa's out-licensing arrangement: if successful, the vaccine could reach peak sales around $1.5B, with Anixa capturing roughly 8% net royalty after paying Cleveland Clinic their share. I'm now working through the present value of that royalty stream and milestone payments to establish the program's rNPV contribution. The breast vaccine is the most de-risked program with Phase 1 complete and strong immunogenicity, but immunogenicity alone doesn't guarantee clinical efficacy—the cancer vaccine field is full of immunogenic failures. The preventative approach is novel with no approved precedent, creating both upside potential and regulatory uncertainty around trial design and duration. I'm settling on an 8% probability of success from Phase 2 entry to approval (anchoring to oncology Phase 2→approval rates of ~7-8%, adjusted slightly upward for the clean Phase 1 data and validated mechanism, but discounted for the vaccine modality and prevention paradigm). With a central peak sales estimate of $1.5B and ~10% net royalty to Anixa, the risk-adjusted NPV comes to roughly $22-24M after accounting for the 7-year discount to launch. This means the pipeline is worth around $35-45M total, which combined with the $13M net cash puts equity value near $50M—heavily dependent on the breast vaccine succeeding. I need to finalize the share count for per-share valuation, accounting for future dilution from funding the burn. Completing the scenarios: S4 failure winds down with net cash eroding to ~$0.30/share at 68% probability. Running the weighted calculation across all four states gives ~$1.01/share, which aligns with my SOTP approach of $32M pipeline rNPV plus $13M net cash minus ~$6M corporate overhead, landing around $1.00-1.05/share. But I need to account for the real drag of Anixa's ongoing cash burn—roughly $7M annually over the next 3 years to reach value milestones, which is funded through dilution. Subtracting the present value of that burn (~$17M) from the equity value brings the fair value down to ~$0.74/share, so I'm settling on a center estimate around $0.85/share that reflects both the pipeline upside and the meaningful dilution headwind from funding operations. So that gets me to roughly $0.96 per share. I'm settling on a fair value around $0.90, with a floor near $0.38 based on net cash and a realistic range spanning $0.55 to $1.60. Now I need to reconsider some of the scenario assumptions—
+> I'm building a sum-of-the-parts valuation using risk-adjusted NPV for each program, then summing with net cash and adjusting for dilution. For the breast vaccine specifically, I'm modeling the economics through Anixa's out-licensing arrangement: if successful, the vaccine could reach peak sales around $1.5B, with Anixa capturing roughly 8% net royalty after paying Cleveland Clinic their share. I'm now working through the present value of that royalty stream and milestone payments to establish the program's rNPV contribution. The breast vaccine is the most de-risked program with Phase 1 complete and strong immunogenicity, but immunogenicity alone doesn't guarantee clinical efficacy—the cancer vaccine field is full of immunogenic failures. The preventative approach is novel with no approved precedent, creating both upside potential and regulatory uncertainty around trial design and duration. I'm settling on an 8% probability of success from Phase 2 entry to approval (anchoring to oncology Phase 2→approval rates of ≈7-8%, adjusted slightly upward for the clean Phase 1 data and validated mechanism, but discounted for the vaccine modality and prevention paradigm). With a central peak sales estimate of $1.5B and ≈10% net royalty to Anixa, the risk-adjusted NPV comes to roughly $22-24M after accounting for the 7-year discount to launch. This means the pipeline is worth around $35-45M total, which combined with the $13M net cash puts equity value near $50M—heavily dependent on the breast vaccine succeeding. I need to finalize the share count for per-share valuation, accounting for future dilution from funding the burn. Completing the scenarios: S4 failure winds down with net cash eroding to ≈$0.30/share at 68% probability. Running the weighted calculation across all four states gives ≈$1.01/share, which aligns with my SOTP approach of $32M pipeline rNPV plus $13M net cash minus ≈$6M corporate overhead, landing around $1.00-1.05/share. But I need to account for the real drag of Anixa's ongoing cash burn—roughly $7M annually over the next 3 years to reach value milestones, which is funded through dilution. Subtracting the present value of that burn (≈$17M) from the equity value brings the fair value down to ≈$0.74/share, so I'm settling on a center estimate around $0.85/share that reflects both the pipeline upside and the meaningful dilution headwind from funding operations. So that gets me to roughly $0.96 per share. I'm settling on a fair value around $0.90, with a floor near $0.38 based on net cash and a realistic range spanning $0.55 to $1.60. Now I need to reconsider some of the scenario assumptions—
 > 
 > particularly the breast cancer vaccine and proof-of-concept timing, since those represent over half the value. The vaccine could have much larger upside if it actually works as a true preventative, especially across BRCA carriers or even more broadly. With 84 million women over 40 in the addressable market, this could become a blockbuster if it reaches that potential.
 > 
@@ -519,20 +519,20 @@ Using ~$105k net price and varying eligible-treated patients:
 > 
 > Now I'm considering the sensitivity band around this estimate. A more conservative approach with lower probability of success and heavier failure weighting brings the valuation down to around $0.55, while a more optimistic case with higher success probabilities and prevention optionality pushes it up to $1.80. So the reasonable range is $0.55 to $1.80 with my base case at $0.93. I'm going to run the composite valuation model to get a systematic calculation and cross-check it against an rNPV approach, then build out the assumption set with proper citations from the 10-K and financial data.
 
-**PM note:** I now have everything needed to value Anixa. This is a classic asset-light, pre-revenue oncology developer: value = net liquid assets (~$12.8M, essentially all Treasuries/MMF — the "Bitcoin ETF" is a trivial ~$9K) + risk-adjusted (rNPV) pipeline, net of cash burn/dilution. The lead value driver is the off-the-shelf α-lactalbumin breast cancer vaccine; CAR-T and the AMHR2 ovarian vaccine are smaller, earlier, lower-probability options.
+**PM note:** I now have everything needed to value Anixa. This is a classic asset-light, pre-revenue oncology developer: value = net liquid assets (≈$12.8M, essentially all Treasuries/MMF — the "Bitcoin ETF" is a trivial ≈$9K) + risk-adjusted (rNPV) pipeline, net of cash burn/dilution. The lead value driver is the off-the-shelf α-lactalbumin breast cancer vaccine; CAR-T and the AMHR2 ovarian vaccine are smaller, earlier, lower-probability options.
 
 Let me run the probability-weighted composite valuation, then cross-check with a focused rNPV.
 
 ### ⚙️ `compute_valuation`
 
-_input:_ `{"method": "composite", "rationale": "Anixa is a pre-revenue, asset-light clinical-stage oncology developer whose value = net liquid assets (~$12.8M, ~$0.38/sh, essentially all US Treasuries/MMF) plus the risk-adjusted (rNPV) value of an in-licensed pipeline it intends to out-license to pharma. Earnings/DCF are inapplicable (no revenue). The correct frame is probability-weighted scenarios across the outcome distribution. Lead driver: off-the-shelf \u03b1-lactalbumin TNBC vaccine (Phase 1 complete, all primary endpoints met, 74% immune response, DoD-funded, advancing to Phase 2). Secondary: ovarian CAR-T lira-cel (early Phase 1, solid-tumor CAR-T base rate ~0 approvals ever), AMHR2 ovarian prevention vaccine (NCI-funded preclinical), discovery program. Each scenario is a probability point on the distribution; expected value = FMV. Success-state per-share values use rNPV: success-PV of breast vaccine to Anixa \u2248 $276M today (peak net sales $1.5B \u00d7 ~10% net royalty to Anixa \u2192 ~$650M at launch, discounted 7yrs at 13%); secondary assets smaller. PoS: breast 7% (oncology Ph1-complete\u2192approval base rate ~5%, cancer-vaccine modality below average but cleared Phase 1 cleanly with validated mechanism), CAR-T ~4% (solid-tumor CAR-T, zero approved precedent), ovarian vaccine ~2%. Failure branch = net cash eroded by burn.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_p`
+_input:_ `{"method": "composite", "rationale": "Anixa is a pre-revenue, asset-light clinical-stage oncology developer whose value = net liquid assets (≈$12.8M, ≈$0.38/sh, essentially all US Treasuries/MMF) plus the risk-adjusted (rNPV) value of an in-licensed pipeline it intends to out-license to pharma. Earnings/DCF are inapplicable (no revenue). The correct frame is probability-weighted scenarios across the outcome distribution. Lead driver: off-the-shelf \u03b1-lactalbumin TNBC vaccine (Phase 1 complete, all primary endpoints met, 74% immune response, DoD-funded, advancing to Phase 2). Secondary: ovarian CAR-T lira-cel (early Phase 1, solid-tumor CAR-T base rate ≈0 approvals ever), AMHR2 ovarian prevention vaccine (NCI-funded preclinical), discovery program. Each scenario is a probability point on the distribution; expected value = FMV. Success-state per-share values use rNPV: success-PV of breast vaccine to Anixa \u2248 $276M today (peak net sales $1.5B \u00d7 ≈10% net royalty to Anixa \u2192 ≈$650M at launch, discounted 7yrs at 13%); secondary assets smaller. PoS: breast 7% (oncology Ph1-complete\u2192approval base rate ≈5%, cancer-vaccine modality below average but cleared Phase 1 cleanly with validated mechanism), CAR-T ≈4% (solid-tumor CAR-T, zero approved precedent), ovarian vaccine ≈2%. Failure branch = net cash eroded by burn.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_p`
 
 _returned:_
 
 ```
 VALUATION (composite): fair value/share = 0.9325
 equity_value=None EV=None
-working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 7.0, "rationale": "rNPV success-PV of TNBC vaccine to Anixa ~$276M + ~$13M net cash + modest other; fully-diluted ~47M shares with option proceeds. Peak net sales $1.5B, ~10% net royalty to Anixa, launch ~2033, 13% discount."}, {"name": "Secondary asset success (CAR-T or ovarian vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 2.2, "rationale": "CAR-T lira-cel or AMHR2 vaccine succeeds; success-PV ~$77-90M + net cash; ~40M shares."}, {"name": "Middling \u2014 pipeline advances, partial out-license / sustained option value with dilution", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "Net cash + modest risk-adjusted pipeline credit ~$25M on ~36M diluted shares; programs retain value but no full commercialization yet."}, {"name": "Failure / wind-down \u2014 cash eroded by burn", "probability": 0.63, "sub_method": "direct", "value_per_share": 0.25, "rationale": "Programs stall, company burns most of cash before returning residual; ~$7-9M residual on ~35M shares. This branch carries the cash-burn/dilution drag."}]}
+working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 7.0, "rationale": "rNPV success-PV of TNBC vaccine to Anixa ≈$276M + ≈$13M net cash + modest other; fully-diluted ≈47M shares with option proceeds. Peak net sales $1.5B, ≈10% net royalty to Anixa, launch ≈2033, 13% discount."}, {"name": "Secondary asset success (CAR-T or ovarian vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 2.2, "rationale": "CAR-T lira-cel or AMHR2 vaccine succeeds; success-PV ≈$77-90M + net cash; ≈40M shares."}, {"name": "Middling \u2014 pipeline advances, partial out-license / sustained option value with dilution", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "Net cash + modest risk-adjusted pipeline credit ≈$25M on ≈36M diluted shares; programs retain value but no full commercialization yet."}, {"name": "Failure / wind-down \u2014 cash eroded by burn", "probability": 0.63, "sub_method": "direct", "value_per_share": 0.25, "rationale": "Programs stall, company burns most of cash before returning residual; ≈$7-9M residual on ≈35M shares. This branch carries the cash-burn/dilution drag."}]}
 notes: Composite of 4 event branches (direct), probability-weighted.
 ```
 
@@ -544,18 +544,18 @@ notes: Composite of 4 event branches (direct), probability-weighted.
 > 
 > When I work through the math on the breast vaccine scenario—$650M value at launch in 2033 translating to roughly $14 per share, discounted back over 7 years at 13%—I get about $0.42 per share contribution from that scenario alone. Adding in the secondary programs and failure cases, the rNPV approach yields around $0.75, which is slightly lower than my composite estimate of $0.93. The gap suggests my composite may have slightly overstated the breast vaccine's present value by not fully accounting for the time discount, so I'm adjusting that down to $6.00 per share in today's dollars rather than $7.00. Computing the weighted probability composite with the corrected today-PV figures gives me around $0.86/share, which feels more consistent across my different valuation approaches.
 
-**PM note:** The composite returns **$0.93/share**, but I want to tighten one input: my "breast vaccine success" branch ($7.0) slightly under-discounted the ~2033 commercialization value to today. Correcting it to a proper present value (~$6.1) keeps the scenarios internally consistent. Let me re-run and also lock a net-cash floor cross-check.
+**PM note:** The composite returns **$0.93/share**, but I want to tighten one input: my "breast vaccine success" branch ($7.0) slightly under-discounted the ≈2033 commercialization value to today. Correcting it to a proper present value (≈$6.1) keeps the scenarios internally consistent. Let me re-run and also lock a net-cash floor cross-check.
 
 ### ⚙️ `compute_valuation`
 
-_input:_ `{"method": "composite", "rationale": "Refined composite with internally-consistent TODAY-present-values per branch. Anixa = net liquid assets (~$12.8M / ~$0.38/sh) + rNPV of an in-licensed, out-license-bound oncology pipeline. Lead: off-the-shelf \u03b1-lactalbumin TNBC vaccine (Phase 1 complete, all primary endpoints met, 74% immune response, DoD-funded). Success branch today-PV = success commercialization PV of ~$650M-at-launch (peak net sales $1.5B \u00d7 ~10% net royalty to Anixa, launch ~2033) discounted 7yrs at 13% + net cash, on ~47M fully-diluted shares \u2248 $6.1/sh. PoS breast 7% (oncology Ph1-complete\u2192approval base ~5%; cancer-vaccine modality below average but Phase 1 cleared cleanly with validated, published mechanism). Secondary success branch (CAR-T lira-cel / AMHR2 vaccine) today-PV \u2248 $2.0/sh at ~5% combined (solid-tumor CAR-T has zero approved precedent). Middling branch = advancement/partial out-license/option value with dilution. Failure branch = cash eroded by ~$7M/yr burn. Expected value of the distribution = FMV.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 6.1, "rationale": "rNPV success-PV of TNBC vaccine to Anixa: $1.5B peak net sales x ~10% net royalty -> ~$650M at 2033 launch, discounted 7yrs at 13% -> ~$276M, + ~$13M net cash, on ~47M fully diluted shares with option proceeds."}, {"name": "Secondary asset success (CAR-T or `
+_input:_ `{"method": "composite", "rationale": "Refined composite with internally-consistent TODAY-present-values per branch. Anixa = net liquid assets (≈$12.8M / ≈$0.38/sh) + rNPV of an in-licensed, out-license-bound oncology pipeline. Lead: off-the-shelf \u03b1-lactalbumin TNBC vaccine (Phase 1 complete, all primary endpoints met, 74% immune response, DoD-funded). Success branch today-PV = success commercialization PV of ≈$650M-at-launch (peak net sales $1.5B \u00d7 ≈10% net royalty to Anixa, launch ≈2033) discounted 7yrs at 13% + net cash, on ≈47M fully-diluted shares \u2248 $6.1/sh. PoS breast 7% (oncology Ph1-complete\u2192approval base ≈5%; cancer-vaccine modality below average but Phase 1 cleared cleanly with validated, published mechanism). Secondary success branch (CAR-T lira-cel / AMHR2 vaccine) today-PV \u2248 $2.0/sh at ≈5% combined (solid-tumor CAR-T has zero approved precedent). Middling branch = advancement/partial out-license/option value with dilution. Failure branch = cash eroded by ≈$7M/yr burn. Expected value of the distribution = FMV.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 6.1, "rationale": "rNPV success-PV of TNBC vaccine to Anixa: $1.5B peak net sales x ≈10% net royalty -> ≈$650M at 2033 launch, discounted 7yrs at 13% -> ≈$276M, + ≈$13M net cash, on ≈47M fully diluted shares with option proceeds."}, {"name": "Secondary asset success (CAR-T or `
 
 _returned:_
 
 ```
 VALUATION (composite): fair value/share = 0.8595
 equity_value=None EV=None
-working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 6.1, "rationale": "rNPV success-PV of TNBC vaccine to Anixa: $1.5B peak net sales x ~10% net royalty -> ~$650M at 2033 launch, discounted 7yrs at 13% -> ~$276M, + ~$13M net cash, on ~47M fully diluted shares with option proceeds."}, {"name": "Secondary asset success (CAR-T or ovarian vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 2.0, "rationale": "CAR-T lira-cel ($600M peak, 8% net royalty) or AMHR2 vaccine succeeds; success-PV ~$71M today + net cash, ~42M shares."}, {"name": "Middling \u2014 pipeline advances, partial out-license / sustained option value with dilution", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "Net cash + modest risk-adjusted pipeline credit ~$25M on ~36M diluted shares."}, {"name": "Failure / wind-down \u2014 cash eroded by burn", "probability": 0.63, "sub_method": "direct", "value_per_share": 0.25, "rationale": "Programs stall; company burns most of cash before returning residual ~$7-9M on ~35M shares; carries the cash-burn/dilution drag."}]}
+working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 6.1, "rationale": "rNPV success-PV of TNBC vaccine to Anixa: $1.5B peak net sales x ≈10% net royalty -> ≈$650M at 2033 launch, discounted 7yrs at 13% -> ≈$276M, + ≈$13M net cash, on ≈47M fully diluted shares with option proceeds."}, {"name": "Secondary asset success (CAR-T or ovarian vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 2.0, "rationale": "CAR-T lira-cel ($600M peak, 8% net royalty) or AMHR2 vaccine succeeds; success-PV ≈$71M today + net cash, ≈42M shares."}, {"name": "Middling \u2014 pipeline advances, partial out-license / sustained option value with dilution", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "Net cash + modest risk-adjusted pipeline credit ≈$25M on ≈36M diluted shares."}, {"name": "Failure / wind-down \u2014 cash eroded by burn", "probability": 0.63, "sub_method": "direct", "value_per_share": 0.25, "rationale": "Programs stall; company burns most of cash before returning residual ≈$7-9M on ≈35M shares; carries the cash-burn/dilution drag."}]}
 notes: Composite of 4 event branches (direct), probability-weighted.
 ```
 
@@ -565,20 +565,20 @@ notes: Composite of 4 event branches (direct), probability-weighted.
 
 > I've settled on the valuation metrics: fair value of $0.86 per share with a range from $0.50 to $1.60, and an intrinsic floor around $0.38 based on net cash. Now I'm finalizing the memo with these parameters, using approximately 40 million diluted shares for the per-share calculations.
 
-**PM note:** The valuation is robust at **~$0.86/share FMV**, with a **~$0.38 net-cash floor**. The distribution is wide (this is a binary-outcome biotech), so my confidence band is ~$0.50–$1.60. Let me write the final memo.
+**PM note:** The valuation is robust at **≈$0.86/share FMV**, with a **≈$0.38 net-cash floor**. The distribution is wide (this is a binary-outcome biotech), so my confidence band is ≈$0.50–$1.60. Let me write the final memo.
 
 ### ⚙️ `submit_final`
 
 _gate verdict:_ The INDEPENDENT JUDGE has NOT yet rated this best-in-existence (score 80/100). Not accepted until it is the best, most accurate, most complete valuation of this company that could exist.
 
 FACTUAL ERRORS — verify against the data tools and FIX:
-- No material factual/numeric errors found versus the filings. Minor internal inconsistency: dossier lists diluted_shares_used = 38M while the success branch uses ~47M fully-diluted (explained by option moneyness, but should be reconciled).
-- Net liquid value of $12.8M is slightly below the ~$13.7M net current asset figure — conservative rather than wrong.
+- No material factual/numeric errors found versus the filings. Minor internal inconsistency: dossier lists diluted_shares_used = 38M while the success branch uses ≈47M fully-diluted (explained by option moneyness, but should be reconciled).
+- Net liquid value of $12.8M is slightly below the ≈$13.7M net current asset figure — conservative rather than wrong.
 
 GAPS vs best-in-class — close every one (deepen/explain/add):
-- Never states the current share price (~$2.70) or the resulting ~65–70% implied downside, and never converts the valuation into an explicit recommendation (avoid/short) — the single most decision-relevant fact is missing
+- Never states the current share price (≈$2.70) or the resulting ≈65–70% implied downside, and never converts the valuation into an explicit recommendation (avoid/short) — the single most decision-relevant fact is missing
 - Does not directly rebut the sell-side $9–14 Strong-Buy targets — it should explain precisely where those models go wrong (PoS, peak sales, undiscounted royalty, or no royalty pass-through)
-- The 'middling' (25% @ $0.70) and 'failure' (63% @ $0.25) branches hold ~39% of expected value but their per-share values are asserted rather than derived; a best-in-class memo would model dilution paths and option value explicitly
+- The 'middling' (25% @ $0.70) and 'failure' (63% @ $0.25) branches hold ≈39% of expected value but their per-share values are asserted rather than derived; a best-in-class memo would model dilution paths and option value explicitly
 - Discount rate of 13% on the probability-weighted streams is at the low end for a nano-cap with illiquidity/financing risk; a sensitivity on the discount rate (not just PoS/peak) is missing
 - No explicit short-execution/risk analysis (squeeze, catalyst pops, ATM overhang) despite the conclusion implying a downside trade
 - Peer/transaction cross-check is qualitative only; could anchor the success-branch rNPV against actual comparable Phase 1/2 vaccine and cell-therapy licensing deal terms with numbers
@@ -669,8 +669,8 @@ I'll research the published likelihood of approval (LOA) data for oncology drugs
 
 This is the most-cited industry benchmark. Across all modalities, the LOA from Phase I was 7.9% for the 2011-2020 perio`
 
-  - 🔎 checked `research` {"question": "What are realistic peak sales estimates and pharma licensing deal terms (upfront, milestones, royalty rates) for an early clinical-stage cancer vaccine targeting triple-negative breast cancer? Is a $1-1.5B peak sales and ~10-15% royalty reasonable for a Phase 1/2 vaccine asset?"}
-    → `RESEARCH — What are realistic peak sales estimates and pharma licensing deal terms (upfront, milestones, royalty rates) for an early clinical-stage cancer vaccine targeting triple-negative breast cancer? Is a $1-1.5B peak sales and ~10-15% royalty reasonable for a Phase 1/2 vaccine asset?
+  - 🔎 checked `research` {"question": "What are realistic peak sales estimates and pharma licensing deal terms (upfront, milestones, royalty rates) for an early clinical-stage cancer vaccine targeting triple-negative breast cancer? Is a $1-1.5B peak sales and ≈10-15% royalty reasonable for a Phase 1/2 vaccine asset?"}
+    → `RESEARCH — What are realistic peak sales estimates and pharma licensing deal terms (upfront, milestones, royalty rates) for an early clinical-stage cancer vaccine targeting triple-negative breast cancer? Is a $1-1.5B peak sales and ≈10-15% royalty reasonable for a Phase 1/2 vaccine asset?
 I'll research this for you, focusing on TNBC market size, cancer vaccine deal benchmarks, and oncology licensing terms by clinical stage.Let me look at the actual content from these searches.The content appears empty. Let me retry and inspect the raw structure.The result is a string, not a list. Let me parse it.Now I have the parsing right. Let me run all my searches properly with content extraction.I have strong data. Let me do a couple more targeted searches on cancer vaccine commercial performance/risk and TNBC patient population to ground the peak sales assessment.I have everything I need. Let me synthesize a tight, decision-useful answer.
 
 # TNBC Cancer Vaccine: Peak Sales & Deal Term Reality Check
@@ -687,7 +687,7 @@ I'll research this for you, focusing on TNBC market size, cancer vaccine deal be
     Multiple patients have survived substantially beyond expected median survival, including onepatient who survived 28 months and several patients who remain alive with continued follow-up Lira-cel clinical trial featured in presentation at the International Society for Cell & Gene Therapy2026 Annual Meeting SAN JOSE, Calif., May 11, 2026 /PRNewswire/ -- Anixa Biosciences, Inc. ("Anixa" or the "Compa
 [2026-05-01] PRNewsWire: Anixa Bioscienc`
 
-  _reviewer note:_ The reported numbers tie closely to the filings: net liquid ~$14.2M, common equity $15.1M (BVPS ~$0.45), zero preferred, no debt, ~33.2–33.5M shares. Let me stress-test the central judgment inputs (PoS and discount rate) against external base rates.
+  _reviewer note:_ The reported numbers tie closely to the filings: net liquid ≈$14.2M, common equity $15.1M (BVPS ≈$0.45), zero preferred, no debt, ≈33.2–33.5M shares. Let me stress-test the central judgment inputs (PoS and discount rate) against external base rates.
 
 > _reviewer reasoning:_ The research validates the memo's assumptions pretty well. The 7% Phase 2 to approval rate for the breast cancer vaccine is actually conservative given how brutal the cancer vaccine approval track record is—it's below the generic oncology Phase 2 rate, which is the right direction for a modality with near-zero precedent. The peak sales projection of $1-1.5B comes across as optimistic but grounded in the data.
 > 
@@ -698,9 +698,9 @@ I'll research this for you, focusing on TNBC market size, cancer vaccine deal be
   _reviewer note:_ I've verified the memo against the filings and external base rates. Here's my assessment.
 
 **Numbers tie to filings:**
-- Net liquid ~$14.2M, common equity $15.1M (BVPS ~$0.45), zero preferred, negligible debt ($0.2M lease), ~33.2–33.5M shares — all confirmed. Floor of $0.38/sh is the conservative net-net (below the $0.45 BVPS). ✓
+- Net liquid ≈$14.2M, common equity $15.1M (BVPS ≈$0.45), zero preferred, negligible debt ($0.2M lease), ≈33.2–33.5M shares — all confirmed. Floor of $0.38/sh is the conservative net-net (below the $0.45 BVPS). ✓
 - Preferred correctly stated as zero — no ignored senior claim. ✓
-- ~$7M/yr burn, ~2yr runway — confirmed. ✓
+- ≈$7M/yr burn, ≈2yr runway — confirmed. ✓
 - Phase 1 "74% immune response / endpoints met" — confirmed in news/filings. ✓
 
 **Judgment inputs stress-tested:**
@@ -708,9 +708,9 @@ I'll research this for you, focusing on TNBC market size, cancer vaccine deal be
 
 _red-team concerns this round:_
 
-- [low/valuation_assumption] Breast-vaccine success branch uses $1.5B peak net sales and ~10% net royalty to Anixa (implying ~12–15% gross from pharma).
+- [low/valuation_assumption] Breast-vaccine success branch uses $1.5B peak net sales and ≈10% net royalty to Anixa (implying ≈12–15% gross from pharma).
 
-- [low/valuation_assumption] Discount rate of 13% is used on the probability-weighted streams while the built-up cost of equity is ~14.8%.
+- [low/valuation_assumption] Discount rate of 13% is used on the probability-weighted streams while the built-up cost of equity is ≈14.8%.
 
 **🔬 Judge's own verification (independent fact-check):**
 
@@ -857,7 +857,7 @@ evenue with respect to any of our current therapy or vaccine programs in the nea
 
 > _reviewer reasoning:_ I'm verifying the financial figures from the memo—R&D spending decreased from $6.4M to $5.1M year-over-year, G&A came in at $6.6M, and the company had $15.2M in cash and short-term investments as of October. The ATM offering raised $2.4M through 772,000 shares against the $100M facility, and I'm noting that the noncontrolling interest represents Wistar's ownership stake in Certainty, which is the CAR-T subsidiary.
 > 
-> There's a minor inconsistency in the memo's description of Wistar's stake—it says 96%-owned Certainty with Wistar holding ~4.1%, which technically adds to 100.1%, but the difference is negligible. The CAR-T R&D spending of roughly $2M annually checks out against the $1.95M figure in the financials. All the key numbers align well with what the memo presented.
+> There's a minor inconsistency in the memo's description of Wistar's stake—it says 96%-owned Certainty with Wistar holding ≈4.1%, which technically adds to 100.1%, but the difference is negligible. The CAR-T R&D spending of roughly $2M annually checks out against the $1.95M figure in the financials. All the key numbers align well with what the memo presented.
 > 
 > The core thesis is clear: the memo positions this as a strong contrarian bear case with a fair value of $0.86 against a market price of $2.70, though it never explicitly states this conclusion. I'm settling on a score of 80 for the memo's accuracy.
 
@@ -865,15 +865,15 @@ evenue with respect to any of our current therapy or vaccine programs in the nea
 
 _independent judge:_ score 80/100, best_in_existence=False
 
-  - FACTUAL ERROR: No material factual/numeric errors found versus the filings. Minor internal inconsistency: dossier lists diluted_shares_used = 38M while the success branch uses ~47M fully-diluted (explained by option moneyness, but should be reconciled).
+  - FACTUAL ERROR: No material factual/numeric errors found versus the filings. Minor internal inconsistency: dossier lists diluted_shares_used = 38M while the success branch uses ≈47M fully-diluted (explained by option moneyness, but should be reconciled).
 
-  - FACTUAL ERROR: Net liquid value of $12.8M is slightly below the ~$13.7M net current asset figure — conservative rather than wrong.
+  - FACTUAL ERROR: Net liquid value of $12.8M is slightly below the ≈$13.7M net current asset figure — conservative rather than wrong.
 
-  - GAP: Never states the current share price (~$2.70) or the resulting ~65–70% implied downside, and never converts the valuation into an explicit recommendation (avoid/short) — the single most decision-relevant fact is missing
+  - GAP: Never states the current share price (≈$2.70) or the resulting ≈65–70% implied downside, and never converts the valuation into an explicit recommendation (avoid/short) — the single most decision-relevant fact is missing
 
   - GAP: Does not directly rebut the sell-side $9–14 Strong-Buy targets — it should explain precisely where those models go wrong (PoS, peak sales, undiscounted royalty, or no royalty pass-through)
 
-  - GAP: The 'middling' (25% @ $0.70) and 'failure' (63% @ $0.25) branches hold ~39% of expected value but their per-share values are asserted rather than derived; a best-in-class memo would model dilution paths and option value explicitly
+  - GAP: The 'middling' (25% @ $0.70) and 'failure' (63% @ $0.25) branches hold ≈39% of expected value but their per-share values are asserted rather than derived; a best-in-class memo would model dilution paths and option value explicitly
 
   - GAP: Discount rate of 13% on the probability-weighted streams is at the low end for a nano-cap with illiquidity/financing risk; a sensitivity on the discount rate (not just PoS/peak) is missing
 
@@ -885,26 +885,26 @@ _independent judge:_ score 80/100, best_in_existence=False
 
 **🧠 PM reasoning:**
 
-> The judge has now revealed the price at ~$2.70, which changes my approach—I can incorporate that into a recommendation while keeping my independent valuation separate. I need to address the diluted shares discrepancy by picking a consistent figure and explaining my choice, then reconcile the price comparison with my intrinsic value assessment.
+> The judge has now revealed the price at ≈$2.70, which changes my approach—I can incorporate that into a recommendation while keeping my independent valuation separate. I need to address the diluted shares discrepancy by picking a consistent figure and explaining my choice, then reconcile the price comparison with my intrinsic value assessment.
 > 
-> For the middling and failure branches, I'm modeling dilution explicitly: failure leaves ~$0.22/share after cash burn and ATM issuance, while the middling case (partial pipeline advancement and out-licensing) yields ~$0.70/share. The success branch requires adjusting for financing dilution—using ~52M shares post-capital raise to reflect the ~$25-40M needed to advance the breast vaccine through Phase 2, which brings that scenario to ~$5.55/share. Running the composite across discount rates (11-15%) gives me a fair value band of $0.74-0.86, with $0.80 as my central estimate.
+> For the middling and failure branches, I'm modeling dilution explicitly: failure leaves ≈$0.22/share after cash burn and ATM issuance, while the middling case (partial pipeline advancement and out-licensing) yields ≈$0.70/share. The success branch requires adjusting for financing dilution—using ≈52M shares post-capital raise to reflect the ≈$25-40M needed to advance the breast vaccine through Phase 2, which brings that scenario to ≈$5.55/share. Running the composite across discount rates (11-15%) gives me a fair value band of $0.74-0.86, with $0.80 as my central estimate.
 > 
 > Against the current price of $2.70, that's roughly 70% overvaluation, supporting an Avoid/short recommendation. For the sell-side rebuttal, their $9-14 targets appear to misapply CAR-T success rates to solid tumors, use unrisked peak sales without probability-of-success discounting, ignore time value, overlook royalty pass-throughs to Cleveland Clinic and Wistar, and fail to account for dilution and the company's limited runway.
 > 
-> On peer comparisons, I'm looking at recent deals like Merck/Moderna's $250M option exercise for an mRNA Phase 2 asset and Vaximm's $20M upfront/$815M biobucks structure—these suggest a single cancer-vaccine asset in early development commands $20-60M upfront risk-adjusted, which aligns with my ~$20M pipeline valuation for Anixa. The short-execution risk is real though: ANIX trades as a retail favorite with frequent catalyst-driven rallies and a tight float, so while fundamentally overvalued, the squeeze risk and borrow constraints make it better framed as an underweight than an aggressive short.
+> On peer comparisons, I'm looking at recent deals like Merck/Moderna's $250M option exercise for an mRNA Phase 2 asset and Vaximm's $20M upfront/$815M biobucks structure—these suggest a single cancer-vaccine asset in early development commands $20-60M upfront risk-adjusted, which aligns with my ≈$20M pipeline valuation for Anixa. The short-execution risk is real though: ANIX trades as a retail favorite with frequent catalyst-driven rallies and a tight float, so while fundamentally overvalued, the squeeze risk and borrow constraints make it better framed as an underweight than an aggressive short.
 
-**PM note:** The judge wants me to (1) reconcile shares, (2) state the price (~$2.70, now disclosed) and an explicit recommendation, (3) rebut the $9–14 sell-side targets, (4) derive the middling/failure branches and dilution explicitly, (5) add discount-rate sensitivity, (6) add short-execution analysis, and (7) anchor the cross-check with real deal numbers. Let me first re-run the composite with explicit dilution (success branch on ~52M post-financing/option shares) and then resubmit a deepened memo.
+**PM note:** The judge wants me to (1) reconcile shares, (2) state the price (≈$2.70, now disclosed) and an explicit recommendation, (3) rebut the $9–14 sell-side targets, (4) derive the middling/failure branches and dilution explicitly, (5) add discount-rate sensitivity, (6) add short-execution analysis, and (7) anchor the cross-check with real deal numbers. Let me first re-run the composite with explicit dilution (success branch on ≈52M post-financing/option shares) and then resubmit a deepened memo.
 
 ### ⚙️ `compute_valuation`
 
-_input:_ `{"method": "composite", "rationale": "Final composite with explicit dilution modeling and internally-consistent today-PVs. Success branch now uses ~52M shares to reflect (i) ITM option exercise (~47M FD ceiling) AND (ii) ATM equity issuance needed to fund the multi-year journey to a partnering event. Branch derivations: SUCCESS (breast vaccine) = $1.5B peak net sales x ~10% net royalty to Anixa (after Cleveland Clinic pass-through) -> ~$650M royalty+milestone NPV at ~2033 launch, discounted 7yrs at 13% -> ~$276M today, + ~$13M net cash = ~$289M / ~52M shares = ~$5.55. SECONDARY (CAR-T or AMHR2) = ~$71M today + cash / ~45M = ~$1.9. MIDDLING = net cash (~$12.8M, dilution-neutral as ATM cash offsets new shares) + partial risk-adjusted pipeline credit ~$13M = ~$26M / ~37M = ~$0.70. FAILURE = company burns ~2yrs chasing data, raising ATM at falling prices; residual cash ~$6M + nominal asset/NOL salvage ~$2M = ~$8M / ~40M = ~$0.22. PoS: breast 7%, secondary 5%. Expected value = FMV.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ~10% net royalty -> ~$650M at 2033 launch, /1.13^7 -> ~$276M today + $13M cash = ~$289M / ~52M shares (FD options + ATM financing dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x`
+_input:_ `{"method": "composite", "rationale": "Final composite with explicit dilution modeling and internally-consistent today-PVs. Success branch now uses ≈52M shares to reflect (i) ITM option exercise (≈47M FD ceiling) AND (ii) ATM equity issuance needed to fund the multi-year journey to a partnering event. Branch derivations: SUCCESS (breast vaccine) = $1.5B peak net sales x ≈10% net royalty to Anixa (after Cleveland Clinic pass-through) -> ≈$650M royalty+milestone NPV at ≈2033 launch, discounted 7yrs at 13% -> ≈$276M today, + ≈$13M net cash = ≈$289M / ≈52M shares = ≈$5.55. SECONDARY (CAR-T or AMHR2) = ≈$71M today + cash / ≈45M = ≈$1.9. MIDDLING = net cash (≈$12.8M, dilution-neutral as ATM cash offsets new shares) + partial risk-adjusted pipeline credit ≈$13M = ≈$26M / ≈37M = ≈$0.70. FAILURE = company burns ≈2yrs chasing data, raising ATM at falling prices; residual cash ≈$6M + nominal asset/NOL salvage ≈$2M = ≈$8M / ≈40M = ≈$0.22. PoS: breast 7%, secondary 5%. Expected value = FMV.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ≈10% net royalty -> ≈$650M at 2033 launch, /1.13^7 -> ≈$276M today + $13M cash = ≈$289M / ≈52M shares (FD options + ATM financing dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x`
 
 _returned:_
 
 ```
 VALUATION (composite): fair value/share = 0.7971
 equity_value=None EV=None
-working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ~10% net royalty -> ~$650M at 2033 launch, /1.13^7 -> ~$276M today + $13M cash = ~$289M / ~52M shares (FD options + ATM financing dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x ~8% net royalty -> ~$71M today + cash / ~45M shares."}, {"name": "Middling \u2014 pipeline advances, partial out-license / sustained option value with dilution", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "Net cash ~$12.8M (ATM dilution-neutral) + partial risk-adjusted pipeline credit ~$13M = ~$26M / ~37M diluted shares."}, {"name": "Failure / wind-down \u2014 cash eroded by burn + dilution", "probability": 0.63, "sub_method": "direct", "value_per_share": 0.22, "rationale": "~2yrs further burn with ATM issuance at falling prices; residual cash ~$6M + nominal salvage ~$2M = ~$8M / ~40M shares."}]}
+working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.07, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ≈10% net royalty -> ≈$650M at 2033 launch, /1.13^7 -> ≈$276M today + $13M cash = ≈$289M / ≈52M shares (FD options + ATM financing dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x ≈8% net royalty -> ≈$71M today + cash / ≈45M shares."}, {"name": "Middling \u2014 pipeline advances, partial out-license / sustained option value with dilution", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "Net cash ≈$12.8M (ATM dilution-neutral) + partial risk-adjusted pipeline credit ≈$13M = ≈$26M / ≈37M diluted shares."}, {"name": "Failure / wind-down \u2014 cash eroded by burn + dilution", "probability": 0.63, "sub_method": "direct", "value_per_share": 0.22, "rationale": "≈2yrs further burn with ATM issuance at falling prices; residual cash ≈$6M + nominal salvage ≈$2M = ≈$8M / ≈40M shares."}]}
 notes: Composite of 4 event branches (direct), probability-weighted.
 ```
 
@@ -926,8 +926,8 @@ FACTUAL ERRORS — verify against the data tools and FIX:
 
 GAPS vs best-in-class — close every one (deepen/explain/add):
 - No DEF 14A / proxy analysis of CEO and insider compensation, option-grant dilution, or insider selling — a real omission given the thesis explicitly rests on the name being 'heavily promotional'
-- Central 7% breast-vaccine PoS would benefit from a tighter reconciliation to the author's own arguments (therapeutic cancer-vaccine Phase 2→3 collapse; no preventative-endpoint precedent) that arguably point to ~5%
-- The middling branch (25% @ $0.70, ~22% of expected value) still rests on a loosely-sized '~$13M partial pipeline credit' that is asserted rather than rigorously derived
+- Central 7% breast-vaccine PoS would benefit from a tighter reconciliation to the author's own arguments (therapeutic cancer-vaccine Phase 2→3 collapse; no preventative-endpoint precedent) that arguably point to ≈5%
+- The middling branch (25% @ $0.70, ≈22% of expected value) still rests on a loosely-sized '≈$13M partial pipeline credit' that is asserted rather than rigorously derived
 - NOL/tax-asset salvage value mentioned only as 'nominal' — could be quantified
 - Transaction comps, while a strong addition, mix platform and single-asset deals; a best-in-class version would normalize them to single Phase-1/2 asset terms more explicitly
 
@@ -941,14 +941,14 @@ Correct the numbers, deepen the memo, then call submit_final again.
 
   _reviewer note:_ Both concerns I previously raised were low-severity and non-value-changing, and the revision strengthens them further:
 
-- **Royalty/peak-sales optimism**: The revised memo adds an explicit transaction-comps cross-check (§6b) anchoring the success branch to real Phase 1/2 cancer-vaccine deals (~$20–60M upfront, high-single-to-mid-teens royalties), retains the ~10% *net* royalty after Cleveland Clinic/Wistar pass-through, and keeps the $1.5B peak confined to the 7% branch. The §6c rebuttal of sell-side targets directly polices PoS inflation and unrisked peak misuse. Adequately addressed.
+- **Royalty/peak-sales optimism**: The revised memo adds an explicit transaction-comps cross-check (§6b) anchoring the success branch to real Phase 1/2 cancer-vaccine deals (≈$20–60M upfront, high-single-to-mid-teens royalties), retains the ≈10% *net* royalty after Cleveland Clinic/Wistar pass-through, and keeps the $1.5B peak confined to the 7% branch. The §6c rebuttal of sell-side targets directly polices PoS inflation and unrisked peak misuse. Adequately addressed.
 - **Discount rate**: Now explicitly sensitivity-tested at 11–15% (FMV $0.86 → $0.74), with 13% central justified as systematic-risk-only to avoid double-counting technical risk in the PoS. Fine.
 
 Additionall
 
 **🔬 Judge's own verification (independent fact-check):**
 
-> _reviewer reasoning:_ I'm reviewing the revised memo to see if it addresses the earlier gaps—the first version now explicitly includes the current price around $2.70, market cap near $90M, and the ~70% downside with a clear AVOID recommendation. The second addition directly rebuts the sell-side price targets of $9-14 by identifying specific modeling errors in their analysis.
+> _reviewer reasoning:_ I'm reviewing the revised memo to see if it addresses the earlier gaps—the first version now explicitly includes the current price around $2.70, market cap near $90M, and the ≈70% downside with a clear AVOID recommendation. The second addition directly rebuts the sell-side price targets of $9-14 by identifying specific modeling errors in their analysis.
 > 
 > The fair value estimate shifted slightly from $0.86 to $0.80, driven by adjusting the failure branch scenario from $0.25 to $0.22 and the success case from $6.10 to $5.55. I'm verifying the probability-weighted math: 7% success at $5.55 plus 5% middling at $1.90 plus 25% partial at $0.70 plus 63% failure at $0.22 sums to roughly $0.80, which checks out.
 > 
@@ -964,9 +964,9 @@ _independent judge:_ score 88/100, best_in_existence=False
 
   - GAP: No DEF 14A / proxy analysis of CEO and insider compensation, option-grant dilution, or insider selling — a real omission given the thesis explicitly rests on the name being 'heavily promotional'
 
-  - GAP: Central 7% breast-vaccine PoS would benefit from a tighter reconciliation to the author's own arguments (therapeutic cancer-vaccine Phase 2→3 collapse; no preventative-endpoint precedent) that arguably point to ~5%
+  - GAP: Central 7% breast-vaccine PoS would benefit from a tighter reconciliation to the author's own arguments (therapeutic cancer-vaccine Phase 2→3 collapse; no preventative-endpoint precedent) that arguably point to ≈5%
 
-  - GAP: The middling branch (25% @ $0.70, ~22% of expected value) still rests on a loosely-sized '~$13M partial pipeline credit' that is asserted rather than rigorously derived
+  - GAP: The middling branch (25% @ $0.70, ≈22% of expected value) still rests on a loosely-sized '≈$13M partial pipeline credit' that is asserted rather than rigorously derived
 
   - GAP: NOL/tax-asset salvage value mentioned only as 'nominal' — could be quantified
 
@@ -1031,7 +1031,7 @@ Both pulls complete. Here's the consolidated answer.
 |---|---|---|---|---|---|
 | **2025** | $815,170 | $500,000 | $1,129,100 | $102,414 | **$2,546,684** |
 | **2024** | $785,463 | $500,000 | $2,093,000 | $97,574 | **$3,476,037** |
-| **2023** | ~$1,285,551 (salary+bonus+other) | — | $2,354,100 | — | **$3,639,651** |
+| **2023** | ≈$1,285,551 (salary+bonus+other) | — | $2,354,100 | — | **$3,639,651** |
 
 (FY2025/24 from Summary Comp Table; FY2023 total from the Pay-vs-Performance table — the SCT itself only shows 2 years because ANIX is a smaller reporting company. FY2023 option grant-date FV of $2,354,100 is from the CAP reconciliation; the cash split isn't itemized in this proxy.)
 
@@ -1045,37 +1045,37 @@ Both pulls complete. Here's the consolidated answer.
 Both are **at-will, no employment agreements**. Change-of-control accelerates unvested options (intrinsic value at 10/31/25: Kumar $1,054,786; Catelani $453,143).
 
 ### Option-grant run-rate = the dilution drag
-- **FY2025 grants:** Kumar 700,000 + Catelani 350,000 = **1,050,000 to NEOs**, all @ $2.37 (1/2/2025); total company-wide 2018-plan grants were **1,440,000** (NEOs = ~73%). Non-employee directors get **25,000 options each + $95,000 cash** per year (3 outside directors → ~75,000).
-- **FY2024:** 1,415,000 options granted company-wide (Kumar ~712K, Catelani ~356K implied).
-- **Run-rate ≈ 1.4–1.44M options/yr ≈ ~4.3% of the ~33.5M share base annually.** The 2018 plan **auto-replenishes to 2,000,000 available every Jan 1**, so capacity exists for up to ~6%/yr.
-- **Stock-based comp expense: $3,810K FY2025 / $4,782K FY2024** (10-K Note 2/segment) — i.e., **~half of the GAAP net loss is non-cash SBC**, and ~$3.17M of unrecognized SBC remains (1.6-yr weighted life).
-- **Cash comp drag:** top-2 cash comp (salary+bonus+other) ≈ **$2.15M in FY2025** (Kumar $1.42M + Catelani $0.73M) — roughly **30% of the ~$7.2M annual cash burn** goes to the two executives' cash compensation. That's heavy for a 2-person-NEO microcap.
-- **Total option overhang:** 13.2M (10/31/25) → 13.9M options outstanding (1/31/26) vs. 33.5M basic = **~40% overhang**.
+- **FY2025 grants:** Kumar 700,000 + Catelani 350,000 = **1,050,000 to NEOs**, all @ $2.37 (1/2/2025); total company-wide 2018-plan grants were **1,440,000** (NEOs = ≈73%). Non-employee directors get **25,000 options each + $95,000 cash** per year (3 outside directors → ≈75,000).
+- **FY2024:** 1,415,000 options granted company-wide (Kumar ≈712K, Catelani ≈356K implied).
+- **Run-rate ≈ 1.4–1.44M options/yr ≈ ≈4.3% of the ≈33.5M share base annually.** The 2018 plan **auto-replenishes to 2,000,000 available every Jan 1**, so capacity exists for up to ≈6%/yr.
+- **Stock-based comp expense: $3,810K FY2025 / $4,782K FY2024** (10-K Note 2/segment) — i.e., **≈half of the GAAP net loss is non-cash SBC**, and ≈$3.17M of unrecognized SBC remains (1.6-yr weighted life).
+- **Cash comp drag:** top-2 cash comp (salary+bonus+other) ≈ **$2.15M in FY2025** (Kumar $1.42M + Catelani $0.73M) — roughly **30% of the ≈$7.2M annual cash burn** goes to the two executives' cash compensation. That's heavy for a 2-person-NEO microcap.
+- **Total option overhang:** 13.2M (10/31/25) → 13.9M options outstanding (1/31/26) vs. 33.5M basic = **≈40% overhang**.
 
 ### Beneficial ownership (as of Jan 13, 2026 record date; 33,379,505 shares out)
 | Holder | Beneficial shares | % | of which OPTIONS exercisable ≤60d |
 |---|---|---|---|
-| Dr. Amit Kumar (CEO) | 6,227,016 | **16.0%** | 5,617,204 (→ only ~610K real shares) |
-| Michael Catelani | 2,468,102 | **6.9%** | 2,423,602 (→ only ~44K real shares) |
-| Lewis Titterton (Chair-related/director) | 1,809,500 | **5.3%** | 840,166 (~969K real shares) |
+| Dr. Amit Kumar (CEO) | 6,227,016 | **16.0%** | 5,617,204 (→ only ≈610K real shares) |
+| Michael Catelani | 2,468,102 | **6.9%** | 2,423,602 (→ only ≈44K real shares) |
+| Lewis Titterton (Chair-related/director) | 1,809,500 | **5.3%** | 840,166 (≈969K real shares) |
 | Dr. Arnold Baskies | 492,166 | 1.5% | 83,000 |
 | Emily Gottschalk | 329,831 | 1.0% | 284,166 |
 | **All directors & officers (5)** | **11,326,615** | **26.4%** | **9,532,304 are options** |
 
-**Critical nuance:** insiders' "26.4%" is overwhelmingly **unexercised in-the-money/option shares** — of the 11.3M group total, ~9.5M are options. **Actual shares held by all insiders combined are only ~1.8M (~5%).** So genuine skin-in-the-game via owned stock is modest; the headline ownership is option-based optionality. **No outside/institutional >5% holder is disclosed** — the only 5%+ holders are the three insiders.
+**Critical nuance:** insiders' "26.4%" is overwhelmingly **unexercised in-the-money/option shares** — of the 11.3M group total, ≈9.5M are options. **Actual shares held by all insiders combined are only ≈1.8M (≈5%).** So genuine skin-in-the-game via owned stock is modest; the headline ownership is option-based optionality. **No outside/institutional >5% holder is disclosed** — the only 5%+ holders are the three insiders.
 
 ### Insider selling / 10b5-1
 - **No 10b5-1 plans are disclosed** in the proxy (not mentioned).
-- Only insider transaction disclosed: **Dr. Kumar's FY2025 cashless exercise of 200,000 options → net 29,887 shares issued, value $228,000** — i.e., the bulk of the option shares were withheld to cover strike (a cashless/net exercise), consistent with insiders accumulating very few actual shares. ⚠️ **Form 4 open-market sale patterns are not retrievable through these tools** — would need to pull EDGAR Form 4 history directly. Flagging as not-verified here, but the structural signal (insiders hold ~5% in real shares, exercises are cashless) suggests limited net share accumulation rather than aggressive open-market dumping.
+- Only insider transaction disclosed: **Dr. Kumar's FY2025 cashless exercise of 200,000 options → net 29,887 shares issued, value $228,000** — i.e., the bulk of the option shares were withheld to cover strike (a cashless/net exercise), consistent with insiders accumulating very few actual shares. ⚠️ **Form 4 open-market sale patterns are not retrievable through these tools** — would need to pull EDGAR Form 4 history directly. Flagging as not-verified here, but the structural signal (insiders hold ≈5% in real shares, exercises are cashless) suggests limited net share accumulation rather than aggressive open-market dumping.
 
 ---
 
 ## (2) FY2025 10-K Item 8, Note 7 — NOLs / DEFERRED TAX / §382
 
 ### Carryforward balances (as of Oct 31, 2025)
-- **Federal NOL carryforward: ~$106,253,000**
-- **Federal tax-credit carryforwards: ~$2,413,000** (R&D-type credits)
-- **California NOL carryforward: ~$68,597,000**, expiring at various dates **2026–2045**
+- **Federal NOL carryforward: ≈$106,253,000**
+- **Federal tax-credit carryforwards: ≈$2,413,000** (R&D-type credits)
+- **California NOL carryforward: ≈$68,597,000**, expiring at various dates **2026–2045**
 - **Capital-loss carryforwards: none disclosed** (not itemized — flag as not separately broken out).
 - Federal NOLs: post-2018 vintage carries forward **indefinitely but limited to 80% of taxable income**; pre-2018 vintage on the 20-year clock (the rate recon shows **$1,244,000 of "expiring NOLs/credits" in FY2025**, confirming some pre-2018 federal NOLs are actively expiring).
 
@@ -1103,22 +1103,22 @@ Both are **at-will, no employment agreements**. Change-of-control accelerates un
 > 
 > For a company that's never been consistently profitable and faces likely acquisition, the realizable value of NOLs gets heavily discounted—often just pennies on the dollar or effectively zero in M&A. Even crediting the combined $175M in NOLs, after Section 382 limitations cap annual usage and accounting for the need for future taxable income, the present value is realistically $0–5M, so I'm settling on $1–2M as a reasonable salvage assumption.
 > 
-> On compensation and dilution, the CEO's $2.5M total comp with $1.4M cash, plus two other named executives consuming roughly 30% of cash burn, combined with option grants running at ~1.4M annually (about 4.3% of shares per year) and a 40% option overhang, paints a picture of insider enrichment. SBC represents roughly half the net loss, and insiders hold only ~5% in actual shares while the headline 26% ownership is mostly option-based. This reinforces the promotional structure and validates my dilution modeling.
+> On compensation and dilution, the CEO's $2.5M total comp with $1.4M cash, plus two other named executives consuming roughly 30% of cash burn, combined with option grants running at ≈1.4M annually (about 4.3% of shares per year) and a 40% option overhang, paints a picture of insider enrichment. SBC represents roughly half the net loss, and insiders hold only ≈5% in actual shares while the headline 26% ownership is mostly option-based. This reinforces the promotional structure and validates my dilution modeling.
 > 
-> The judge's feedback pushes me to tighten the breast vaccine probability of success from 7% down to 6%, reflecting the therapeutic cancer-vaccine graveyard and lack of preventative precedent while still crediting the clean Phase 1 data. Rebalancing the scenario tree to breast 6%, secondary 5%, middling 24%, and failure 65%, I'm deriving the middling branch value as net cash of $13M plus a risk-adjusted residual pipeline value of ~$14M (capturing partial de-risking or a modest out-license), yielding roughly $0.70 per share. Running the full composite with these adjustments gives me an FMV around $0.74–0.75.
+> The judge's feedback pushes me to tighten the breast vaccine probability of success from 7% down to 6%, reflecting the therapeutic cancer-vaccine graveyard and lack of preventative precedent while still crediting the clean Phase 1 data. Rebalancing the scenario tree to breast 6%, secondary 5%, middling 24%, and failure 65%, I'm deriving the middling branch value as net cash of $13M plus a risk-adjusted residual pipeline value of ≈$14M (capturing partial de-risking or a modest out-license), yielding roughly $0.70 per share. Running the full composite with these adjustments gives me an FMV around $0.74–0.75.
 
-**PM note:** Excellent — this closes both gaps decisively. Key additions: **NOLs** (~$106M federal + ~$69M state, gross DTA $39.4M, **100% valuation-allowance**, undetermined §382 limitation → realizable salvage is near-zero, validating my nominal failure-branch salvage); and **comp/dilution** (CEO ~$2.5M total comp, two NEOs consume ~30% of cash burn, ~1.4M options/yr ≈ 4.3% annual dilution, ~40% option overhang, and insiders actually *own* only ~5% in real shares — the rest is options). This strongly corroborates the promotional/dilution thesis. I'll also tighten the breast-vaccine PoS to 6% (honest center given the cancer-vaccine graveyard and no preventative precedent). Let me re-run and finalize.
+**PM note:** Excellent — this closes both gaps decisively. Key additions: **NOLs** (≈$106M federal + ≈$69M state, gross DTA $39.4M, **100% valuation-allowance**, undetermined §382 limitation → realizable salvage is near-zero, validating my nominal failure-branch salvage); and **comp/dilution** (CEO ≈$2.5M total comp, two NEOs consume ≈30% of cash burn, ≈1.4M options/yr ≈ 4.3% annual dilution, ≈40% option overhang, and insiders actually *own* only ≈5% in real shares — the rest is options). This strongly corroborates the promotional/dilution thesis. I'll also tighten the breast-vaccine PoS to 6% (honest center given the cancer-vaccine graveyard and no preventative precedent). Let me re-run and finalize.
 
 ### ⚙️ `compute_valuation`
 
-_input:_ `{"method": "composite", "rationale": "Final composite. Breast-vaccine PoS tightened to 6% (honest center: cleared Phase 1 with strong immunogenicity, but therapeutic cancer-vaccine Phase 2->3 historically collapses and there is no preventative-endpoint regulatory precedent -> below the ~7% generic oncology Ph2-entry rate). Branch values derived: SUCCESS = $1.5B peak net sales x ~10% net royalty to Anixa -> ~$650M at 2033 launch /1.13^7 -> ~$276M today + $13M cash = ~$289M / ~52M shares (ITM options + ATM financing dilution) = ~$5.55. SECONDARY = $600M peak x ~8% -> ~$71M today + cash / ~45M = ~$1.90. MIDDLING = $13M net cash + risk-adjusted residual pipeline ~$14M (\u224830% within-branch chance of a ~$45M partnering event) = ~$27M / ~38M = ~$0.70. FAILURE = ~2yrs further burn + ATM dilution; residual cash ~$6M + NOL/asset salvage ~$2M (NOLs $106M federal/$69M state are 100% valuation-allowanced and \u00a7382-impaired -> near-zero realizable) = ~$8M / ~40M = ~$0.22. Expected value = FMV.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.06, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ~10% net royalty -> ~$650M at 2033 launch /1.13^7 -> ~$276M + $13M cash = ~$289M / ~52M shares (FD options + ATM dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x ~8% n`
+_input:_ `{"method": "composite", "rationale": "Final composite. Breast-vaccine PoS tightened to 6% (honest center: cleared Phase 1 with strong immunogenicity, but therapeutic cancer-vaccine Phase 2->3 historically collapses and there is no preventative-endpoint regulatory precedent -> below the ≈7% generic oncology Ph2-entry rate). Branch values derived: SUCCESS = $1.5B peak net sales x ≈10% net royalty to Anixa -> ≈$650M at 2033 launch /1.13^7 -> ≈$276M today + $13M cash = ≈$289M / ≈52M shares (ITM options + ATM financing dilution) = ≈$5.55. SECONDARY = $600M peak x ≈8% -> ≈$71M today + cash / ≈45M = ≈$1.90. MIDDLING = $13M net cash + risk-adjusted residual pipeline ≈$14M (\u224830% within-branch chance of a ≈$45M partnering event) = ≈$27M / ≈38M = ≈$0.70. FAILURE = ≈2yrs further burn + ATM dilution; residual cash ≈$6M + NOL/asset salvage ≈$2M (NOLs $106M federal/$69M state are 100% valuation-allowanced and \u00a7382-impaired -> near-zero realizable) = ≈$8M / ≈40M = ≈$0.22. Expected value = FMV.", "composite": {"scenarios": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.06, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ≈10% net royalty -> ≈$650M at 2033 launch /1.13^7 -> ≈$276M + $13M cash = ≈$289M / ≈52M shares (FD options + ATM dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x ≈8% n`
 
 _returned:_
 
 ```
 VALUATION (composite): fair value/share = 0.7438
 equity_value=None EV=None
-working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.06, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ~10% net royalty -> ~$650M at 2033 launch /1.13^7 -> ~$276M + $13M cash = ~$289M / ~52M shares (FD options + ATM dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x ~8% net royalty -> ~$71M today + cash / ~45M shares."}, {"name": "Middling \u2014 advancement / partial out-license / sustained option value", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "$13M net cash + risk-adjusted residual pipeline ~$14M (\u224830% within-branch chance of ~$45M partnering event) = ~$27M / ~38M diluted shares."}, {"name": "Failure / wind-down \u2014 cash eroded by burn + dilution", "probability": 0.64, "sub_method": "direct", "value_per_share": 0.22, "rationale": "~2yrs burn + ATM dilution; residual cash ~$6M + NOL/asset salvage ~$2M (NOLs 100% valuation-allowanced, \u00a7382-impaired) = ~$8M / ~40M shares."}]}
+working={"branches": [{"name": "Breast vaccine reaches market / full out-license value", "probability": 0.06, "sub_method": "direct", "value_per_share": 5.55, "rationale": "$1.5B peak x ≈10% net royalty -> ≈$650M at 2033 launch /1.13^7 -> ≈$276M + $13M cash = ≈$289M / ≈52M shares (FD options + ATM dilution)."}, {"name": "Secondary asset success (CAR-T or AMHR2 vaccine), breast fails", "probability": 0.05, "sub_method": "direct", "value_per_share": 1.9, "rationale": "$600M peak x ≈8% net royalty -> ≈$71M today + cash / ≈45M shares."}, {"name": "Middling \u2014 advancement / partial out-license / sustained option value", "probability": 0.25, "sub_method": "direct", "value_per_share": 0.7, "rationale": "$13M net cash + risk-adjusted residual pipeline ≈$14M (\u224830% within-branch chance of ≈$45M partnering event) = ≈$27M / ≈38M diluted shares."}, {"name": "Failure / wind-down \u2014 cash eroded by burn + dilution", "probability": 0.64, "sub_method": "direct", "value_per_share": 0.22, "rationale": "≈2yrs burn + ATM dilution; residual cash ≈$6M + NOL/asset salvage ≈$2M (NOLs 100% valuation-allowanced, \u00a7382-impaired) = ≈$8M / ≈40M shares."}]}
 notes: Composite of 4 event branches (direct), probability-weighted.
 ```
 
@@ -1135,9 +1135,9 @@ notes: Composite of 4 event branches (direct), probability-weighted.
 _gate verdict:_ The INDEPENDENT JUDGE has NOT yet rated this best-in-existence (score 92/100). Not accepted until it is the best, most accurate, most complete valuation of this company that could exist.
 
 GAPS vs best-in-class — close every one (deepen/explain/add):
-- Success-branch royalty value uses a 'peak × ~4' heuristic rather than an explicit year-by-year, launch-year-probability-adjusted royalty curve (ramp/peak/patent-cliff) a top biotech specialist would build
-- Asserts dilution but never sizes the actual Phase 2 neoadjuvant-Keytruda trial budget against the ~$14M cash to quantify the precise financing gap driving that dilution
-- The middling branch (25% @ $0.70, ~24% of EV) still rests on a partly-judgmental '30% chance of a ~$45M partnering event'; reasoned but not rigorously derived
+- Success-branch royalty value uses a 'peak × ≈4' heuristic rather than an explicit year-by-year, launch-year-probability-adjusted royalty curve (ramp/peak/patent-cliff) a top biotech specialist would build
+- Asserts dilution but never sizes the actual Phase 2 neoadjuvant-Keytruda trial budget against the ≈$14M cash to quantify the precise financing gap driving that dilution
+- The middling branch (25% @ $0.70, ≈24% of EV) still rests on a partly-judgmental '30% chance of a ≈$45M partnering event'; reasoned but not rigorously derived
 - Exact federal/California NOL figures and the Section 382 ownership-change analysis are asserted from the tax note but not independently reproduced here (conclusion is nonetheless sound)
 
 Correct the numbers, deepen the memo, then call submit_final again.
@@ -1151,7 +1151,7 @@ Correct the numbers, deepen the memo, then call submit_final again.
 - **PoS lowered 7% → 6%** for the breast vaccine, with a tightened 4–10% range — still base-rate-anchored and, if anything, more conservative. No overstatement.
 - **Discount rate** unchanged at 13% central with 11–15% sensitivity — already validated.
 - **Peak sales/royalty** unchanged and still confined to the 6% branch, now with normalized single-asset transaction comps (correctly excluding non-comparable platform deals). Conservative.
-- **New NOL disclosure** (~$106.3M federal / $68.6M CA NOLs; $39.4M DTA 100% valuation-allowanced; no §382 study) is correctly treated as ~$0–3M of salvag
+- **New NOL disclosure** (≈$106.3M federal / $68.6M CA NOLs; $39.4M DTA 100% valuation-allowanced; no §382 study) is correctly treated as ≈$0–3M of salvag
 
 **🔬 Judge's own verification (independent fact-check):**
 
@@ -1171,7 +1171,7 @@ false FY 0000715446 0000715446 2024-11-01 2025-10-31 0000715446 2025-04-30 00007
 
 > _reviewer reasoning:_ I'm verifying the executive compensation figures across both fiscal years—Kumar's totals check out at $2.55M for FY2025 and $3.48M for FY2024, while Catelani's numbers align at $1.30M and $1.76M respectively. The option grants for the upcoming year show Kumar receiving 700,000 shares and Catelani 350,000.
 > 
-> The combined cash compensation for the top two executives comes to roughly $2.15M, which matches the memo's stated figure and represents about 30.7% of the company's annual burn rate. I'm also cross-checking the insider ownership breakdown—the ~9.5M options attributed to Kumar and Catelani align with the beneficial ownership disclosure, while the actual owned shares of ~1.8M represent the real equity stake.
+> The combined cash compensation for the top two executives comes to roughly $2.15M, which matches the memo's stated figure and represents about 30.7% of the company's annual burn rate. I'm also cross-checking the insider ownership breakdown—the ≈9.5M options attributed to Kumar and Catelani align with the beneficial ownership disclosure, while the actual owned shares of ≈1.8M represent the real equity stake.
 > 
 > On the NOL analysis, I couldn't independently verify the exact federal and state loss carryforwards, but the internal consistency checks out: the figures cited add up correctly, and the conclusion that these NOLs are effectively worthless due to the full valuation allowance and Section 382 limitations is sound reasoning regardless of the precise amounts. The balance sheet confirms this—there's no deferred tax asset recorded despite the large NOL position.
 > 
@@ -1181,11 +1181,11 @@ false FY 0000715446 0000715446 2024-11-01 2025-10-31 0000715446 2025-04-30 00007
 
 _independent judge:_ score 92/100, best_in_existence=False
 
-  - GAP: Success-branch royalty value uses a 'peak × ~4' heuristic rather than an explicit year-by-year, launch-year-probability-adjusted royalty curve (ramp/peak/patent-cliff) a top biotech specialist would build
+  - GAP: Success-branch royalty value uses a 'peak × ≈4' heuristic rather than an explicit year-by-year, launch-year-probability-adjusted royalty curve (ramp/peak/patent-cliff) a top biotech specialist would build
 
-  - GAP: Asserts dilution but never sizes the actual Phase 2 neoadjuvant-Keytruda trial budget against the ~$14M cash to quantify the precise financing gap driving that dilution
+  - GAP: Asserts dilution but never sizes the actual Phase 2 neoadjuvant-Keytruda trial budget against the ≈$14M cash to quantify the precise financing gap driving that dilution
 
-  - GAP: The middling branch (25% @ $0.70, ~24% of EV) still rests on a partly-judgmental '30% chance of a ~$45M partnering event'; reasoned but not rigorously derived
+  - GAP: The middling branch (25% @ $0.70, ≈24% of EV) still rests on a partly-judgmental '30% chance of a ≈$45M partnering event'; reasoned but not rigorously derived
 
   - GAP: Exact federal/California NOL figures and the Section 382 ownership-change analysis are asserted from the tax note but not independently reproduced here (conclusion is nonetheless sound)
 
@@ -1195,9 +1195,9 @@ _independent judge:_ score 92/100, best_in_existence=False
 
 > I need to tighten up the financial modeling with more rigor. First, I'll build out an explicit year-by-year royalty projection for the success scenario—mapping a 12-year arc from 2033 launch through ramp, peak, and decline phases, then discounting everything back to today at 13%. Second, I need to quantify the actual financing gap by comparing the Phase 2 neoadjuvant-Keytruda trial budget against the $14M cash on hand. Third, I should derive that 30% partnering event probability in the middling branch more systematically rather than treating it as an assumption. I'm also noting the NOL and Section 382 implications that could affect valuation.
 > 
-> Let me work through the explicit royalty curve: assuming a 10% net royalty rate on peak sales of $1.5B, I'll model the ramp from year 1 (10% of peak) through year 8 (peak), then decline through patent cliff in year 11. Discounting each year's royalty back to launch and then to today validates whether my "$600M at launch" estimate holds up. I'm also factoring in milestone payments from a partner to get the full picture. For the Phase 2 budget, a combination oncology trial typically runs $20-50M depending on patient count and duration—against $14M cash plus ~$7M annual burn, that creates a clear $40-50M financing gap that would require ATM dilution. For the middling branch, I'm reframing it as the residual probability mass where programs stay alive but don't fully succeed—the value is the preserved net cash plus the conditional pipeline rNPV, which is cleaner than a single point estimate. On the NOL side, I'll add explicit math on the Section 382 haircut: the theoretical tax shield is ~$31M, but post-ownership-change limits reduce usable NOL to roughly $4M annually, so realizable value is only a few million.
+> Let me work through the explicit royalty curve: assuming a 10% net royalty rate on peak sales of $1.5B, I'll model the ramp from year 1 (10% of peak) through year 8 (peak), then decline through patent cliff in year 11. Discounting each year's royalty back to launch and then to today validates whether my "$600M at launch" estimate holds up. I'm also factoring in milestone payments from a partner to get the full picture. For the Phase 2 budget, a combination oncology trial typically runs $20-50M depending on patient count and duration—against $14M cash plus ≈$7M annual burn, that creates a clear $40-50M financing gap that would require ATM dilution. For the middling branch, I'm reframing it as the residual probability mass where programs stay alive but don't fully succeed—the value is the preserved net cash plus the conditional pipeline rNPV, which is cleaner than a single point estimate. On the NOL side, I'll add explicit math on the Section 382 haircut: the theoretical tax shield is ≈$31M, but post-ownership-change limits reduce usable NOL to roughly $4M annually, so realizable value is only a few million.
 
-**PM note:** The valuation inputs are unchanged (FMV $0.74) — the remaining gaps are about *showing the work* more rigorously. Let me validate the success-branch royalty value with an explicit year-by-year curve, size the Phase 2 financing gap, derive the middling branch cleanly, and add the §382 haircut math. (My explicit royalty DCF below sums to ~$540M of royalties + ~$60–110M milestones ≈ $600–650M at launch, confirming the "peak × 4" heuristic.) Resubmitting the deepened memo.
+**PM note:** The valuation inputs are unchanged (FMV $0.74) — the remaining gaps are about *showing the work* more rigorously. Let me validate the success-branch royalty value with an explicit year-by-year curve, size the Phase 2 financing gap, derive the middling branch cleanly, and add the §382 haircut math. (My explicit royalty DCF below sums to ≈$540M of royalties + ≈$60–110M milestones ≈ $600–650M at launch, confirming the "peak × 4" heuristic.) Resubmitting the deepened memo.
 
 ### ⚙️ `submit_final`
 
@@ -1210,8 +1210,8 @@ _gate verdict:_ ACCEPTED.
   _reviewer note:_ This fourth revision only adds further supporting detail (an explicit year-by-year royalty curve, a Phase 2 financing-gap build-up, and an NOL haircut calculation) — all of which are internally consistent and directionally conservative. None changes the headline FMV ($0.74), and I already returned zero concerns in the prior two rounds.
 
 Quick re-verification of the new additions:
-- **Royalty curve (§6.1):** Sums to ~$540M royalties + $60–110M milestones = ~$600–650M at launch, ÷1.13^7 (2.353) ≈ $276M today — reproduces the earlier "peak × 4" heuristic. Math checks.
-- **NOL haircut (§4):** $106.3M × 21% ≈ $22.3M + $68.6M × 8.84% ≈ $6.1M + $2.4M credits ≈ $31M gross shield, correctly written down to ~$0–3M for valuation-allowance + §382 reasons. Conservative and consistent with the filing.
+- **Royalty curve (§6.1):** Sums to ≈$540M royalties + $60–110M milestones = ≈$600–650M at launch, ÷1.13^7 (2.353) ≈ $276M today — reproduces the earlier "peak × 4" heuristic. Math checks.
+- **NOL haircut (§4):** $106.3M × 21% ≈ $22.3M + $68.6M × 8.84% ≈ $6.1M + $2.4M credits ≈ $31M gross shield, correctly written down to ≈$0–3M for valuation-allowance + §382 reasons. Conservative and consistent with the filing.
 -
 
 **🔬 Judge's own verification (independent fact-check):**
@@ -1241,11 +1241,11 @@ _independent judge:_ score 94/100, best_in_existence=True
 
 ## 1. Executive Summary & Recommendation
 
-Anixa Biosciences is not an operating company in any cash-flow sense — it is a **portfolio of in-licensed, early-stage oncology "shots on goal" wrapped around a ~$14M pile of U.S. Treasury bills.** It has no product revenue, burns ~$7M/year, and by design will never manufacture or sell a drug: its stated model is to advance licensed assets to a value-inflection point and **out-license them to large pharma**, keeping milestones and royalties.
+Anixa Biosciences is not an operating company in any cash-flow sense — it is a **portfolio of in-licensed, early-stage oncology "shots on goal" wrapped around a ≈$14M pile of U.S. Treasury bills.** It has no product revenue, burns ≈$7M/year, and by design will never manufacture or sell a drug: its stated model is to advance licensed assets to a value-inflection point and **out-license them to large pharma**, keeping milestones and royalties.
 
-Because there are no earnings and no operating cash flow, DCF-of-the-firm and earnings multiples are not merely imprecise — they are the *wrong instruments*. The defensible frame is **net asset value + probability-weighted, time-discounted rNPV of the pipeline, net of financing dilution.** Worked through, the distribution-integrated **fair market value is ≈ $0.74 per share**, within a confidence band of **~$0.42–$1.40**, anchored by a hard **net-cash floor of ~$0.38/share.**
+Because there are no earnings and no operating cash flow, DCF-of-the-firm and earnings multiples are not merely imprecise — they are the *wrong instruments*. The defensible frame is **net asset value + probability-weighted, time-discounted rNPV of the pipeline, net of financing dilution.** Worked through, the distribution-integrated **fair market value is ≈ $0.74 per share**, within a confidence band of **≈$0.42–$1.40**, anchored by a hard **net-cash floor of ≈$0.38/share.**
 
-**Recommendation — AVOID / fundamentally overvalued (underweight; short only with strict risk controls).** Against the recent share price of **~$2.70**, my $0.74 FMV implies **~73% downside.** The market is valuing ANIX at roughly **$90M** of equity — i.e., paying ~$77M for a pipeline I value, risk-adjusted, at ~$15M, which is only justifiable if one assigns the breast-cancer vaccine a probability of success many multiples of the historical base rate *and* ignores the dilution, the royalty pass-through, and the time value of a ~2033 launch. I do not recommend an aggressive short because ANIX is a heavily-promoted, small-float, retail-favored name prone to violent catalyst-driven squeezes (§8); the cleaner expression is to avoid the equity. The asymmetry runs the *wrong* way for a long: ~64% of the probability mass sits near the cash floor, while the entire bull case rests on a thin ~6% tail.
+**Recommendation — AVOID / fundamentally overvalued (underweight; short only with strict risk controls).** Against the recent share price of **≈$2.70**, my $0.74 FMV implies **≈73% downside.** The market is valuing ANIX at roughly **$90M** of equity — i.e., paying ≈$77M for a pipeline I value, risk-adjusted, at ≈$15M, which is only justifiable if one assigns the breast-cancer vaccine a probability of success many multiples of the historical base rate *and* ignores the dilution, the royalty pass-through, and the time value of a ≈2033 launch. I do not recommend an aggressive short because ANIX is a heavily-promoted, small-float, retail-favored name prone to violent catalyst-driven squeezes (§8); the cleaner expression is to avoid the equity. The asymmetry runs the *wrong* way for a long: ≈64% of the probability mass sits near the cash floor, while the entire bull case rests on a thin ≈6% tail.
 
 ## 2. Business Deep-Dive — How Anixa Is Built to (Maybe) Make Money
 
@@ -1255,7 +1255,7 @@ Anixa (formerly ITUS Corporation; renamed 2018; incorporated 1982; San Jose, CA)
 
 1. **Breast-cancer vaccine (lead asset)** — licensed from the **Cleveland Clinic** (Dr. Vincent Tuohy). It targets **α-lactalbumin**, a "retired" protein expressed only during lactation but re-expressed in many breast cancers, especially triple-negative breast cancer (TNBC). It is an **off-the-shelf peptide vaccine** (a single shared antigen) — *not* a personalized neoantigen vaccine — implying low cost of goods and broad applicability, a genuine differentiator versus Moderna/BioNTech. Phase 1 (35 patients, three cohorts) is **complete**; at SABCS in December 2025 the company reported **all primary endpoints met, protocol-defined immune responses in 74% of subjects, and clean safety** at the maximum tolerated dose. It is moving to **Phase 2** (planned neoadjuvant Keytruda combination; Cytovance contracted for cGMP manufacturing). The **Phase 1 was 100% funded by a U.S. Department of Defense grant to the Cleveland Clinic** — Anixa paid essentially nothing.
 
-2. **Ovarian-cancer CAR-T "lira-cel" (liraltagene autoleucel)** — held in 96%-owned **Certainty Therapeutics**, which licenses **Wistar Institute** IP (Wistar owns ~4.1% of Certainty). It is a *chimeric endocrine receptor* T-cell engineered with FSH to target the FSH-receptor on ovarian-cancer cells and tumor vasculature. A Phase 1 dose-escalation at **Moffitt** is ongoing (four cohorts dosed, all well-tolerated; the first three were *expected to be sub-therapeutic*). Efficacy is **anecdotal** (survival beyond expectation, one patient at 28 months) — **no RECIST responses yet.** Anixa funds this (~$2M/yr).
+2. **Ovarian-cancer CAR-T "lira-cel" (liraltagene autoleucel)** — held in 96%-owned **Certainty Therapeutics**, which licenses **Wistar Institute** IP (Wistar owns ≈4.1% of Certainty). It is a *chimeric endocrine receptor* T-cell engineered with FSH to target the FSH-receptor on ovarian-cancer cells and tumor vasculature. A Phase 1 dose-escalation at **Moffitt** is ongoing (four cohorts dosed, all well-tolerated; the first three were *expected to be sub-therapeutic*). Efficacy is **anecdotal** (survival beyond expectation, one patient at 28 months) — **no RECIST responses yet.** Anixa funds this (≈$2M/yr).
 
 3. **Ovarian-cancer preventative vaccine (AMHR2-ED)** — licensed from the Cleveland Clinic; **preclinical**, but in the **NCI PREVENT program**, so the NCI performs essentially all preclinical/IND-enabling work at its own expense.
 
@@ -1269,11 +1269,11 @@ Anixa (formerly ITUS Corporation; renamed 2018; incorporated 1982; San Jose, CA)
 
 Specialists value pre-revenue biotech with **rNPV**: peak commercial value if approved × probability of success (PoS) at each stage, minus cost/time to get there, discounted to today. The decisive input is PoS, and Anixa sits in the two *least* forgiving modalities in oncology:
 
-- **Oncology overall, Phase 1 → approval:** ~5.3% (BIO 2011–2020) to ~3.4% (MIT/Wong) — the lowest of all major disease areas.
-- **Solid-tumor CAR-T:** the headline ~17% CAR-T LOA is driven *entirely by blood cancers.* **Zero CAR-T therapies are approved for solid tumors, ever** (antigen heterogeneity, immunosuppressive microenvironment, poor penetration). Ovarian CAR-T is all early-phase with no durable responses.
+- **Oncology overall, Phase 1 → approval:** ≈5.3% (BIO 2011–2020) to ≈3.4% (MIT/Wong) — the lowest of all major disease areas.
+- **Solid-tumor CAR-T:** the headline ≈17% CAR-T LOA is driven *entirely by blood cancers.* **Zero CAR-T therapies are approved for solid tumors, ever** (antigen heterogeneity, immunosuppressive microenvironment, poor penetration). Ovarian CAR-T is all early-phase with no durable responses.
 - **Therapeutic/preventative cancer vaccines:** **one** therapeutic cancer vaccine has ever been approved (Provenge — whose maker went bankrupt). **No non-viral *preventative* cancer vaccine has ever been approved.** The graveyard is deep (Gritstone bankrupt on weak Phase 2; BioNTech's melanoma Phase 2 missed). The "33.4% for vaccines" base rate refers to *infectious-disease* vaccines and must not be used here.
 
-The prize, if won, is large. TNBC is ~10–15% of ~310,000 US breast-cancer diagnoses (~35,000–45,000/yr US; ~200,000–280,000 worldwide). A vaccine — almost certainly used in checkpoint-inhibitor combination — could be a **$1–4B peak-sales asset** in a defined setting; Anixa's *off-the-shelf, preventative* angle creates a genuinely larger ceiling (84M US women 40+) but demands the longest, costliest, most novel trials in drug development.
+The prize, if won, is large. TNBC is ≈10–15% of ≈310,000 US breast-cancer diagnoses (≈35,000–45,000/yr US; ≈200,000–280,000 worldwide). A vaccine — almost certainly used in checkpoint-inhibitor combination — could be a **$1–4B peak-sales asset** in a defined setting; Anixa's *off-the-shelf, preventative* angle creates a genuinely larger ceiling (84M US women 40+) but demands the longest, costliest, most novel trials in drug development.
 
 ## 4. Financial Analysis
 
@@ -1283,25 +1283,25 @@ The prize, if won, is large. TNBC is ~10–15% of ~310,000 US breast-cancer diag
 | Net income ($K) | (12,947) | (13,595) | (9,811) | (12,554) | (10,927) |
 | Operating cash flow ($K) | (4,938) | (6,492) | (6,209) | (7,335) | (7,173) |
 | Stock-based comp ($K) | — | — | — | 4,782 | 3,810 |
-| Cash + ST investments ($K) | ~29,100 | ~12,400 | ~ | ~ | **15,174** |
+| Cash + ST investments ($K) | ≈29,100 | ≈12,400 | ≈ | ≈ | **15,174** |
 | Common equity ($K) | 35,437 | 29,047 | 24,337 | 19,998 | 15,161 |
 | Shares (M) | 28.6 | 30.4 | 31.0 | 31.9 | 32.5 |
 
-The classic clinical-stage glide path: equity/cash consumed by ~$7M/yr burn, partly refilled by ATM issuance. **~Half of the GAAP net loss is non-cash stock-based comp** ($3.8M of the $10.9M FY2025 loss); true *cash* burn is ~$7M.
+The classic clinical-stage glide path: equity/cash consumed by ≈$7M/yr burn, partly refilled by ATM issuance. **≈Half of the GAAP net loss is non-cash stock-based comp** ($3.8M of the $10.9M FY2025 loss); true *cash* burn is ≈$7M.
 
-**Balance sheet (Jan 31, 2026):** total assets $15.2M; total liabilities just $1.4M (no real debt). Liquid assets **$14.2M** ($12.6M U.S. Treasuries, ~$1.5M MMF, a *trivial* ~$9K Bitcoin ETF). **Net current asset value ≈ $13.7M; conservative net liquid value ≈ $12.8M ≈ $0.38/share** (the floor). **~2 years of runway** before further dilution; a $100M ATM is tapped regularly.
+**Balance sheet (Jan 31, 2026):** total assets $15.2M; total liabilities just $1.4M (no real debt). Liquid assets **$14.2M** ($12.6M U.S. Treasuries, ≈$1.5M MMF, a *trivial* ≈$9K Bitcoin ETF). **Net current asset value ≈ $13.7M; conservative net liquid value ≈ $12.8M ≈ $0.38/share** (the floor). **≈2 years of runway** before further dilution; a $100M ATM is tapped regularly.
 
-**Tax assets (NOLs) — explicit haircut.** Anixa carries **~$106.3M federal and ~$68.6M California NOLs** plus ~$2.4M federal credits; gross deferred tax asset of **$39.4M is 100% offset by a valuation allowance** (net DTA = $0). The *theoretical* gross shield is ~$106.3M × 21% ≈ $22.3M federal + $68.6M × 8.84% ≈ $6.1M state + $2.4M credits ≈ **~$31M** — but it is worth a small fraction of that because: (a) it requires future taxable income, which the pipeline odds make unlikely on a standalone basis; (b) the company **has not completed a Section 382 study**, and decades of ATM issuance make ownership changes near-certain, so in any acquisition annual NOL use is capped at roughly *(pre-change equity value × the ~4.5% long-term tax-exempt rate)* ≈ only ~$4M/yr of NOL — a PV of a few $M at most. **Realizable NOL salvage ≈ $0–3M** (I embed ~$2M in the failure branch). This is *not* hidden value.
+**Tax assets (NOLs) — explicit haircut.** Anixa carries **≈$106.3M federal and ≈$68.6M California NOLs** plus ≈$2.4M federal credits; gross deferred tax asset of **$39.4M is 100% offset by a valuation allowance** (net DTA = $0). The *theoretical* gross shield is ≈$106.3M × 21% ≈ $22.3M federal + $68.6M × 8.84% ≈ $6.1M state + $2.4M credits ≈ **≈$31M** — but it is worth a small fraction of that because: (a) it requires future taxable income, which the pipeline odds make unlikely on a standalone basis; (b) the company **has not completed a Section 382 study**, and decades of ATM issuance make ownership changes near-certain, so in any acquisition annual NOL use is capped at roughly *(pre-change equity value × the ≈4.5% long-term tax-exempt rate)* ≈ only ≈$4M/yr of NOL — a PV of a few $M at most. **Realizable NOL salvage ≈ $0–3M** (I embed ≈$2M in the failure branch). This is *not* hidden value.
 
-**Share count reconciliation.** Basic **33,463,440** (Jan 31, 2026). Options **13,897,094** at blended ~$3.55 strike (mostly OTM). Warrants 300,000 at $6.56 **expired worthless** (~Mar 2026). Series A preferred: **140 authorized, ZERO outstanding** — no senior claim, no conversion. **Fully-diluted ceiling ≈ 47.4M.** I use a *value-state-dependent* count: floor/failure/middling branches ~37–40M (options deeply OTM there), success branch ~52M (options ITM + ATM financing). The dossier's ~40M is the probability-weighted effective count.
+**Share count reconciliation.** Basic **33,463,440** (Jan 31, 2026). Options **13,897,094** at blended ≈$3.55 strike (mostly OTM). Warrants 300,000 at $6.56 **expired worthless** (≈Mar 2026). Series A preferred: **140 authorized, ZERO outstanding** — no senior claim, no conversion. **Fully-diluted ceiling ≈ 47.4M.** I use a *value-state-dependent* count: floor/failure/middling branches ≈37–40M (options deeply OTM there), success branch ≈52M (options ITM + ATM financing). The dossier's ≈40M is the probability-weighted effective count.
 
 ## 5. Management, Compensation & Alignment (the "promotional" thesis, quantified)
 
 The investor-relations cadence is **relentlessly promotional** (international patent allowances, RedChip/Bloomberg/Water Tower hits, an actively-marketing CEO). The proxy quantifies the concern:
 
-- **CEO compensation:** Dr. Amit Kumar earned **$2.55M (FY2025), $3.48M (FY2024), ~$3.6M (FY2023)** — heavy for a pre-revenue, ~$7M-burn microcap. President/CFO Michael Catelani (the *only* other named officer) earned **$1.30M / $1.76M / $1.97M.** Combined top-2 *cash* comp (~$2.15M FY2025) consumes **~30% of total annual cash burn.**
-- **Dilution run-rate:** ~**1.44M options/yr** granted (NEOs take ~73%), ≈ **4.3% of the share base annually**; the 2018 plan auto-replenishes to 2.0M shares each January (capacity up to ~6%/yr). SBC expense $3.8M FY2025.
-- **Alignment is thinner than it looks:** all directors & officers show 26.4% beneficial ownership, but **~9.5M of those 11.3M shares are unexercised options** — actual *owned* shares are only **~1.8M (~5%).** Insider option exercises are cashless (Kumar's FY2025 exercise of 200,000 options netted just 29,887 shares). **No institutional/outside 5% holder is disclosed.**
+- **CEO compensation:** Dr. Amit Kumar earned **$2.55M (FY2025), $3.48M (FY2024), ≈$3.6M (FY2023)** — heavy for a pre-revenue, ≈$7M-burn microcap. President/CFO Michael Catelani (the *only* other named officer) earned **$1.30M / $1.76M / $1.97M.** Combined top-2 *cash* comp (≈$2.15M FY2025) consumes **≈30% of total annual cash burn.**
+- **Dilution run-rate:** ≈**1.44M options/yr** granted (NEOs take ≈73%), ≈ **4.3% of the share base annually**; the 2018 plan auto-replenishes to 2.0M shares each January (capacity up to ≈6%/yr). SBC expense $3.8M FY2025.
+- **Alignment is thinner than it looks:** all directors & officers show 26.4% beneficial ownership, but **≈9.5M of those 11.3M shares are unexercised options** — actual *owned* shares are only **≈1.8M (≈5%).** Insider option exercises are cashless (Kumar's FY2025 exercise of 200,000 options netted just 29,887 shares). **No institutional/outside 5% holder is disclosed.**
 
 The credible clinical signals remain real (breast Phase 1 endpoints met; CAR-T clean safety; FY2025 R&D fell to $5.1M). But the comp/dilution profile reinforces the view of a perpetually-diluting promotional vehicle and tempers any benefit-of-the-doubt on PoS.
 
@@ -1310,13 +1310,13 @@ The credible clinical signals remain real (breast Phase 1 endpoints met; CAR-T c
 Each PoS is built base rate → asset-specific adjustment → adopted.
 
 **Breast-cancer vaccine (α-lactalbumin).**
-- *Base rate:* having **completed Phase 1**, the relevant figure is Phase-2-entry → approval. For oncology: Ph2→3 (~25%) × Ph3→filing (~35%) × filing→approval (~85%) ≈ **~7%**. The therapeutic cancer-*vaccine* track record (one approval ever; Phase 2→3 historically collapses) and the **absence of any preventative-endpoint regulatory precedent** argue for a discount below generic oncology.
+- *Base rate:* having **completed Phase 1**, the relevant figure is Phase-2-entry → approval. For oncology: Ph2→3 (≈25%) × Ph3→filing (≈35%) × filing→approval (≈85%) ≈ **≈7%**. The therapeutic cancer-*vaccine* track record (one approval ever; Phase 2→3 historically collapses) and the **absence of any preventative-endpoint regulatory precedent** argue for a discount below generic oncology.
 - *Adjustment up:* clean Phase 1, strong protocol-defined immunogenicity (74%), safety; validated, published mechanism (Nature Medicine 2016 — complete prevention in transgenic mice); off-the-shelf manufacturing; DoD funding. *Adjustment down:* immunogenicity ≠ efficacy (no efficacy data exists); preventative trials are long/novel/endpoint-uncertain.
 - *Adopted PoS: **6%*** (range 4–10%).
 
-**Ovarian CAR-T (lira-cel).** Base: solid-tumor CAR-T = **0% approved**; early oncology ~3–5%. Up: novel high-specificity FSHR target, clean safety, survival anecdotes, Moffitt. Down: sub-therapeutic dosing, no objective responses, field has failed to convert. **Adopted ~4%.**
+**Ovarian CAR-T (lira-cel).** Base: solid-tumor CAR-T = **0% approved**; early oncology ≈3–5%. Up: novel high-specificity FSHR target, clean safety, survival anecdotes, Moffitt. Down: sub-therapeutic dosing, no objective responses, field has failed to convert. **Adopted ≈4%.**
 
-**AMHR2 ovarian preventative vaccine.** Preclinical, NCI-funded. Base ~2–3%; **adopted ~2%.**
+**AMHR2 ovarian preventative vaccine.** Preclinical, NCI-funded. Base ≈2–3%; **adopted ≈2%.**
 
 **Discovery program.** Nominal optionality.
 
@@ -1324,11 +1324,11 @@ Each PoS is built base rate → asset-specific adjustment → adopted.
 
 **Why not DCF/multiples?** No revenue, no positive EBITDA, no normalized earnings. The only defensible frame is **NAV + probability-weighted rNPV**, integrated as a **composite of four event branches**, each carrying its proper present value.
 
-**Discount-rate build-up (systematic risk only — technical risk is already in the PoS):** risk-free ~4.3% (10-yr Treasury) + β≈1.2 × ERP 5% + nano-cap size/illiquidity premium ~4.5% ≈ **~14–15% cost of equity.** I use **13%** centrally and test 11–15%.
+**Discount-rate build-up (systematic risk only — technical risk is already in the PoS):** risk-free ≈4.3% (10-yr Treasury) + β≈1.2 × ERP 5% + nano-cap size/illiquidity premium ≈4.5% ≈ **≈14–15% cost of equity.** I use **13%** centrally and test 11–15%.
 
 ### 6.1 Success-branch royalty curve (explicit, not a heuristic)
 
-Rather than a "peak × multiple" shortcut, I model Anixa's net royalty year-by-year. Assume launch ~2033, peak net sales **$1.5B**, Anixa **net royalty ~10%** (≈12–15% from the pharma licensee less the Cleveland Clinic pass-through) → peak royalty **$150M/yr**, with a ~4-year ramp, a ~4-year plateau, then patent-cliff erosion (LoE ~2042–2044). Discounting each year's royalty to launch at 13%:
+Rather than a "peak × multiple" shortcut, I model Anixa's net royalty year-by-year. Assume launch ≈2033, peak net sales **$1.5B**, Anixa **net royalty ≈10%** (≈12–15% from the pharma licensee less the Cleveland Clinic pass-through) → peak royalty **$150M/yr**, with a ≈4-year ramp, a ≈4-year plateau, then patent-cliff erosion (LoE ≈2042–2044). Discounting each year's royalty to launch at 13%:
 
 | Yr post-launch | % of peak sales | Anixa royalty ($M) | PV @13% to launch ($M) |
 |---|---|---|---|
@@ -1346,19 +1346,19 @@ Rather than a "peak × multiple" shortcut, I model Anixa's net royalty year-by-y
 | 12 | 15% | 22.5 | 5.2 |
 | **Total royalties** | | | **≈ $540M** |
 
-Add PV (to launch) of development/regulatory + sales milestones Anixa would collect from the licensee, ~$60–110M → **total ≈ $600–650M at launch.** Discount 7 years (today→2033) at 13% (÷2.353) → **≈ $276M today.** + ~$13M net cash = ~$289M; **/ ~52M shares** (ITM options + ATM financing dilution) = **~$5.55/share** in the success state. (This explicit build confirms the earlier "peak × ~4" approximation.)
+Add PV (to launch) of development/regulatory + sales milestones Anixa would collect from the licensee, ≈$60–110M → **total ≈ $600–650M at launch.** Discount 7 years (today→2033) at 13% (÷2.353) → **≈ $276M today.** + ≈$13M net cash = ≈$289M; **/ ≈52M shares** (ITM options + ATM financing dilution) = **≈$5.55/share** in the success state. (This explicit build confirms the earlier "peak × ≈4" approximation.)
 
 ### 6.2 Sizing the Phase 2 financing gap (driver of the dilution)
 
-A randomized **neoadjuvant TNBC Phase 2 in combination with Keytruda** (newly-diagnosed patients) typically runs ~100–200 patients over ~3–4 years; oncology combination Phase 2 trials cost **~$20–40M**, plus the Cytovance cGMP manufacturing scale-up. Against **$14.2M cash** and ~$7M/yr corporate overhead, the multi-year need is roughly **$25–40M (trial) + ~$25M (overhead) ≈ $50–65M**, versus ~$14M on hand → a **financing gap of ~$40–50M.** Funded via the $100M ATM at depressed prices (~$2/share → ~+20M shares), this is exactly why the success branch is modeled on ~52M shares and why dilution is a first-order value driver. *Mitigant:* Anixa's playbook is to offload trial cost to grants/partners (as DoD did for Phase 1); a DoD/partner-funded Phase 2 would shrink this gap materially — an upside risk to my dilution assumption, captured in the band.
+A randomized **neoadjuvant TNBC Phase 2 in combination with Keytruda** (newly-diagnosed patients) typically runs ≈100–200 patients over ≈3–4 years; oncology combination Phase 2 trials cost **≈$20–40M**, plus the Cytovance cGMP manufacturing scale-up. Against **$14.2M cash** and ≈$7M/yr corporate overhead, the multi-year need is roughly **$25–40M (trial) + ≈$25M (overhead) ≈ $50–65M**, versus ≈$14M on hand → a **financing gap of ≈$40–50M.** Funded via the $100M ATM at depressed prices (≈$2/share → ≈+20M shares), this is exactly why the success branch is modeled on ≈52M shares and why dilution is a first-order value driver. *Mitigant:* Anixa's playbook is to offload trial cost to grants/partners (as DoD did for Phase 1); a DoD/partner-funded Phase 2 would shrink this gap materially — an upside risk to my dilution assumption, captured in the band.
 
 ### 6.3 Middling branch — cleaner derivation
 
-The 25% "middling" mass is the set of states where the company neither fully commercializes nor fully fails within the horizon — programs advance and retain rNPV / achieve partial monetization. Its value = **net cash (~$13M, refreshed via ATM, ~value-neutral) + the pipeline's rNPV re-concentrated into surviving states.** The whole-company *unconditional* pipeline rNPV is ~$15M; conditional on "alive and advancing" (failure mass removed), the surviving-state pipeline value is ~$14–15M. So value ≈ $13M + $14M = ~$27M, **/ ~38M shares = ~$0.70/share.** (Equivalently: a ~30% within-branch probability of a ~$45M partnering event ≈ $13.5M expected — same answer by a different route.)
+The 25% "middling" mass is the set of states where the company neither fully commercializes nor fully fails within the horizon — programs advance and retain rNPV / achieve partial monetization. Its value = **net cash (≈$13M, refreshed via ATM, ≈value-neutral) + the pipeline's rNPV re-concentrated into surviving states.** The whole-company *unconditional* pipeline rNPV is ≈$15M; conditional on "alive and advancing" (failure mass removed), the surviving-state pipeline value is ≈$14–15M. So value ≈ $13M + $14M = ≈$27M, **/ ≈38M shares = ≈$0.70/share.** (Equivalently: a ≈30% within-branch probability of a ≈$45M partnering event ≈ $13.5M expected — same answer by a different route.)
 
 ### 6.4 Failure branch
 
-~2 more years of burn with ATM issuance at falling prices; residual cash ~$6M + NOL/asset salvage ~$2M (§6 haircut) = ~$8M, **/ ~40M shares = ~$0.22/share.**
+≈2 more years of burn with ATM issuance at falling prices; residual cash ≈$6M + NOL/asset salvage ≈$2M (§6 haircut) = ≈$8M, **/ ≈40M shares = ≈$0.22/share.**
 
 ### 6.5 The composite
 
@@ -1374,31 +1374,31 @@ The 25% "middling" mass is the set of states where the company neither fully com
 
 | | Peak $1.0B | Peak $1.5B | Peak $3.0B |
 |---|---|---|---|
-| **Breast PoS 4%** | ~$0.46 | ~$0.52 | ~$0.70 |
-| **Breast PoS 6%** | ~$0.62 | **$0.74** | ~$1.00 |
-| **Breast PoS 10%** | ~$0.84 | ~$1.02 | ~$1.40 |
+| **Breast PoS 4%** | ≈$0.46 | ≈$0.52 | ≈$0.70 |
+| **Breast PoS 6%** | ≈$0.62 | **$0.74** | ≈$1.00 |
+| **Breast PoS 10%** | ≈$0.84 | ≈$1.02 | ≈$1.40 |
 
-**Sensitivity — discount rate (6% PoS, $1.5B peak):** 11% → ~$0.80; 13% → **$0.74**; 15% → ~$0.69.
+**Sensitivity — discount rate (6% PoS, $1.5B peak):** 11% → ≈$0.80; 13% → **$0.74**; 15% → ≈$0.69.
 
 ## 6b. Cross-Checks (Quantitative)
 
-**(1) Implied EV.** FMV $0.74 × ~38M ≈ $28M equity; less $13M cash ≈ **~$15M for the whole pipeline** — reasonable for ~6% PoS on an asset that might fetch a ~$40–50M upfront + milestones + royalties.
+**(1) Implied EV.** FMV $0.74 × ≈38M ≈ $28M equity; less $13M cash ≈ **≈$15M for the whole pipeline** — reasonable for ≈6% PoS on an asset that might fetch a ≈$40–50M upfront + milestones + royalties.
 
-**(2) Transaction comps, normalized to a single Phase-1/2 asset.** Single-asset (not platform) benchmarks: Vaximm/BCM oral cancer-immunotherapy **$20M upfront / $815M biobucks**; Adaptimmune TCR-T (near-approval, distressed) **$55M upfront + $30M milestones**; Galapagos/Adaptimmune uza-cel Phase 1 **option-to-license** (small upfront). (I exclude platform deals — Merck/Moderna $250M option, CureVac/GSK €400M, Nurix/Seagen $60M/$3.4B — as non-comparable.) Normalized: a single de-risked Phase-1/2 cancer-vaccine asset commands **~$20–55M upfront, a few-hundred-million biobucks, high-single-to-mid-teens royalties.** Risk-adjusting by ~6% PoS and discounting → ~$10–25M of value to Anixa, consistent with my ~$15M pipeline EV and far below the ~$77M the market pays.
+**(2) Transaction comps, normalized to a single Phase-1/2 asset.** Single-asset (not platform) benchmarks: Vaximm/BCM oral cancer-immunotherapy **$20M upfront / $815M biobucks**; Adaptimmune TCR-T (near-approval, distressed) **$55M upfront + $30M milestones**; Galapagos/Adaptimmune uza-cel Phase 1 **option-to-license** (small upfront). (I exclude platform deals — Merck/Moderna $250M option, CureVac/GSK €400M, Nurix/Seagen $60M/$3.4B — as non-comparable.) Normalized: a single de-risked Phase-1/2 cancer-vaccine asset commands **≈$20–55M upfront, a few-hundred-million biobucks, high-single-to-mid-teens royalties.** Risk-adjusting by ≈6% PoS and discounting → ≈$10–25M of value to Anixa, consistent with my ≈$15M pipeline EV and far below the ≈$77M the market pays.
 
-**(3) Net-cash floor.** Pipeline at zero still supports **~$0.38/share** — the margin-of-safety anchor.
+**(3) Net-cash floor.** Pipeline at zero still supports **≈$0.38/share** — the margin-of-safety anchor.
 
 ## 6c. Rebutting the Sell-Side $9–14 "Strong Buy" Targets
 
-A $9 target × ~34M shares ≈ **$300M** — *almost exactly the full, unrisked success-PV of the breast vaccine alone* (~$276M + cash). Those targets **price the lottery ticket as if it has already been won.** The errors: (1) **PoS inflation** — applying liquid-tumor CAR-T (~17%) or infectious-vaccine (~33%) rates to solid-tumor CAR-T and a therapeutic/preventative cancer vaccine (true ~0–6%); treating 74% immunogenicity as efficacy. (2) **Unrisked peak sales** ($5–10B prevention TAM with little PoS multiplication). (3) **No time discounting** (the 7-year discount alone cuts value ~55%). (4) **Ignoring royalty pass-through** to Cleveland Clinic/Wistar (overstates Anixa's share 30–50%). (5) **Ignoring dilution** (~4.3%/yr options + $100M ATM). Correct any one and the targets halve; correct all five and you arrive near $0.74.
+A $9 target × ≈34M shares ≈ **$300M** — *almost exactly the full, unrisked success-PV of the breast vaccine alone* (≈$276M + cash). Those targets **price the lottery ticket as if it has already been won.** The errors: (1) **PoS inflation** — applying liquid-tumor CAR-T (≈17%) or infectious-vaccine (≈33%) rates to solid-tumor CAR-T and a therapeutic/preventative cancer vaccine (true ≈0–6%); treating 74% immunogenicity as efficacy. (2) **Unrisked peak sales** ($5–10B prevention TAM with little PoS multiplication). (3) **No time discounting** (the 7-year discount alone cuts value ≈55%). (4) **Ignoring royalty pass-through** to Cleveland Clinic/Wistar (overstates Anixa's share 30–50%). (5) **Ignoring dilution** (≈4.3%/yr options + $100M ATM). Correct any one and the targets halve; correct all five and you arrive near $0.74.
 
 ## 7. Probability-Weighted Outcome Distribution
 
-One fair value, not a bull/bear pair. The distribution is **heavily right-skewed and bimodal**: ~64% of probability mass clusters near the cash floor, while a thin ~6% tail carries ~45% of expected value (a working breast vaccine). Key swing variables: **breast PoS (4–10%, central 6%)** — dominant lever (~$0.07/share per point); **peak sales / net royalty ($1–4B; 8–12%)** — ~2× swing; **timing/dilution (2029–2034)**; **secondary success (~5% combined)** — capped by solid-tumor CAR-T's zero precedent. Integrating honestly → **$0.74**, central spread **~$0.42 to ~$1.40**, floor ~$0.38.
+One fair value, not a bull/bear pair. The distribution is **heavily right-skewed and bimodal**: ≈64% of probability mass clusters near the cash floor, while a thin ≈6% tail carries ≈45% of expected value (a working breast vaccine). Key swing variables: **breast PoS (4–10%, central 6%)** — dominant lever (≈$0.07/share per point); **peak sales / net royalty ($1–4B; 8–12%)** — ≈2× swing; **timing/dilution (2029–2034)**; **secondary success (≈5% combined)** — capped by solid-tumor CAR-T's zero precedent. Integrating honestly → **$0.74**, central spread **≈$0.42 to ≈$1.40**, floor ≈$0.38.
 
 ## 8. Risks & Short-Execution Analysis
 
-**Fundamental risks:** modality risk (near-zero approval precedent); efficacy gap (immunogenicity ≠ benefit); dilution (≈2-yr runway, ~4.3% option dilution/yr, ATM); economic leakage (licenses, not IP); preventative-trial feasibility; concentrated key-person/promotional risk; thin real insider ownership (~5%).
+**Fundamental risks:** modality risk (near-zero approval precedent); efficacy gap (immunogenicity ≠ benefit); dilution (≈2-yr runway, ≈4.3% option dilution/yr, ATM); economic leakage (licenses, not IP); preventative-trial feasibility; concentrated key-person/promotional risk; thin real insider ownership (≈5%).
 
 **Short-execution risks (why "avoid," not "aggressively short"):** small-float, retail-heavy, heavily-promoted name generating near-continuous catalyst headlines that can spark **violent short squeezes**; borrow can be expensive/limited; the persistent **ATM overhang** caps sustained rallies but timing around binary news is treacherous. Short only sized small, hedged, drawdown-tolerant; for most mandates, simply **do not own it.**
 
@@ -1406,7 +1406,7 @@ One fair value, not a bull/bear pair. The distribution is **heavily right-skewed
 
 ## 9. Conclusion
 
-Anixa is a **lottery ticket stapled to a T-bill account.** The T-bill account (~$0.38/share) is real and nearly debt-free. The lottery ticket — chiefly an off-the-shelf TNBC vaccine with a novel, validated mechanism and a clean Phase 1 — adds, probability-weighted and discounted, roughly $0.36/share. The honest, distribution-integrated **fair market value is ≈ $0.74/share** (band ~$0.42–$1.40; floor ~$0.38). Against a ~$2.70 market price, that is **~73% downside**, and the recommendation is **AVOID** (underweight; short only with strict risk controls). My conviction is moderate (~0.45): the *method* and the *floor* are rock-solid, but the headline is unavoidably governed by single-digit success probabilities in two of the hardest-to-win categories in all of oncology — which is exactly why the market's ~$90M valuation, implicitly underwriting near-certain success and ignoring a ~4%/yr dilution machine, is the mispricing.
+Anixa is a **lottery ticket stapled to a T-bill account.** The T-bill account (≈$0.38/share) is real and nearly debt-free. The lottery ticket — chiefly an off-the-shelf TNBC vaccine with a novel, validated mechanism and a clean Phase 1 — adds, probability-weighted and discounted, roughly $0.36/share. The honest, distribution-integrated **fair market value is ≈ $0.74/share** (band ≈$0.42–$1.40; floor ≈$0.38). Against a ≈$2.70 market price, that is **≈73% downside**, and the recommendation is **AVOID** (underweight; short only with strict risk controls). My conviction is moderate (≈0.45): the *method* and the *floor* are rock-solid, but the headline is unavoidably governed by single-digit success probabilities in two of the hardest-to-win categories in all of oncology — which is exactly why the market's ≈$90M valuation, implicitly underwriting near-certain success and ignoring a ≈4%/yr dilution machine, is the mispricing.
 
 
 
@@ -1421,21 +1421,21 @@ Anixa is a **lottery ticket stapled to a T-bill account.** The T-bill account (~
   "fair_value_high": 1.4,
   "valuation_method": "NAV + probability-weighted, time-discounted rNPV of pipeline (composite of event branches, explicit royalty curve), net of financing dilution; science-contingent pre-revenue biotech",
   "confidence": 0.45,
-  "thesis_summary": "Anixa is an asset-light, pre-revenue oncology developer = ~$12.8M net liquid assets (~$0.38/sh, essentially all Treasuries/MMF) plus the risk-adjusted value of an in-licensed pipeline it intends to out-license to pharma. The off-the-shelf alpha-lactalbumin TNBC vaccine (Phase 1 complete, all endpoints met, 74% immune response, DoD-funded) drives ~45% of expected value; ovarian CAR-T lira-cel and the AMHR2 ovarian vaccine are smaller, earlier, lower-probability options. Probability-weighted FMV ~$0.74/share vs ~$0.38 net-cash floor; distribution is right-skewed/bimodal, governed by single-digit success probabilities in cancer vaccines and solid-tumor CAR-T. At ~$2.70 the stock implies ~73% downside; recommendation AVOID/underweight. NOLs (~$175M) near-worthless (100% valuation allowance + Section 382); insiders own only ~5% in real shares amid ~4.3%/yr option dilution and a ~$40-50M Phase 2 financing gap.",
+  "thesis_summary": "Anixa is an asset-light, pre-revenue oncology developer = ≈$12.8M net liquid assets (≈$0.38/sh, essentially all Treasuries/MMF) plus the risk-adjusted value of an in-licensed pipeline it intends to out-license to pharma. The off-the-shelf alpha-lactalbumin TNBC vaccine (Phase 1 complete, all endpoints met, 74% immune response, DoD-funded) drives ≈45% of expected value; ovarian CAR-T lira-cel and the AMHR2 ovarian vaccine are smaller, earlier, lower-probability options. Probability-weighted FMV ≈$0.74/share vs ≈$0.38 net-cash floor; distribution is right-skewed/bimodal, governed by single-digit success probabilities in cancer vaccines and solid-tumor CAR-T. At ≈$2.70 the stock implies ≈73% downside; recommendation AVOID/underweight. NOLs (≈$175M) near-worthless (100% valuation allowance + Section 382); insiders own only ≈5% in real shares amid ≈4.3%/yr option dilution and a ≈$40-50M Phase 2 financing gap.",
   "key_value_drivers": [
-    "Breast-cancer vaccine PoS (central 6%) and peak sales / net royalty after Cleveland Clinic/Wistar pass-through (explicit royalty curve: ~$540M royalties + ~$60-110M milestones at launch)",
-    "Net liquid assets (~$14.2M) and cash-burn/dilution (~$7M/yr, ~2yr runway, ~4.3%/yr option dilution + $100M ATM; ~$40-50M Phase 2 financing gap)",
-    "Out-license economics; single-asset Phase-1/2 cancer-vaccine comps ~$20-55M upfront + biobucks + high-single-to-mid-teens royalties",
+    "Breast-cancer vaccine PoS (central 6%) and peak sales / net royalty after Cleveland Clinic/Wistar pass-through (explicit royalty curve: ≈$540M royalties + ≈$60-110M milestones at launch)",
+    "Net liquid assets (≈$14.2M) and cash-burn/dilution (≈$7M/yr, ≈2yr runway, ≈4.3%/yr option dilution + $100M ATM; ≈$40-50M Phase 2 financing gap)",
+    "Out-license economics; single-asset Phase-1/2 cancer-vaccine comps ≈$20-55M upfront + biobucks + high-single-to-mid-teens royalties",
     "Free/subsidized development via DoD (breast Phase 1) and NCI PREVENT (ovarian vaccine)",
     "Solid-tumor CAR-T lira-cel optionality (low probability, zero approved precedent)"
   ],
   "key_risks": [
-    "Cancer vaccines ~1 approval ever (Provenge); immunogenicity is not efficacy; no preventative-endpoint precedent",
+    "Cancer vaccines ≈1 approval ever (Provenge); immunogenicity is not efficacy; no preventative-endpoint precedent",
     "Solid-tumor CAR-T zero approvals ever; lira-cel efficacy anecdotal at sub-therapeutic doses",
-    "~2 years cash; ~1.4M options/yr (~4.3%) + ATM dilution; ~40% option overhang; ~$40-50M Phase 2 funding gap",
+    "≈2 years cash; ≈1.4M options/yr (≈4.3%) + ATM dilution; ≈40% option overhang; ≈$40-50M Phase 2 funding gap",
     "Anixa holds licenses only and shares upside with Cleveland Clinic/Wistar",
-    "Heavily promoted small-float name with short-squeeze/catalyst-pop risk; insiders own only ~5% in real shares",
-    "NOLs (~$175M) near-worthless due to 100% valuation allowance + undetermined Section 382 limitation"
+    "Heavily promoted small-float name with short-squeeze/catalyst-pop risk; insiders own only ≈5% in real shares",
+    "NOLs (≈$175M) near-worthless due to 100% valuation allowance + undetermined Section 382 limitation"
   ],
   "what_would_change_my_mind": [
     "Phase 2 clinical efficacy (not just immune response) for the breast vaccine",
@@ -1469,28 +1469,28 @@ Anixa is a **lottery ticket stapled to a T-bill account.** The T-bill account (~
     },
     {
       "source_kind": "filing",
-      "quote": "Federal NOL carryforward ~$106,253,000; California NOL ~$68,597,000; gross deferred tax asset $39,449K fully offset by a $39,449K valuation allowance; has not completed a Section 382 study",
+      "quote": "Federal NOL carryforward ≈$106,253,000; California NOL ≈$68,597,000; gross deferred tax asset $39,449K fully offset by a $39,449K valuation allowance; has not completed a Section 382 study",
       "accession": "10-K FY2025",
       "section": "Note 7 (Income Taxes)",
       "url": null
     },
     {
       "source_kind": "filing",
-      "quote": "CEO Amit Kumar FY2025 total compensation $2,546,684; ~1,440,000 options granted company-wide FY2025; all directors & officers beneficially own 26.4% but ~9.5M of 11.3M are options (actual owned shares ~1.8M / ~5%)",
+      "quote": "CEO Amit Kumar FY2025 total compensation $2,546,684; ≈1,440,000 options granted company-wide FY2025; all directors & officers beneficially own 26.4% but ≈9.5M of 11.3M are options (actual owned shares ≈1.8M / ≈5%)",
       "accession": "DEF 14A 2026",
       "section": "DEF 14A",
       "url": null
     },
     {
       "source_kind": "fundamentals",
-      "quote": "Total cash + short-term investments = $14,202K at Jan 31 2026; total liabilities ~$1.4M, no real debt; ~$7M/yr operating cash burn; 33,463,440 basic shares, ~47.4M fully diluted, zero preferred outstanding",
+      "quote": "Total cash + short-term investments = $14,202K at Jan 31 2026; total liabilities ≈$1.4M, no real debt; ≈$7M/yr operating cash burn; 33,463,440 basic shares, ≈47.4M fully diluted, zero preferred outstanding",
       "accession": null,
       "section": null,
       "url": null
     },
     {
       "source_kind": "fundamentals",
-      "quote": "Oncology Phase 1 to approval LOA ~5.3% (BIO 2011-2020) / ~3.4% (MIT Wong); solid-tumor CAR-T zero approvals to date; therapeutic cancer vaccines only one approval ever (Provenge)",
+      "quote": "Oncology Phase 1 to approval LOA ≈5.3% (BIO 2011-2020) / ≈3.4% (MIT Wong); solid-tumor CAR-T zero approvals to date; therapeutic cancer vaccines only one approval ever (Provenge)",
       "accession": null,
       "section": null,
       "url": null
