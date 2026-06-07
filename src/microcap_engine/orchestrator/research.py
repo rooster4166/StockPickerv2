@@ -32,7 +32,7 @@ def research(
     *,
     ticker: str,
     model: str | None = None,
-    max_turns: int = 4,
+    max_turns: int = 3,
     max_tokens: int = 4000,
 ) -> str:
     """Run a bounded web-search research turn-loop; return the distilled answer."""

@@ -33,7 +33,7 @@ class Analyst:
     """One standing sub-analyst with its own role, memory, and tool access."""
 
     def __init__(self, client: LLMClient, ctx: toolkit.ToolContext, *, analyst_id: str,
-                 role: str, model: str, max_turns: int = 10):
+                 role: str, model: str, max_turns: int = 6):
         self.client = client
         self.ctx = ctx
         self.id = analyst_id
@@ -52,7 +52,9 @@ class Analyst:
             "lead with the conclusion, then the specific evidence. State explicitly what you could "
             "NOT determine and what you'd need. Do not hedge into mush — give the PM something it "
             "can act on. When the PM follows up, you already have all your prior context; go "
-            "deeper, don't repeat.\n"
+            "deeper, don't repeat. Be EFFICIENT: pull what you need decisively (batch tool "
+            "calls), avoid redundant or overlapping research calls, and converge on the answer — "
+            "you have a limited number of turns, so don't wander.\n"
             "GROUND EVERYTHING IN CITATIONS — non-negotiable. EVERY material claim, figure, "
             "and explanation must carry its source inline, and you must actually PULL that source "
             "with a tool before asserting it — never answer from memory alone. For a number, cite "
