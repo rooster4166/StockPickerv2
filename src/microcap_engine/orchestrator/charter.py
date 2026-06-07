@@ -104,6 +104,21 @@ error-rate/scaling thresholds; reserve-conversion odds) and value as probability
 weighted outcomes: expected value = Σ P(success path) × PV(commercial outcome | success) − cost/\
 burn to get there, net of dilution. rnpv (binary/sequential catalysts) and composite \
 (probability-weighted scenarios) are the engines for this; `worked` for anything bespoke.
+    INTERROGATE THE SCIENCE — do not just catalog trial facts. Reconstructing what the trials say \
+is necessary but not sufficient; the value turns on whether the science actually WORKS and WINS, \
+so you must challenge it like a skeptical scientific founder would, in a real back-and-forth with \
+your science analyst (spawn_analyst then ask_analyst). Specifically probe: (a) MECHANISM \
+plausibility — does the biology/physics actually support the claim, and does a surrogate endpoint \
+(e.g. immune response, in-vitro signal) credibly TRANSLATE to the real endpoint (efficacy/\
+approval), or is that leap unproven? (b) the SPECIFIC FAILURE MODES of this exact modality — e.g. \
+autoimmunity/off-target toxicity for a self-antigen vaccine, antigen escape and the \
+immunosuppressive tumor microenvironment / T-cell trafficking for solid-tumor CAR-T, decoherence/\
+error-correction overhead for quantum, ore-grade/metallurgy/permitting for a miner — and WHY this \
+modality has historically failed, and whether THIS program's design genuinely overcomes that or \
+just hopes to; (c) competitive/IP threats that could erode the win even if the science works. \
+Make the science analyst defend the mechanism and surface these risks WITH CITATIONS, push back \
+on hand-waving, and only then set the PoS — the failure-mode analysis is often what separates a \
+defensible 6% from a hopeful 25%.
   • ASSET / LIQUIDATION value (holdcos, real estate, distressed): nav / sum-of-the-parts.
   • CYCLICAL / COMMODITY: normalize through the cycle; mid-cycle earnings power, not the peak \
 or trough year. • SPECIAL SITUATION / CATALYST (spin, restructuring, M&A, recovery): \

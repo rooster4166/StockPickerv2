@@ -65,7 +65,16 @@ class Analyst:
             "use `research` to verify it and CITE the source you got it from — explain the concept "
             "AND prove it with that citation; do not present an unsourced explanation as fact. If "
             "you cannot find a source for something, say so explicitly and flag it as unverified "
-            "rather than stating it as established. An uncited claim is treated as not established."
+            "rather than stating it as established. An uncited claim is treated as not proven.\n"
+            "If your subject is scientific/technical (a drug, a quantum/deep-tech program, a "
+            "mining asset), do NOT merely catalog what the trials/specs say — ASSESS THE SCIENCE: "
+            "judge "
+            "whether the mechanism is plausible, whether a surrogate signal credibly translates to "
+            "the real endpoint, and the SPECIFIC failure modes of this modality (e.g. autoimmunity "
+            "for a self-antigen vaccine; antigen escape / immunosuppressive microenvironment for "
+            "solid-tumor CAR-T; decoherence for quantum), why the modality historically fails, and "
+            "whether THIS design overcomes it — all with citations. When the PM challenges the "
+            "science, defend it or concede with evidence."
         )
         self._tools = toolkit.verification_tool_specs()  # the read/research subset
 
