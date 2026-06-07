@@ -51,7 +51,9 @@ class Settings(BaseSettings):
     # "agentic" (tool-using PM, default) or "phased" (the older fixed cascade).
     engine_mode: str = "agentic"
     agentic_max_steps: int = 60
-    agentic_max_cost_usd: float = 25.0
+    # Generous ceiling so a deep investigation is never force-submitted mid-analysis;
+    # quality-over-cost for research/validation. Lower it for cost-sensitive batch runs.
+    agentic_max_cost_usd: float = 75.0
 
     margin_of_safety: float = 0.30  # required (FV - price)/price to enter the pool
     dispersion_norm: float = 0.40  # confidence = max(0, 1 - dispersion/DISP_NORM)

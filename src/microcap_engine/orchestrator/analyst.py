@@ -33,7 +33,7 @@ class Analyst:
     """One standing sub-analyst with its own role, memory, and tool access."""
 
     def __init__(self, client: LLMClient, ctx: toolkit.ToolContext, *, analyst_id: str,
-                 role: str, model: str, max_turns: int = 6):
+                 role: str, model: str, max_turns: int = 10):
         self.client = client
         self.ctx = ctx
         self.id = analyst_id
