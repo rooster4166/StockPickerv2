@@ -71,6 +71,25 @@ class EdgeTriage(BaseModel):
     reasoning: str = Field(description="1-3 sentences justifying the scores.")
 
 
+class OvervaluationVerdict(BaseModel):
+    """Cheap, price-AWARE pre-screen of whether a name is OBVIOUSLY overvalued.
+
+    Lives only in the screener tier (seeing price here is legitimate, like the cheap
+    gate) — it never touches the price-blinded engine. Used to keep the deep dive
+    spent on plausible BUYS, not on confirming obvious avoids. Recall-safe: only a
+    high-confidence obvious case is cut; anything uncertain is kept for the deep dive.
+    """
+
+    posture: str = Field(description="cheap | fair | rich | uncertain — the valuation posture.")
+    obviously_overvalued: bool = Field(
+        description="TRUE only if a deep analysis would CLEARLY conclude 'avoid' without "
+                    "needing the work (extreme premium to every plausible floor, no credible "
+                    "long). Be conservative — when in doubt, FALSE (we will deep-dive it).")
+    plausible_long: bool = Field(
+        description="Is there a credible case this could be materially UNDERvalued?")
+    reason: str = Field(description="1-2 sentences citing the key multiples/anchors.")
+
+
 class EdgeCandidate(BaseModel):
     """A fully-scored universe name: prior + (optional) triage -> final rank key."""
 

@@ -65,10 +65,48 @@ def triage_top(fmp: FMPProvider, client: LLMClient, cands: list[EdgeCandidate],
 
 
 def hunt(fmp: FMPProvider, client: LLMClient, tickers: list[str], *,
-         prior_keep: int = 40, top: int = 10) -> list[EdgeCandidate]:
-    """Full funnel over `tickers` -> the top `top` edge picks (triaged)."""
+         prior_keep: int = 40) -> list[EdgeCandidate]:
+    """Full funnel over `tickers` -> the triaged pool ranked by edge (size prior_keep)."""
     log.info("edge hunt: stage-1 prior over %d names", len(tickers))
     ranked = rank_universe(fmp, tickers)
     log.info("edge hunt: stage-2 triage on top %d", prior_keep)
-    triaged = triage_top(fmp, client, ranked, prior_keep)
-    return triaged[:top]
+    return triage_top(fmp, client, ranked, prior_keep)
+
+
+def select_for_deepdive(fmp: FMPProvider, client: LLMClient, ranked: list[EdgeCandidate],
+                        target: int = 10, max_per_sector: int = 3, require_long: bool = True
+                        ) -> tuple[list[dict], list[dict]]:
+    """Walk the edge ranking; Opus-sift each for OBVIOUS overvaluation (and, if
+    `require_long`, a plausible undervaluation case); keep the first `target` buy
+    candidates, capped at `max_per_sector` per sector so the basket is diversified.
+    Returns (kept, cut) dicts with the verdict + cut-reason attached."""
+    from microcap_engine.screen.overvaluation import fetch_valuation, sift
+    kept: list[dict] = []
+    cut: list[dict] = []
+    per_sector: dict[str, int] = {}
+    for c in ranked:
+        if len(kept) >= target:
+            break
+        sec = c.sector or "?"
+        prof = _profile(fmp, c.ticker)
+        valn = fetch_valuation(fmp, c.ticker)
+        v = sift(client, c.ticker, valn, prof.get("description", ""),
+                 prof.get("companyName", c.ticker), c.sector, c.industry)
+        rec = {"ticker": c.ticker, "edge": c.final_edge, "sector": c.sector,
+               "industry": c.industry, "price": valn.get("price"),
+               "posture": v.posture, "plausible_long": v.plausible_long,
+               "obviously_overvalued": v.obviously_overvalued, "reason": v.reason}
+        if v.obviously_overvalued:
+            rec["cut_reason"] = "obviously overvalued"
+        elif require_long and not v.plausible_long:
+            rec["cut_reason"] = "no plausible long"
+        elif per_sector.get(sec, 0) >= max_per_sector:
+            rec["cut_reason"] = f"sector cap ({sec})"
+        else:
+            kept.append(rec)
+            per_sector[sec] = per_sector.get(sec, 0) + 1
+            log.info("sift KEEP %s (%s): %s", c.ticker, v.posture, v.reason[:80])
+            continue
+        cut.append(rec)
+        log.info("sift CUT %s [%s]: %s", c.ticker, rec["cut_reason"], v.reason[:70])
+    return kept, cut

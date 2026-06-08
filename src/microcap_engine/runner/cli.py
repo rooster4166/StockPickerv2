@@ -145,7 +145,8 @@ def screen(
             names = names[:limit]
     console.print(f"[bold]Edge-screening {len(names)} names[/bold] "
                   f"(stage-2 triage on top {prior_keep})...")
-    picks = hunt(fmp, engine.client, names, prior_keep=prior_keep, top=top)
+    pool = hunt(fmp, engine.client, names, prior_keep=prior_keep)
+    picks = pool[:top]
     table = Table("Rank", "Ticker", "Edge", "Prior", "#An", "Barrier", "CovGap", "Dive?", "Sector")
     for i, c in enumerate(picks, 1):
         tr = c.triage
@@ -162,8 +163,47 @@ def screen(
     cost = sum(engine.client.audit.summary(c.ticker).get("cost_usd", 0.0) for c in picks)
     console.print(f"[dim]triage cost ≈ ${cost:.2f} for {len(picks)} names[/dim]")
     if out:
-        Path(out).write_text(json.dumps([c.model_dump() for c in picks], indent=2, default=str))
-        console.print(f"Wrote {out}")
+        Path(out).write_text(json.dumps([c.model_dump() for c in pool], indent=2, default=str))
+        console.print(f"Wrote {out} ({len(pool)} names)")
+
+
+@app.command()
+def shortlist(
+    target: int = typer.Option(10, help="How many plausible-BUY candidates to collect."),
+    prior_keep: int = typer.Option(45, help="Top-of-prior names triaged (the sift pool)."),
+    max_per_sector: int = typer.Option(3, help="Diversity cap per sector."),
+    tickers: str = typer.Option("", help="Comma list instead of the universe."),
+    limit: int = typer.Option(0, help="Cap universe names scored in stage 1 (0 = all)."),
+    out: str = typer.Option("data/buy_shortlist.json", help="Where to write the shortlist."),
+):
+    """Edge-rank, then walk DOWN the list Opus-sifting out OBVIOUSLY-overvalued names,
+    keeping the first `target` plausible BUY candidates for the deep dive."""
+    from microcap_engine.screen.hunt import hunt, select_for_deepdive
+    fmp = FMPProvider()
+    engine = Engine.create()
+    if tickers.strip():
+        names = [t.strip().upper() for t in tickers.split(",") if t.strip()]
+    else:
+        rows = screen_universe(fmp)
+        names = [r.ticker for r in rows]
+        if limit:
+            names = names[:limit]
+    console.print(f"[bold]Edge-screening {len(names)} names[/bold], then sifting for buys...")
+    pool = hunt(fmp, engine.client, names, prior_keep=prior_keep)
+    kept, cut = select_for_deepdive(fmp, engine.client, pool, target=target,
+                                    max_per_sector=max_per_sector)
+    table = Table("#", "Ticker", "Edge", "Price", "Posture", "Long?", "Sector", "Why kept")
+    for i, k in enumerate(kept, 1):
+        table.add_row(str(i), k["ticker"], f"{k['edge']:.3f}", str(k.get("price")),
+                      k["posture"], "yes" if k["plausible_long"] else "?",
+                      (k.get("sector") or "-")[:16], (k["reason"] or "")[:50])
+    console.print(table)
+    if cut:
+        console.print(f"\n[dim]Cut as obviously overvalued ({len(cut)}):[/dim]")
+        for c in cut:
+            console.print(f"  [dim]{c['ticker']} ({c['edge']:.2f}): {c['reason'][:90]}[/dim]")
+    Path(out).write_text(json.dumps({"kept": kept, "cut": cut}, indent=2, default=str))
+    console.print(f"\nWrote {out}: {len(kept)} buy-candidates, {len(cut)} cut.")
 
 
 @app.command()

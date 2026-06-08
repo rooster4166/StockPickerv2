@@ -69,8 +69,16 @@ def _safe(fmp: FMPProvider, endpoint: str, **params):
 
 
 def coverage_gap(n_analysts: int, n_institutions: int) -> float:
-    """0..1; high when coverage is thin. Analyst count dominates (cleanest signal)."""
-    analyst_term = max(0.10, 1.0 - n_analysts / 14.0)
+    """0..1; high when coverage is thin — but peaked in the NEGLECTED-BUT-REAL zone.
+
+    The validated edge lived at 2-8 analysts (ARQQ 2, KINS 4, ANIX 6), NOT at zero.
+    Literal zero/one-analyst names are usually uninvestable shells, not neglected
+    gems, so they get a tractability penalty rather than the max score. Analyst count
+    dominates; 13F-holder count is a secondary retail-vs-institutional signal.
+    """
+    raw = max(0.10, 1.0 - n_analysts / 14.0)
+    tract = 0.40 if n_analysts == 0 else (0.70 if n_analysts == 1 else 1.0)
+    analyst_term = raw * tract
     inst_term = max(0.0, 1.0 - n_institutions / 200.0)
     return round(0.7 * analyst_term + 0.3 * inst_term, 4)
 
@@ -78,10 +86,10 @@ def coverage_gap(n_analysts: int, n_institutions: int) -> float:
 def _dislocation(s: EdgeSignals) -> float:
     d = 0.0
     if s.is_pre_revenue:
-        d += 0.25  # pre-revenue => value is contingent/optionality, often mis-analyzed
+        d += 0.15  # pre-revenue => optionality, often mis-analyzed (modest; not a dominator)
     if s.ev_to_sales is not None and (s.ev_to_sales > 20 or s.ev_to_sales < 0):
         d += 0.15
-    return round(min(d, 0.40), 4)
+    return round(min(d, 0.30), 4)
 
 
 def prior_score(s: EdgeSignals) -> EdgePrior:

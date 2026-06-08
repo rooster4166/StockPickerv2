@@ -29,6 +29,12 @@ def test_coverage_gap_decreases_with_analysts():
     assert coverage_gap(14, 200) < 0.15
 
 
+def test_coverage_gap_sweet_spot_beats_zero_coverage():
+    # The neglected-but-real zone (2-8 analysts) must outrank likely-shell zero coverage.
+    assert coverage_gap(4, 100) > coverage_gap(0, 30)
+    assert coverage_gap(3, 80) > coverage_gap(1, 40)
+
+
 def _sig(tkr, sector, industry, n_an, n_inst, pre=False, evs=None):
     return EdgeSignals(ticker=tkr, sector=sector, industry=industry, n_analysts=n_an,
                        n_institutions=n_inst, is_pre_revenue=pre, ev_to_sales=evs)
