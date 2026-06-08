@@ -303,3 +303,61 @@ audit of the framework.
 
 3 QM line-by-line agents had earlier confirmed the loop control flow is sound and
 fixed real data/eval bugs (see D15). 47 tests pass, lint clean.
+
+---
+
+## D17 — Invariant breaches found by expert trace-audit, and fixed (2026-06-07)
+
+Three independent financial-expert agents audited the completed validation traces
+(ANIX/ARQQ/KINS/ACRE/FLWS). Verdict: arithmetic CLEAN (every composite re-derived,
+no fabricated headlines, gates genuinely recompute) — but TWO core invariants were
+being violated. All fixed before the next run; KINS+ARQQ re-run on fixed code for a
+confirmatory audit.
+
+**Price-blinding (#2) — was breached (grade D/F):**
+- `get_ratios` handed the price-blind PM `marketCap` + every price multiple (P/B, P/E,
+  P/S, EV/x, yields) → it could back out the price; `get_dividends` leaked yield.
+- The judge/red-team INJECTED the price into PM-facing feedback and penalized memos
+  for not anchoring to it (PM transcript: "caught between two directives… instructions
+  require me to stay price-blinded… but the judge is pushing back for anchoring").
+- Reverse-engineering signature: fair values drifted monotonically AWAY from the
+  revealed price across rounds (ANIX .93→.74, FLWS 4.25→3.55, KINS 11.75→11.0); ACRE
+  was the clean control (held $4.77).
+- FIX: strip all price/market-cap-derived fields from `get_ratios`/`get_dividends`
+  (screener unaffected; test locks it); judge + red-team now NEVER state price/cap/
+  targets in author-facing feedback and NEVER penalize price omission (consensus
+  research informs the judge's own verdict only).
+
+**Consolidation gate (#1) — was bypassed at the memo stage (grade D):**
+- ANIX's published $0.74 was never produced by the engine (last compute_valuation
+  $0.7971); a hand-edited composite table passed both gates. KINS dossier $11.0 vs
+  computed $11.23.
+- FIX: `submit_final` now REJECTS unless the dossier headline matches an actual
+  `compute_valuation` output (±3%) — judgment in LLM, MATH IN CODE enforced at the gate.
+
+**Gates absorbed soft-input objections:** KINS's 16-17% "through-cycle ROE" contradicted
+the PM's OWN math (~28%); the judge flagged it twice then approved at 92. FIX: an
+asserted-not-derived or self-contradicted LOAD-BEARING input is now disqualifying until
+reconciled in the numbers (not the prose).
+
+Also: transcript header now surfaces the judge score (was hiding scrutiny behind
+"Red-team rounds: 0"). 52 tests pass. Remaining robustness item: research-subagent can
+hang ~15 min on long-request retries once context balloons (ROOT) — needs context
+compaction + a research timeout/retry cap (next).
+
+## D18 — Replaced fluke-revenue complex names (2026-06-08 12:30Z)
+The first complex-5 (BZAI/KRRO/RANI/STRO/STIM) included tiny-base "growing revenue" flukes:
+KRRO $6.4M (lumpy milestones), RANI $1.6M (pre-commercial), STRO $102M but DECLINING
+($154M→$62M→$102M, lumpy partnership). Per user ("be sure growing revenue is not a fluke
+from tiny revenue"), swapped those three for names with REAL, substantial revenue:
+- VSTM (Verastem, RAF/MEK oncology) $0→$10M→$31M — clean grower, very complex
+- VRCA (Verrica, derma drug-device) $5M→$8M→$36M — clean grower
+- CDXS (Codexis, enzyme/synthetic-biology platform) ~$70M real revenue — max complexity edge test
+Kept STIM ($71→$75→$149M, clean commercial) and BZAI ($38.6M real AI-chip ramp).
+
+## D19 — Deterministic post-analysis price injection (2026-06-08 12:30Z)
+User: inject the real stock price into the report header AFTER completion, for comparison.
+Implemented in runner/report.py:_price_header — at PUBLISH time (not during analysis) it
+fetches the quote and prepends one line: market price · engine FMV · implied upside/downside ·
+floor. Preserves the price-blinding invariant: the price is read at the publish layer, never
+by the LLM/engine (same pattern as portfolio/book.py). 55 tests still green.
