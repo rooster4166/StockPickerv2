@@ -214,6 +214,20 @@ class AgenticOrchestrator:
                     "compute_valuation with your FINAL inputs and submit with that exact value.",
                     None, None)
 
+        # NO-COMPRESSION — specialist-authored sections must survive at full depth. The PM may
+        # EDIT/refine them, but the memo must not be materially shorter than the depth its
+        # specialists authored (this is what made ROOT read thin). Editing OK; compression not.
+        authored = sum(len((s or "").split()) for s in self.ctx.sections.values())
+        memo_words = len(memo.split())
+        if authored > 0 and memo_words < 0.85 * authored:
+            return (False,
+                    f"submit_final REJECTED — you COMPRESSED your specialists' work. Your analysts "
+                    f"authored ~{authored} words of section content, but the memo is only "
+                    f"{memo_words} words. You may EDIT and refine their sections for flow and fix "
+                    "errors, but you must NOT summarize their depth away — incorporate the "
+                    "commissioned sections (business, industry, science, financials) at full "
+                    "depth, then resubmit.", None, None)
+
         # GATE 1 — red-team: real errors only (the prompt forbids flagging priced uncertainty).
         report = self._red_team(memo, dossier)
         blockers = [c for c in report.concerns

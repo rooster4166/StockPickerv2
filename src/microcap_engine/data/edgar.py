@@ -159,8 +159,7 @@ def _html_to_text(html: str) -> str:
     try:
         import warnings
 
-        from bs4 import BeautifulSoup
-        from bs4 import XMLParsedAsHTMLWarning
+        from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 
         warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
         soup = BeautifulSoup(html, "lxml")

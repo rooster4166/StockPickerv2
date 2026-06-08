@@ -42,6 +42,7 @@ class ToolContext:
     last_valuation: Any = None  # ValuationResult
     valuations: list = field(default_factory=list)
     analysts: dict = field(default_factory=dict)  # analyst_id -> Analyst (persistent team)
+    sections: dict = field(default_factory=dict)  # title -> specialist-authored section (verbatim)
 
 
 @dataclass
@@ -185,6 +186,13 @@ def tool_specs() -> list[dict]:
                     "question": {"type": "string", "description": "The deep task to investigate."},
                     "context": {"type": "string",
                                 "description": "Optional framing/facts to point the analyst."},
+                    "as_section": {"type": "string",
+                                   "description": "If you are commissioning a REPORT SECTION (ask "
+                                                  "the analyst to AUTHOR it), name it here (e.g. "
+                                                  "'industry', 'science', 'business'). The "
+                                                  "analyst's authored depth is recorded; your "
+                                                  "memo may EDIT it for flow but must NOT compress "
+                                                  "it (the submit gate enforces this)."},
                 },
                 "required": ["role", "question"],
             },
@@ -203,6 +211,10 @@ def tool_specs() -> list[dict]:
                                    "description": "The id returned by spawn_analyst."},
                     "question": {"type": "string", "description": "Your follow-up question."},
                     "context": {"type": "string", "description": "Optional extra framing."},
+                    "as_section": {"type": "string",
+                                   "description": "Name the report SECTION if you're commissioning "
+                                                  "the analyst to AUTHOR it (depth recorded; the "
+                                                  "memo may edit but not compress it)."},
                 },
                 "required": ["analyst_id", "question"],
             },
@@ -324,7 +336,12 @@ def _h_peers(ctx, inp) -> ToolReply:
     peers = ctx.fmp.get_peers(ctx.data.profile, max_peers=int(inp.get("max_peers", 12)))
     if not peers:
         return ToolReply(content="No peers found.")
-    return ToolReply(content="PEERS (TTM multiples):\n" + json.dumps(peers, indent=1, default=str))
+    # Price-blinding: strip raw market-cap/price dollar fields (a peer's cap reveals the
+    # subject's implied price via comparison). Keep only the comparison MULTIPLES.
+    clean = [{k: v for k, v in p.items()
+              if not _is_price_derived(k) and k not in ("market_cap", "price")} for p in peers]
+    return ToolReply(content="PEERS (TTM multiples, price-blind):\n"
+                             + json.dumps(clean, indent=1, default=str))
 
 
 def _h_segments(ctx, inp) -> ToolReply:
@@ -365,13 +382,14 @@ def _h_insider(ctx, inp) -> ToolReply:
     trades = ctx.fmp.get_insider_trades(ctx.ticker, limit=int(inp.get("limit", 25)))
     if not trades:
         return ToolReply(content=f"No insider-transaction data for {ctx.ticker}.")
-    lines = ["RECENT INSIDER TRANSACTIONS (Form 4):"]
+    lines = ["RECENT INSIDER TRANSACTIONS (Form 4; price-blind — direction/size only):"]
     for t in trades[:25]:
+        # Drop the transaction PRICE — a Form-4 open-market price ≈ the market quote
+        # (price-blinding). The signal the PM needs is the direction and size.
         lines.append(
             f"  {t.get('transactionDate')} {t.get('reportingName')} "
             f"({t.get('typeOfOwner', '')}): {t.get('transactionType')} "
-            f"{t.get('securitiesTransacted')} @ {t.get('price')} "
-            f"-> owns {t.get('securitiesOwned')}")
+            f"{t.get('securitiesTransacted')} sh -> owns {t.get('securitiesOwned')}")
     return ToolReply(content="\n".join(lines))
 
 
@@ -457,10 +475,19 @@ def _h_spawn_analyst(ctx, inp) -> ToolReply:
     analyst = Analyst(ctx.client, ctx, analyst_id=analyst_id, role=role, model=ctx.model)
     ctx.analysts[analyst_id] = analyst
     out = analyst.ask(inp.get("question", ""), context=inp.get("context", ""))
+    _store_section(ctx, inp, out)
     return ToolReply(
         content=f"ANALYST [{analyst_id}] ({role}):\n{out}\n\n"
                 f"(This analyst remembers everything; use ask_analyst with analyst_id="
                 f"'{analyst_id}' to follow up.)")
+
+
+def _store_section(ctx, inp, out) -> None:
+    """If the PM commissioned this as a named report section, record the analyst's
+    authored depth so the submit gate can block COMPRESSION of it (editing is fine)."""
+    sec = inp.get("as_section")
+    if sec:
+        ctx.sections[str(sec)] = out
 
 
 def _h_ask_analyst(ctx, inp) -> ToolReply:
@@ -471,6 +498,7 @@ def _h_ask_analyst(ctx, inp) -> ToolReply:
         avail = ", ".join(ctx.analysts) or "(none yet — use spawn_analyst first)"
         return ToolReply(content=f"[no analyst '{analyst_id}'. On the desk: {avail}]")
     out = analyst.ask(inp.get("question", ""), context=inp.get("context", ""))
+    _store_section(ctx, inp, out)
     return ToolReply(content=f"ANALYST [{analyst_id}] ({analyst.role}) follow-up:\n{out}")
 
 

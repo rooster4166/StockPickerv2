@@ -8,7 +8,6 @@ orchestrator (price-blinding).
 
 from __future__ import annotations
 
-from datetime import date
 from typing import Protocol, runtime_checkable
 
 from microcap_engine.data.models import (
