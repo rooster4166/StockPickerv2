@@ -80,7 +80,7 @@ stated reason for the discount (e.g. cycle risk, governance). A systematic habit
 at the bottom of your own evidence range is a bias, and it is just as wrong as over-optimism.
 - THE "FLOOR" MUST BE A REAL FLOOR. For a cash-burning company, today's gross cash is NOT a floor \
 — it is a melting runway that funds operations and will be spent or diluted. The floor is the \
-RESIDUAL value at the relevant decision point: net cash MINUS the burn to the next value-inflection \
+RESIDUAL value at the relevant decision point: net cash MINUS the burn to the next inflection \
 AND net of the dilution required to get there (and behind any senior claim). Never label gross \
 cash a "margin-of-safety floor" without that haircut.
 

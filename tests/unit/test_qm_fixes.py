@@ -80,3 +80,31 @@ def test_comps_refuses_negative_metric():
                          metric_value=-5, shares_outstanding=10)
     with pytest.raises(ValueError):
         comps_compute(a)
+
+
+def test_excess_returns_rejects_roe_below_growth():
+    # warranted P/B = (ROE-g)/(CoE-g); ROE<=g -> negative fair value -> must be rejected.
+    from microcap_engine.schemas.assumptions import ExcessReturnsAssumptions
+    with pytest.raises(ValueError):
+        ExcessReturnsAssumptions(book_value=100e6, shares_outstanding=10e6,
+                                 sustainable_return=0.03, cost_of_equity=0.10, growth=0.05)
+    # a healthy spread (ROE 13% > g 4%) is fine:
+    ok = ExcessReturnsAssumptions(book_value=100e6, shares_outstanding=10e6,
+                                  sustainable_return=0.13, cost_of_equity=0.10, growth=0.04)
+    assert ok.sustainable_return > ok.growth
+
+
+def test_rnpv_rejects_discount_rate_with_no_horizons():
+    # discount_rate set but every horizon 0 = silent no-discounting -> reject.
+    from microcap_engine.schemas.assumptions import RNPVAssumptions, Scenario
+    with pytest.raises(ValueError):
+        RNPVAssumptions(discount_rate=0.12, scenarios=[
+            Scenario(name="a", probability=0.4, value_per_share=10.0),
+            Scenario(name="b", probability=0.6, value_per_share=2.0)])
+
+
+def test_safe_eval_allows_long_horizon_discounting():
+    from microcap_engine.valuation.safe_eval import safe_eval
+    # (1+r)^120 (monthly over 10y) must NOT be rejected by the overflow guard.
+    v = safe_eval("1 / (1 + r) ** n", {"r": 0.01, "n": 120})
+    assert v == pytest.approx(1 / (1.01 ** 120), rel=1e-9)
