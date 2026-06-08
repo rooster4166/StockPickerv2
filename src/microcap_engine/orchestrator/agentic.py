@@ -203,7 +203,10 @@ class AgenticOrchestrator:
         computed = [v.fair_value_per_share for v in self.ctx.valuations
                     if v.fair_value_per_share is not None]
         fv = dossier.fair_value_per_share
-        matched = any(abs(fv - c) <= 0.03 * max(abs(c), 1e-6) for c in computed)
+        # Match only the LAST few computed values (not stale exploratory runs) at a TIGHT
+        # tolerance — the engines round to 4dp, so the headline should equal a recent engine
+        # output, not merely sit within 3% of some old run.
+        matched = any(abs(fv - c) <= 0.005 * max(abs(c), 1e-6) for c in computed[-4:])
         if not computed or not matched:
             recent = [round(c, 4) for c in computed[-6:]]
             return (False,

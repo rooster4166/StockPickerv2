@@ -89,6 +89,15 @@ class RNPVAssumptions(BaseModel):
         total = sum(s.probability for s in self.scenarios)
         if abs(total - 1.0) > 1e-6:
             raise ValueError(f"rNPV scenario probabilities must sum to 1 (got {total}).")
+        # Guard the silent no-discount trap: if a discount rate is set but EVERY scenario
+        # left years_to_realization at its default 0, no time-discounting happens at all
+        # (the headline collapses to a plain probability-weighted average). That is almost
+        # always the PM forgetting to date the catalysts.
+        if self.discount_rate > 0 and all(s.years_to_realization == 0 for s in self.scenarios):
+            raise ValueError(
+                "discount_rate is set but every scenario has years_to_realization=0, so nothing "
+                "is discounted. Set each scenario's years_to_realization (when the value is "
+                "realized) so the rNPV actually time-discounts.")
         return self
 
 
@@ -159,6 +168,15 @@ class ExcessReturnsAssumptions(BaseModel):
     def _coe_gt_growth(self) -> ExcessReturnsAssumptions:
         if not self.growth < self.cost_of_equity:
             raise ValueError("Require growth < cost_of_equity for a finite warranted multiple.")
+        # Warranted P/B = (sustainable_return - growth)/(cost_of_equity - growth); if the
+        # firm cannot out-earn its own growth rate (sustainable_return <= growth) the numerator
+        # goes negative and the model yields a nonsensical NEGATIVE fair value. A firm growing
+        # book faster than the ROE that funds it is internally inconsistent — lower growth.
+        if not self.sustainable_return > self.growth:
+            raise ValueError(
+                "Require sustainable_return > growth (else warranted P/B is negative). A firm "
+                "cannot durably grow book faster than the ROE that funds it; lower the growth "
+                "assumption or raise the through-cycle return.")
         return self
 
 

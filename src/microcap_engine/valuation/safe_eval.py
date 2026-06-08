@@ -100,7 +100,10 @@ def _eval(node: ast.AST, v: dict[str, float]) -> float:
         left = _eval(node.left, v)
         if op in (operator.truediv, operator.mod) and right == 0:
             raise FormulaError("division by zero")
-        if op is operator.pow and (abs(right) > 64 or abs(left) > 1e9):
+        # Block only genuine overflow, not legitimate long-horizon discounting: (1+r)**N with
+        # N up to ~1000 periods (e.g. monthly over decades) is finite and valid. The isfinite
+        # post-check below catches anything that actually overflows.
+        if op is operator.pow and (abs(right) > 1000 or abs(left) > 1e9):
             raise FormulaError("exponent/base out of bounds (overflow guard)")
         result = op(left, right)
         if isinstance(result, float) and not math.isfinite(result):

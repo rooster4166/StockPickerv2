@@ -416,7 +416,18 @@ class FMPProvider:
 
     def get_institutional_summary(self, ticker: str) -> dict:
         """Most recent 13F institutional-ownership summary (holders, shares, net change)."""
-        for y, q in ((2025, 3), (2025, 2), (2025, 1), (2024, 4)):
+        # Walk back the last ~6 quarters FROM TODAY (13F filings lag ~45 days, so start one
+        # quarter back) rather than hard-coding quarters that go stale.
+        from datetime import date as _date
+        today = _date.today()
+        y, q = today.year, (today.month - 1) // 3 + 1
+        quarters = []
+        for _ in range(6):
+            q -= 1
+            if q == 0:
+                q, y = 4, y - 1
+            quarters.append((y, q))
+        for y, q in quarters:
             try:
                 rows = self._get("institutional-ownership/symbol-positions-summary",
                                  symbol=ticker, year=y, quarter=q)
