@@ -1,0 +1,46 @@
+{
+  "ticker": "EVMN",
+  "run_id": "run-20260608T024508-4731d9",
+  "dossier": {
+    "fair_value_per_share": 14.5,
+    "intrinsic_value_floor": 7.3,
+    "fair_value_low": 10.5,
+    "fair_value_high": 21.0,
+    "valuation_method": "Sum-of-parts rNPV (PoS-weighted PV of bottom-up per-indication commercial cash flows at an 11% systematic-risk discount rate; value-at-launch = peak net sales x after-tax margin x 4.41 cash-flow multiplier) + net cash - itemized risk-adjusted development cost; cross-checked vs immunology M&A peak-sales multiples and a probability-weighted outcome integration.",
+    "confidence": 0.55,
+    "thesis_summary": "Evommune is a well-capitalized, binary clinical-stage immunology company built on a validated mechanism (oral MRGPRX2 mast-cell silencing, EVO756, across CSU/CIndU/AD/migraine) plus a de-risked second asset (EVO301, an IL-18BP fusion with positive Phase 2a in AD), funded by ~$299M net cash through three pivotal 2026 readouts. It has proven human target engagement and open-label proof-of-concept but no placebo-controlled efficacy effect size yet. Bottom-up sum-of-parts rNPV plus net cash yields a central fair value of about $14.5/share (band $10.5-21), with a ~$7.30 net-cash floor; the headline sits below the ~$1.0B PIPE valuation, the gap being M&A/optionality the market prices but the base case does not.",
+    "key_value_drivers": [
+      "EVO756 mid-2026 CSU Phase 2b placebo-controlled readout (must approach remibrutinib-class efficacy despite the FceRI redundancy ceiling)",
+      "Whether the Incyte/Escient EP262 Nov-2024 preclinical-tox enrollment pause is molecule-specific or a class effect for MRGPRX2",
+      "EVO301 advance from positive Phase 2a to Phase 2b (IV->SC bridge) in AD",
+      "Partnering/M&A optionality given ~$299M net cash and an active I&I deal market",
+      "Net cash (~$299M) as the hard asset floor"
+    ],
+    "key_risks": [
+      "MRGPRX2 efficacy ceiling: EVO756 cannot touch the FceRI/IgE arm, capping CSU response potentially below approved remibrutinib",
+      "EP262 class-toxicology read-through with a still-small EVO756 safety database",
+      "No placebo-controlled EVO756 efficacy exists; entire thesis hinges on mid-2026 data",
+      "EVO301's modest effect size (23% IGA 0/1) in a dupilumab/JAK-dominated AD market plus IV->SC risk",
+      "Three pivotal readouts concentrated in a ~6-month 2026 window (binary concentration)",
+      "Future financing/dilution to fund 5 indications through Phase 3 absent partnering"
+    ],
+    "what_would_change_my_mind": [
+      "A CSU Phase 2b with placebo-controlled UAS7 in remibrutinib's range and clean safety -> PoS to 35-40%, value toward $21+",
+      "A partnering deal de-risking AD/migraine/UC development cost",
+      "Evidence that EP262's tox finding is molecule-specific, not on-target class biology",
+      "Conversely: a CSU miss, any EVO756 safety signal echoing EP262, or an EVO301 Phase 2b that fails to improve on the modest Phase 2a"
+    ],
+    "diluted_shares_used": 41000000.0,
+    "citations": []
+  },
+  "judge": {
+    "approved": true,
+    "score": 92,
+    "gaps": [
+      "The probability-weighted outcome integration yields ~$15.4 (contributions 2.9+5.8+4.6+2.1) but the headline anchors at the $14.5 rNPV; the ~$0.9 gap is left unreconciled (conservative, but a purist would either reconcile or state which is the point estimate and why).",
+      "Scenario per-share values in the \u00a78 distribution ($9.6 / $14.5 / $21 / $26) are cluster outputs rather than each independently re-rNPV'd from shifted PoS/peak inputs \u2014 fine as an integration check, but a fully bottom-up distribution would re-derive each node.",
+      "Expected EVO756 UAS7 effect size (and the implied non-IgE/MRGPRX2-driven fraction of CSU) is discussed qualitatively as a ceiling but not quantified into the 12% peak-share assumption \u2014 the deepest possible version would model expected effect-size \u2192 share mapping (acknowledging no placebo data yet exists to anchor it)."
+    ]
+  },
+  "action": "evaluated"
+}

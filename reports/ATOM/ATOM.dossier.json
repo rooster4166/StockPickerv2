@@ -1,49 +1,42 @@
 {
   "ticker": "ATOM",
-  "run_id": "run-20260608T005418-53e1a3",
+  "run_id": "run-20260608T024508-0ebe3f",
   "dossier": {
-    "fair_value_per_share": 1.8,
+    "fair_value_per_share": 2.65,
     "intrinsic_value_floor": 1.0,
-    "fair_value_low": 0.95,
-    "fair_value_high": 3.7,
-    "valuation_method": "Probability-weighted, time-discounted scenario valuation (rNPV) of MST adoption outcomes over a built-up net-cash + weak-IP floor; success-case equity values derived from a transparent royalty-ramp DCF and cross-checked vs mature semi-IP royalty multiples (Arm/Rambus/CEVA); probabilities anchored by a correlation-adjusted TRL-gate funnel and an outside view of historical materials insertions; 16% systematic+illiquidity discount rate",
-    "confidence": 0.64,
-    "thesis_summary": "Atomera is a pre-revenue (~$65k FY2025 revenue) semiconductor materials-IP licensor burning ~$15-17M/yr; its value is the probability-weighted PV of a future royalty stream IF its MST film is adopted into high-volume manufacturing, over a ~$1.00/share net-cash floor. The science is real and peer-reviewed with many shots on goal (GAA diffusion-blocking, DRAM, RF-SOI, GaN), but after 10 years public it has zero royalty revenue, its flagship STMicro license just failed at qualification (Oct 2025), and it is structurally a no-fab licensing play of the kind (SuVolta/Amberwave) that historically struggled even with good science. A correlation-adjusted TRL-gate funnel yields ~30% odds of any production conversion and ~15% of a high-volume win, producing an FMV near $1.80/share \u2014 overwhelmingly option value in a convex payoff, and far below the ~$7.6 market price / ~$10 street target, which embed an implied success probability ~2.5-3x what the record supports.",
+    "fair_value_low": 1.75,
+    "fair_value_high": 4.8,
+    "valuation_method": "Probability-weighted, time-discounted scenario rNPV (real option on MST reaching volume-production royalties). Probabilities built BOTTOM-UP from per-program HVM base rates (~5-15% literature, adjusted) aggregated via 1-prod(1-p); success-branch economics DERIVED from IP-licensor margins (~60% net) and exit multiples (18-22x, vs Rambus/InterDigital/CEVA/Arm); 15% systematic+illiquidity discount rate; cross-checked vs net-cash floor and EV/sales.",
+    "confidence": 0.55,
+    "thesis_summary": "Atomera is a pre-revenue semiconductor materials-IP licensor whose entire value is an option on Mears Silicon Technology (MST) reaching volume-production royalties. The physics is real and published, but MST is a 'nice-to-have' (every job it does has a mature production incumbent), which is why it produced ~$65k of revenue and ~$242M of cumulative losses in a decade and just lost its flagship ST royalty path. Valued as a probability-weighted real option with bottom-up per-program success rates, FMV is ~$2.65/share (band $1.75-$4.80) over a ~$1.00 net-cash floor; the expected value is driven by ~18%-probability high-value GAA/DRAM/power adoption branches, not the ~64%-likely failure outcome.",
     "key_value_drivers": [
-      "Probability MST converts to a royalty-bearing HVM license (correlation-adjusted funnel: ~30% any / ~15% high-volume / ~5% blockbuster)",
-      "Royalty run-rate per socket ($50-80M/yr one socket; $250-350M/yr multi-socket) at near-100% incremental margin, NOL-shielded, corroborated by third-party wafer/ASP data",
-      "Time-to-first-royalty (3.5-4.5 yrs) and the 16% systematic+illiquidity discount rate on distant payoffs",
-      "Ongoing equity dilution modeled from the burn (~46-47M shares in success, ~52-53M in failure; authorized share count rising to 95M)",
-      "Equipment-OEM (likely Applied Materials) co-marketing channel into the four GAA customers, which also gates takeout optionality"
+      "Probability of >=1 high-value HVM adoption (GAA/DRAM/power) - modeled ~18% bottom-up, base-rate-low ~10%",
+      "Undisclosed per-wafer royalty rate / per-fab magnitude ($6M-$72M/fab/yr at $20-$120/wafer)",
+      "Number and breadth of design wins (GAA, DRAM, RF-SOI, power, GaN - multiple independent shots on goal)",
+      "Timing to first material royalty and dilution before inflection (~48-52M shares at maturity)",
+      "Maturity royalty margin (~60% net) and exit multiple (18-22x) per IP-licensor comps"
     ],
     "key_risks": [
-      "Modal (~70%) outcome is non-conversion plus slow, price-dilutive equity raises",
-      "Reliability/qualification failures (as with STMicro BCD110, Oct 2025) recur at the decisive gate",
-      "No fab and no leverage; the no-fab licensing insertion model has a poor historical record (SuVolta, Amberwave)",
-      "MST thermal-budget and mid-line integration constraints narrow addressable flows",
-      "Active securities-law investigation; single-technology, key-person concentration",
-      "Market price (~$7.6) embeds an implied success probability ~2.5-3x the evidence \u2014 large downside to intrinsic value"
+      "Structural 'nice-to-have': no customer is forced to adopt; mature incumbents are good-enough (~64% failure weight)",
+      "Continuous dilution (~$18M/yr burn, ~$40M undrawn ATM) at depressed prices until a deal closes",
+      "Performance/reliability (HCI) tradeoffs recur in power; ST walked away after full integration",
+      "Single-source/vendor-reported data on newest GAA and GaN claims; not independently validated at scale",
+      "Securities-law investigation overhang (May 2026); binary, lumpy, concentrated outcomes"
     ],
     "what_would_change_my_mind": [
-      "A signed HVM license with a named Tier-1 customer (not a JDA/evaluation)",
-      "Independently-validated 2nm GAA diffusion-blocking superiority",
-      "An RF-SOI or GaN 'starting-wafer' customer converting to production royalties",
-      "Equipment-OEM partner committing reactor co-development with a volume customer (also raises takeout odds)",
-      "Conversely: another flagship engagement collapsing at qualification or an accelerated discounted raise"
+      "A signed HVM/royalty license with a named foundry/IDM/memory maker",
+      "Independent peer-reviewed confirmation of 2nm GAA diffusion-blocking superiority or GaN parasitic-channel result",
+      "Disclosure/inference of a royalty rate at the high end of the band or a multi-fab license structure",
+      "A second Tier-1 walk-away or failed GAA evaluation (downside)",
+      "A discounted emergency capital raise extending the timeline further (downside)"
     ],
-    "diluted_shares_used": 38000000.0,
+    "diluted_shares_used": 43.7,
     "citations": []
   },
   "judge": {
-    "judge_approved": true,
-    "judge_score": 93,
-    "judge_gaps": [
-      "A formal Monte Carlo over the joint probability/value distribution would replace the four-point discrete scenarios with a continuous expected value and explicit confidence intervals (polish, not a flaw).",
-      "Could model the near-term catalyst path \u2014 how fast and how far FV converges toward the market if a named HVM license is signed in 2026 \u2014 to size the asymmetry for anyone considering the short side.",
-      "Uses a ~38M fully-diluted estimate; pulling the exact option/RSU/PSU overhang from the proxy would tighten the per-share denominators slightly.",
-      "Insider ownership and the relative-TSR PSU incentive structure are noted only briefly; a short paragraph on management alignment and any insider selling would round out the governance picture."
-    ],
-    "action": "evaluated",
-    "reject_reason": null
-  }
+    "approved": true,
+    "score": 90,
+    "gaps": []
+  },
+  "action": "evaluated"
 }

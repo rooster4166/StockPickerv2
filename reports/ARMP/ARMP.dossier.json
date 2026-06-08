@@ -1,48 +1,46 @@
 {
   "ticker": "ARMP",
-  "run_id": "run-20260608T005418-fe3cbf",
+  "run_id": "run-20260608T024508-6156be",
   "dossier": {
-    "fair_value_per_share": 0.47,
-    "intrinsic_value_floor": 0.05,
-    "fair_value_low": 0.19,
-    "fair_value_high": 1.05,
-    "valuation_method": "Probability-weighted, option-like residual-equity valuation: bottoms-up rNPV of AP-SA02 (eligible SAB population -> penetration -> net price -> exclusivity, with stated ex-US scaling) plus minor pipeline option value (enterprise ~$99M), cross-checked against antibacterial/phage M&A comps, netted against the senior secured Innoviva claim (~$140M today, compounding 14% toward ~$400M+ by approval) with an explicit financing-path split, internally-consistent treasury-method/conversion logic (convertible converts only if per-share > $1.52; warrants/options exercise only if ITM), state-contingent shares (~37-72M), and an explicit Innoviva take-out model; PV'd at ~14% with an explicit size/illiquidity premium.",
-    "confidence": 0.55,
-    "thesis_summary": "Armata is effectively a single-asset phage biotech (AP-SA02 for S. aureus bacteremia) whose common is a deeply subordinated residual behind ~$140M of senior secured Innoviva debt that compounds at 14% and is held by the ~84% controlling owner. Risk-weighted pipeline value (~$99M) barely exceeds the senior claim, so common is an out-of-the-money option worth ~$0.47/share, ~94% below the ~$7.5-8 implied market price and far below $9-15 sell-side targets. The gap is mostly mechanical (subordination + dilution the market under-weights), not a dispute about the science.",
+    "fair_value_per_share": 0.39,
+    "intrinsic_value_floor": 0.08,
+    "fair_value_low": 0.17,
+    "fair_value_high": 0.71,
+    "valuation_method": "Probability-of-success-weighted, time-discounted rNPV treating the common as a limited-liability call option on AP-SA02 approval, struck above ~$110M senior secured Innoviva debt and diluted across ~72M fully-diluted shares; scenario enterprise values anchored to antibiotic EV/peak-sales deal comps (~0.4-1.3x); discounted at a 13.8% cost of equity (10.8% CAPM + 3.0% size/illiquidity).",
+    "confidence": 0.6,
+    "thesis_summary": "Armata is the most advanced systemic-phage biotech, with a genuinely positive, adjudicated Phase 2a for AP-SA02 in S. aureus bacteremia and QIDP + Fast Track in hand. But the common is an out-of-the-money option: ~$4.75M cash with an unfunded ~$50-100M Phase 3 and going-concern doubt, sitting behind ~$110M of senior secured Innoviva term debt (14%, compounding) and diluted across ~72M fully-diluted shares (the reported ~36.6M is misleading), while Innoviva captures ~77-83% of any equity value. A ~22% PoS-to-approval (derived from anti-infective base rates) against antibiotic EV/peak comps of ~0.5-1.3x yields FMV ~$0.39/share, with ~78% of the distribution near zero.",
     "key_value_drivers": [
-      "AP-SA02 Phase 3 probability of success in complicated S. aureus bacteremia (~34% base case)",
-      "Financing path: partner-funded Phase 3 (debt stays ~$170M) vs Innoviva-debt-funded (claim compounds to ~$400M+) \u2014 decisive for whether equity captures value",
-      "Size of the senior secured Innoviva claim at monetization and whether Innoviva shares vs consolidates/squeezes",
-      "Peak-sales magnitude / whether a mortality-benefit (premium) label materializes (bottoms-up ~$50M flop / ~$220M solid / ~$690M premium global)",
-      "State-contingent fully diluted shares and convertible-conversion threshold ($1.52): ~37M (OTM states) / ~56M (solid) / ~72M (premium)"
+      "AP-SA02 Phase 3 funding (pharma partnership / government pull funding vs dilutive raise) \u2014 the decisive catalyst",
+      "AP-SA02 PoS-to-approval ~22% (derived: 25% base x 0.7 SAB-superiority x 1.5 diSArm data-quality x 0.85 financing)",
+      "Commercial peak in a broken antibiotic market ($130-350M; EV/peak ~0.5-1.3x per Entasis/Achaogen comps; PASTEUR optionality)",
+      "Senior secured Innoviva debt ~$110M (14%, compounding) ahead of common; ~78% of outcome distribution leaves common near zero",
+      "Dilution: ~72M FD shares (convertible 19.7M @ $1.52 + 10.65M warrants + ~5M options); Innoviva control ~77-83%"
     ],
     "key_risks": [
-      "Phase 3 failure (base case) \u2014 exebacase adjunctive-SAB precedent failed the same design",
-      "Going-concern: $4.75M cash vs ~$6M/qtr burn; survival depends entirely on continued Innoviva financing",
-      "Minority squeeze/foreclosure/cheap-conversion/take-private risk given Innoviva is owner+senior lender+board controller",
-      "Antibacterial commercial graveyard (Achaogen, Melinta, Tetraphase) caps peak sales even on approval",
-      "Senior secured debt compounding at 14% subordinates and dilutes common in nearly every state",
-      "Actionability: ~84% control and ~6M float create squeeze risk that makes the mispricing hard/risky to monetize"
+      "Financing failure / deeply dilutive raise transferring value from minority common",
+      "SAB superiority failure (exebacase/DISRUPT precedent: control arm regresses upward)",
+      "Senior-debt seniority and Innoviva control (acceleration via MAE/budget-deviation defaults; low-premium take-private)",
+      "Structurally broken hospital-antibacterial commercial market (Achaogen/Tetraphase/Melinta precedents)",
+      "Neutralizing antibodies / phage resistance limiting durability and re-dosing"
     ],
     "what_would_change_my_mind": [
-      "A third-party partnership/acquisition of AP-SA02 bringing non-Innoviva cash and an arms-length price above the senior claim",
-      "Phase 3 confirmation/replication of the mortality-benefit signal",
-      "Equity (rather than 14% senior debt) financing that halts the senior-claim compounding",
-      "Evidence Innoviva intends to share upside with the float rather than consolidate cheaply"
+      "Non-dilutive Phase 3 funding (large pharma partnership upfront or BARDA/government pull funding)",
+      "PASTEUR Act or equivalent antibiotic subscription model enacted",
+      "Debt-for-equity restructuring removing the senior secured claim ahead of common",
+      "Phase 3 superiority replicating the diSArm relapse-prevention signal",
+      "Evidence of safe, effective repeat IV dosing addressing neutralizing-antibody risk"
     ],
-    "diluted_shares_used": 56300000.0,
+    "diluted_shares_used": 72000000.0,
     "citations": []
   },
   "judge": {
-    "judge_approved": false,
-    "judge_score": 92,
-    "judge_gaps": [
-      "Underweights the true crux for the float: because Innoviva owns 84% of the equity AND holds the debt, the 'debt dominates equity' outcome for minorities is a discretionary governance/extraction choice, not a mechanical inevitability \u2014 a best-in-class report would foreground and probability-weight Innoviva's conduct (realize-and-share vs squeeze) more explicitly rather than framing the gap as 'mostly mechanical.'",
-      "The extraordinary ~16x magnitude still rests on irreducible PoS (~34%) and tail-EV judgment inputs (acknowledged by the author, but it caps confidence in the point estimate).",
-      "Current-period management Q&A remains unquoted (genuine, non-fabricable tool limitation; a top report would source the latest call/PR Q&A on partnership and financing intent from another channel).",
-      "Live share price is data-derived/implied rather than a confirmed quote given documented intraday volatility \u2014 handled candidly but a small precision gap for a price-dependent thesis."
-    ],
-    "action": "evaluated",
-    "reject_reason": null
-  }
+    "approved": true,
+    "score": 92,
+    "gaps": [
+      "The base-case approval bridge ('~15% royalty on $250M + milestones \u2248 $200M to Armata') is an approximation rather than a fully modeled royalty-NPV schedule; it is disclosed and sensitized, but an explicit year-by-year royalty NPV would tighten the single largest approval-path contributor.",
+      "The conditional commercial split (\u224823%/54%/23% strong/base/weak) is reasonable but asserted rather than derived from an explicit distribution.",
+      "Section 4 summarizes management commentary well but does not quote the earnings call directly; a verbatim management quote on the Phase 3 financing plan would add color."
+    ]
+  },
+  "action": "evaluated"
 }

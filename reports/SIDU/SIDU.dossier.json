@@ -1,84 +1,108 @@
 {
   "ticker": "SIDU",
-  "run_id": "run-20260608T005418-5974e7",
+  "run_id": "run-20260608T024508-bf08ee",
   "dossier": {
-    "fair_value_per_share": 1.43,
+    "fair_value_per_share": 1.33,
     "intrinsic_value_floor": 1.15,
-    "fair_value_low": 1.05,
-    "fair_value_high": 2.25,
-    "valuation_method": "Net cash + risk-adjusted option value: bottom-up probability-weighted composite ($1.43, expected value) bracketed by an independent Black-Scholes growth-option ceiling ($1.86, disciplined upper bound); cross-checked vs net-cash time-decay, tangible book, and EV/forward-sales comps",
-    "confidence": 0.7,
-    "thesis_summary": "Sidus is a pre-commercial 'space-as-a-service' micro-cap whose value is dominated by ~$163.6M pro-forma net cash (debt-free, no preferred; ~$1.59/sh static reference on ~103M economic shares, ~$1.79 tangible book), not earnings, which are deeply negative (FY25 revenue $3.4M down 28%, gross margin -168%, net loss -$29.5M, FCF -$26.4M). Arm's-length external revenue collapsed ~64% in two years (~$5.0M FY23 -> ~$1.8M FY25) while parent CTC pass-through rose to ~47% of revenue. The operating business destroys value; real but unproven optionality (3 LizzieSats with 1 operational, a software-defined data roadmap, Fortis compute, a SHIELD/Golden Dome IDIQ) is the right tail. A bottom-up composite gives an expected value of ~$1.43; an independent Black-Scholes growth-option ceiling (assuming capital discipline) caps value at ~$1.86, and the ~$0.43 gap is the empirically-validated cost of indiscriminate burn/dilution. The ~$4-5 market issuance prices embed a $270-360M sentiment/technical premium (Russell forced-buying June 26 2026, ATM reflexivity) that fundamentals do not support.",
+    "fair_value_low": 0.8,
+    "fair_value_high": 2.3,
+    "valuation_method": "Probability-weighted composite (net-cash/NAV asset value + discrete optionality scenarios, weights anchored to the 2020-22 space-SPAC cohort base rate), cross-checked against net-cash NAV; minority/status-quo value (headline ~$1.33) separated from control/takeover value (~$1.55-1.60). DCF and trailing/forward multiples rejected as primary methods for a pre-commercial, negative-gross-margin serial diluter.",
+    "confidence": 0.63,
+    "thesis_summary": "Sidus is a pre-commercial space-and-defense micro-cap best valued as a ~$165M just-raised cash pile (~$1.60/share net cash) attached to a value-destroying operation (-168% gross margin, revenue down four straight years, ~47% related-party) plus genuine but low-probability defense/data optionality. Because the operation in expectation burns the cash faster than the optionality creates value, and the CEO's super-voting control prevents minority holders from forcing a payout, the probability-weighted minority FMV (~$1.33) sits BELOW net cash; a control buyer who halted the burn could capture closer to net cash (~$1.55-1.60). Scenario weights are anchored to a cohort base rate where only ~15% of such companies reach durable positive gross margin; Sidus has already executed a 1-for-100 reverse split.",
     "key_value_drivers": [
-      "Pro-forma net cash ~$163.6M (debt-free) vs ~103M economic shares = ~$1.59/sh static reference",
-      "Whether the business reaches positive gross margin and DaaS scale (external revenue is currently shrinking)",
-      "Magnitude of future dilution via undrawn $100M ATM + ~$340M shelf",
-      "Defense optionality: SHIELD/Golden Dome IDIQ converting to funded task orders",
-      "Technical/sentiment premium: Russell index forced-buying (June 26, 2026) and ATM-funded momentum"
+      "Pro-forma net cash ~$165M after April ($58.5M) and May ($100M) 2026 raises vs ~$0.7M debt",
+      "Cash burn ~$30-37M/yr and accelerating (LS4/LS5 capex)",
+      "Gross margin inflection (currently -168%) - the single decisive variable, and the data/SaaS-vs-manufacturer margin profile that sets the re-rate multiple (3x vs 6-7x)",
+      "Conversion of SHIELD/Golden Dome IDIQ into funded task orders",
+      "Start and scaling of LizzieSat data subscriptions and Fortis VPX compute revenue",
+      "Magnitude/price of future equity dilution (raises above NAV are accretive to cash/share; raises below NAV are destructive)",
+      "CEO super-voting control gating any control-value realization"
     ],
     "key_risks": [
-      "Continued discretionary dilution leaking per-share value despite a healthy cash balance",
-      "Negative gross margins -- cash consumed at the gross line regardless of revenue",
-      "Collapsing external demand: ~64% two-year decline; ~47% of revenue now related-party (parent CTC)",
-      "On-orbit execution risk (LS1 impaired/dead, LS2 troubled, only LS3 operational)",
-      "Sentiment/technical premium can persist far above intrinsic value; shorting carries squeeze/borrow risk"
+      "Negative gross margin operation consumes cash with no proven path to gross profit",
+      "Going-concern dependence on serial equity dilution (post a 1-for-100 reverse split); capital markets are effectively the business model",
+      "~47% of revenue is related-party (parent Craig Technical); consolidated VIE (Aurea Alas) adds related-party complexity",
+      "Super-voting Class B control by CEO/parent; minority Class A holders cannot force liquidation, making control value unattainable",
+      "Commercialization perpetually 'imminent'; no contracted backlog disclosed",
+      "Delisting / reverse-split spiral risk (Momentus/Astra precedent)",
+      "Satellites are wasting assets - LS1 already impaired $4.5M and being de-orbited"
     ],
     "what_would_change_my_mind": [
-      "Signed, FUNDED SHIELD/Golden Dome task orders with disclosed dollar value",
-      "A structural swing to positive gross margin",
-      "Genuine recurring DaaS ramp with multiple arm's-length paying subscribers (reversing external-revenue decline)",
-      "A halt to dilution / capital-return signal",
-      "Conversely: further satellite failures, ATM emptied at low prices, or burn accelerating past ~$40M/yr"
+      "Two+ consecutive quarters of positive gross margin with growing third-party revenue",
+      "A disclosed contracted backlog underwriting forward revenue",
+      "A funded SHIELD/Golden Dome task order of scale",
+      "Evidence the company can reach breakeven without further dilution (cash becomes a true floor)",
+      "A friendly strategic sale near/above net cash",
+      "Conversely: burn accelerating beyond ~$40M/yr with falling revenue, or a distressed/reverse-split raise"
     ],
-    "diluted_shares_used": 106000000.0,
+    "diluted_shares_used": 101000000.0,
     "citations": [
       {
         "source_kind": "filing",
-        "quote": "Non-related party revenue decreased ~54% to ~$1.8M vs ~$3.9M; related party revenue increased 101% to ~$1.6M vs ~$0.8M; cost of revenue $9,076,445; gross loss $(5,692,567) = (168)% margin; SG&A $22,315,569; net loss $(29,474,304); accumulated deficit ~$89.8M; ~$4.5M LS1 impairment.",
-        "accession": null,
+        "quote": "Revenue $3,383,878 ... Cost of revenue 9,076,445 ... Gross Profit (Loss) (5,692,567) ... Gross Profit Percentage (168)% ... Net loss $(29,474,304)",
+        "accession": "10-K FY2025",
+        "section": "Item 7",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Non-related party revenue decreased by approximately 54% ... to approximately $1.8 million ... Related party revenue for the year increased 101% to approximately $1.6 million",
+        "accession": "10-K FY2025",
+        "section": "Item 7",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "An increase of approximately $4.5 million in impairment of LS1 in 2025 ... Going Concern Considerations: ... ability to continue as a going concern depends on ... obtain additional capital as necessary",
+        "accession": "10-K FY2025",
         "section": "Item 7",
         "url": null
       },
       {
         "source_kind": "fundamentals",
-        "quote": "FY2025: revenue 3,383,878; gross_profit -5,692,567; net_income -29,474,304; op_cash_flow -18,153,485; capex -8,174,345; free_cash_flow -26,327,830. Shares 111.6K (FY21) -> 24.7M (FY25) -> 66.6M (Q1FY26).",
+        "quote": "Cash at 2026-03-31 = 27,349,756; total debt 722,714; PP&E net 17,895,520; intangibles 398,135; minorityInterest=0",
         "accession": null,
-        "section": null,
+        "section": "balance_sheet Q1 2026",
         "url": null
       },
       {
         "source_kind": "news",
-        "quote": "April 2026 closed offering of 13,453,700 shares at $4.35 (~$58.5M); May 2026 priced/closed $100M registered direct of 19,685,039 shares at $5.08. June 1, 2026: expected Russell 3000/2000/Microcap inclusion at June 2026 reconstitution.",
+        "quote": "Sidus closed April 2026 offering of 13,453,700 shares at $4.35 ($58.5M) and May 2026 $100M offering of 19,685,039 shares at $5.08",
         "accession": null,
-        "section": null,
+        "section": "PRNewswire",
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "FY2025 FCF -26,327,830; Q1 2026 operating cash flow -5,645,038, capex -3,687,604, FCF -9,332,642",
+        "accession": null,
+        "section": "cash flow",
         "url": null
       },
       {
         "source_kind": "filing",
-        "quote": "Pro forma ~97.3M shares issued (~103M incl penny pre-funded warrants; ~106-108M fully diluted); pro-forma cash ~$164M; April net proceeds $53,916,703 actual; asset-based loan repaid Jan 2026 (no funded debt); no preferred; non-cash tangible assets ~$20M (PP&E/satellites $17.3M); live undrawn $100M ATM + ~$340M shelf headroom.",
+        "quote": "10-Q cover page Class A shares outstanding 80,764,854 as of May 14, 2026; 100,000 Class B super-voting shares held by Craig Technical Consulting; consolidated VIE Aurea Alas Limited (primary beneficiary)",
         "accession": null,
-        "section": "Q1 2026 10-Q / 424B5",
+        "section": "Q1 2026 10-Q / 10-K",
         "url": null
       },
       {
-        "source_kind": "filing",
-        "quote": "We have incurred significant losses since inception... net losses of $29,474,304 and $17,524,056 for 2025 and 2024... we may require substantial additional funding... our current investors may be materially diluted... going concern.",
+        "source_kind": "fundamentals",
+        "quote": "Institutional (13F) ownership: 21 holders, 1,023,019 shares, ~5.58% as of 2025-09-30; insider Form 4 activity limited to routine RSU/option vesting, no open-market buying",
         "accession": null,
-        "section": "Item 1A",
+        "section": "ownership/insider",
         "url": null
       }
     ]
   },
   "judge": {
-    "judge_approved": false,
-    "judge_score": 93,
-    "judge_gaps": [
-      "No treatment of Sidus's dual-class (Class A/Class B) control structure or CEO/insider voting and economic alignment \u2014 material given the related-party dealings and discretionary dilution at the heart of the thesis.",
-      "Lists 'cost-to-replace' as a core valuation method for these names but never computes a satellite/infrastructure replacement floor (the ~$17.3M PP&E and the cumulative build cost) as an independent check.",
-      "Does not probe whether the ~$1.6M related-party revenue / ~$1.7M related-party COGS are at arm's-length terms \u2014 a governance question central to the 'family pass-through' argument.",
-      "Minor internal arithmetic: the 'modest' scenario's stated $1.50 low end computes to ~$1.28; the real-option ceiling's S=$60M/X=$120M inputs are reasonable but un-sensitized (a small ceiling sensitivity table would strengthen it)."
-    ],
-    "action": "evaluated",
-    "reject_reason": null
-  }
+    "approved": true,
+    "score": 93,
+    "gaps": [
+      "The cohort base rate (2 of 13) is a reasonable but approximate sample; a fuller version could widen the reference set or weight by similarity to SIDU's profile \u2014 a refinement, not a flaw",
+      "Scenario B/C/D point values remain judgment calls (now bounded by ranges and derivations); inherent to optionality valuation and transparently disclosed",
+      "The Adj. EBITDA figures cited in the income table are company-style adjusted metrics not independently reconstructible from the as-reported statements, though they are not load-bearing to the valuation"
+    ]
+  },
+  "action": "evaluated"
 }
