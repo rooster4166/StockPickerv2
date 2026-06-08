@@ -1,0 +1,97 @@
+{
+  "ticker": "KINS",
+  "run_id": "run-20260607T221837-cef6db",
+  "dossier": {
+    "fair_value_per_share": 11.0,
+    "intrinsic_value_floor": 8.75,
+    "fair_value_low": 9.0,
+    "fair_value_high": 14.0,
+    "valuation_method": "Warranted P/B = (through-cycle ROE - g)/(CoE - g) on common book, probability-weighted across ROE-durability scenarios (excess-returns / composite), triangulated against coastal-discounted peer P/B-ROE map; CoE 14.5% built up for a single-state coastal micro-cap; cross-checked vs normalized P/E; tail sized against the $440M reinsurance tower and ~$99.2M statutory surplus",
+    "confidence": 0.63,
+    "thesis_summary": "Kingstone is a NY-concentrated homeowners insurer two years into a real turnaround (FY2025 combined ratio 75%, ROE ~43%, book rebuilt to $122.7M, KICO surplus ~$99.2M, debt-free), but its ~$15.4 price (~1.9x book) capitalizes peak, cyclically-inflated returns as permanent. The structural gains (Select re-underwriting >33% lower frequency, 30% expense ratio, growing investment income) are durable; the peak ROE is not (1.2 cat points vs a 7.1 six-yr avg, hard NY market from competitor exits, one-time quota-share earn-in; management itself guides ROE down to 24-30%). On a sober ~16-17.5% through-cycle ROE vs a 14.5% cost of equity, warranted P/B is ~1.3-1.4x and FMV ~$11.0 - roughly 25-30% below the market price. Overvalued / Sell-trim, not a high-conviction short given the hard market could persist (28%-weighted ~$14.5 branch) and a robust balance sheet limits the capital tail.",
+    "key_value_drivers": [
+      "Durability of through-cycle ROE as the hard NY market normalizes (dominant driver)",
+      "Select mix-shift continuing to lower loss frequency (~60% of PIF, ~40% legacy still to run off)",
+      "Catastrophe load normalization (FY2025 1.2 pts vs 7.1 six-yr avg; 2026 guide 7-10 pts)",
+      "Net retention up as quota-share cut 16%->5% (lifts ROE in good years, raises net premium/surplus leverage to ~2.15x and deepens losses in bad)",
+      "Investment leverage ~2.55x equity; NII $9.8M FY2025 (+44%) with multi-year reinvestment tailwind at ~5.2% new-money yields",
+      "Cost of equity (~14.5%) driven by single-state coastal-cat concentration and micro-cap size",
+      "Statutory dividend capacity (~$9.9M/yr) and RBC ~5.6x ACL governing capital-return sustainability"
+    ],
+    "key_risks": [
+      "Hard-market persistence (risk to the Sell): low-20s ROE for years implies ~$14.5 fair value",
+      "Coastal/aggregate catastrophe: single events absorbable (~5-15% of surplus); only a >1-in-100/250 tower-piercing event (>$440M gross) impairs capital",
+      "Hard-market normalization / competitor re-entry compressing rate and ROE (the thesis)",
+      "Reinsurance renewal cost increases on higher net retention; net leverage rising toward gross as QS falls to 5%",
+      "Adverse reserve development (occurred 2022; young Select book; legacy commercial/livery runoff ~$13.4M / 12.5% of net reserves)",
+      "NY regulatory / homeowner-affordability legislation; rate-approval lag",
+      "Execution risk in California wildfire E&S and Connecticut expansion"
+    ],
+    "what_would_change_my_mind": [
+      "Sub-80% combined ratios sustained through a normal-to-heavy cat year (upward)",
+      "Continued Select frequency gains and profitable geographic diversification lowering CoE (upward)",
+      "A capital-impairing cat year (>$440M gross) or material adverse reserve development (downward)",
+      "Evidence the hard market is collapsing faster than rate adequacy (downward)",
+      "A value-destructive equity raise below book (downward)"
+    ],
+    "diluted_shares_used": 14500000.0,
+    "citations": [
+      {
+        "source_kind": "fundamentals",
+        "quote": "FY2025 revenue 199,192,608; net income 40,767,128; common equity 122,731,249; shares 14,143,000. FY2024 net income 18,358,436. FY2022 -22,524,794; FY2023 -6,168,346.",
+        "accession": null,
+        "section": "financials",
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "returnOnEquityTTM 0.2827; bookValuePerShareTTM 7.9221; debtToEquityRatioTTM 0.036; interestCoverageRatioTTM 135.27; priceToBookRatioTTM 1.9477",
+        "accession": null,
+        "section": "ratios",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "Q1 GAAP Net Combined Ratio of 112.0% Driven by Eleven Winter Catastrophe Events... Underlying Combined Ratio Improved 5.1 Points to 88.3%... Company Reaffirms 2026 Full Year Guidance",
+        "accession": null,
+        "section": "Q1 2026 press release (GlobeNewsWire 2026-05-07)",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "Kingstone Companies (NASDAQ:KINS) Director William Yankus sold 13,500 shares ... at an average price of $18.00, for a total transaction of $243,000.00",
+        "accession": null,
+        "section": "Defense World 2026-04-20",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "FY2025 net combined ratio 75.0% (net L&LAE 84,266K / NPE 187,127K = 45.0% loss ratio; cat 1.2 pts); underlying combined 74.4%; net loss & LAE reserves gross 140,539K / ceded 33,232K / net 107,306K (IBNR ~44% of net); 2022 adverse PYD ~+2.4 pts then favorable/neutral 2023-Q1'26; NII 9,799K FY2025 vs 6,824K FY2024",
+        "accession": null,
+        "section": "FY2025 10-K Item 7",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "KICO statutory surplus ~$99.2M (well in excess of regulatory requirements); RBC TAC/ACL ~5.62x at YE2024; cat tower top occurrence limit $440M (sized >1-in-100), ~$5M first-event net retention, second-event $9.5M, one reinstatement, plus $125M 1886 Re cat bond; 2026 ordinary dividend capacity ~$9.9M (10% of surplus)",
+        "accession": null,
+        "section": "FY2025 10-K statutory schedule / Q4-2025 investor deck",
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Peer TTM P/B vs ROE: Skyward 1.52x/17%; HCI 1.64x/33%; Palomar 3.0x/22%; American Financial 2.36x/19%; Kemper 0.55x/1.5%",
+        "accession": null,
+        "section": "peers",
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "judge_approved": true,
+    "judge_score": 92,
+    "judge_gaps": [],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}
