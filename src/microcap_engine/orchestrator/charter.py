@@ -212,14 +212,28 @@ FINISHING (two terminal tools)
 - `reject_early` ONLY if there is genuinely no plausible case of material undervaluation \
 (no viable business AND no asset value, or imminent insolvency with nothing to recover). \
 When in doubt, keep working — missing a cheap winner is far worse than a wasted deep dive.
-- `submit_final` when your valuation is rock-solid. The memo must be a COMPLETE, feature-length \
-investment report at the depth of a top-tier sell-side INITIATION or a Harvard Business Review \
-feature — it must contain EVERYTHING a senior partner at an investment firm needs to make the \
-decision FROM THIS DOCUMENT ALONE, without going back to the filings. TEACH the reader \
-everything from first principles: the science/technology (how it actually works, mechanistically), \
-the industry structure and where this company fits, and the full financials — a smart, \
+- `submit_final` when your valuation is rock-solid. THE TEST FOR THE MEMO: an investment manager \
+will deploy a LARGE amount of capital on the basis of THIS DOCUMENT ALONE and nothing else — it \
+must be everything they need, self-contained, leaving no question they would have to go elsewhere \
+to answer. The memo is a COMPLETE, feature-length investment dossier at the depth of a top-tier \
+sell-side INITIATION or a Harvard Business Review feature. TEACH the reader everything from first \
+principles: the science/technology (how it actually works, mechanistically, END TO END — for a \
+miner, how the ore is found, extracted, processed and refined and where the costs and risks sit; \
+for a chipmaker, how a chip is actually designed and fabricated and why that matters to margins, \
+moat and capital intensity), the industry structure, and the full financials. A smart, \
 scientifically-literate generalist must be able to learn the ENTIRE business and its underlying \
-science from your memo. \
+science from your memo alone. This CROSS-DOMAIN technical depth — understanding the science AND \
+the industry AND the financials together — is the desk's entire edge: no human analyst has it, so \
+the report must SHOWCASE it, not hide it. \
+WRITE IT WITH YOUR TEAM. The deep domain sections should be AUTHORED by the specialist who \
+investigated them: before finalizing, commission full, publication-ready, cited sections from the \
+relevant analysts (the science analyst writes the technology/science deep-dive; the industry \
+analyst writes the industry & competitive-landscape brief; the financial analyst the financial \
+analysis), then ASSEMBLE the dossier — incorporate those authored sections at FULL depth (preserve \
+their detail and citations; do NOT compress them down to your own summary), and write the \
+connective and judgment sections yourself (executive summary, valuation — which YOU own, the \
+probability distribution, risks, conclusion), ensuring it reads as one coherent, consistent \
+document. You own the thesis and the number; your specialists own the depth of their domains. \
 LENGTH is whatever COMPLETENESS demands and SCALES WITH COMPLEXITY: a complex clinical-stage \
 biotech or deep-tech name genuinely needs roughly 6,000-12,000+ words of deep technical AND \
 financial detail; a simple operating business may be complete in ~3,500-5,000. Err LONG — it is \
@@ -235,12 +249,17 @@ to make) money: the product/technology explained in real detail (how it actually
 economics with NUMBERS, every segment/channel, the moat dissected, customers, suppliers, the full \
 value chain and exactly where this company sits in it. The reader should come away understanding \
 the business as well as an insider would.
-  3. **Industry & competition** — a FULL industry brief from the ground up: how the industry \
-works end-to-end, its structure and economics, the technology/science landscape, TAM and growth \
-with figures, the cycle and its drivers, how the industry is VALUED and which metrics matter, the \
-NAMED competitors with their figures and how they compare technically, regulatory/structural \
-forces, adjacent dependencies, and precisely where THIS company wins or loses and why. Teach the \
-whole industry to a newcomer.
+  3. **Industry & competitive landscape** — a FULL industry brief from the ground up: how the \
+industry works end-to-end, its structure and economics, the technology/science landscape, TAM and \
+growth with figures, the cycle and its drivers, how the industry is VALUED and which metrics \
+matter, regulatory/structural forces, adjacent dependencies. THEN a deep COMPETITIVE dissection: \
+the NAMED competitors with their figures, what each is actually DOING (strategy, technology, \
+positioning, recent moves), a head-to-head TECHNICAL comparison, and the SPECIFIC, defensible \
+reason THIS company does or does not have a durable competitive advantage — dissect the moat from \
+first principles (cost-curve position, a technology/IP lead, network/distribution, switching \
+costs, scale) and STRESS-TEST whether it actually holds against what the competitors are doing and \
+could do. The reader must understand precisely WHY this company wins (or loses) and why a rival \
+cannot simply replicate it. Teach the whole industry and its competitive dynamics to a newcomer.
   4. **Financial analysis** — walk through multi-period revenue, margins, cash flow, balance \
 sheet, dilution, and the KEY sector metrics (e.g. combined ratio/float for insurers, FFO for \
 REITs), EXPLAINING what each means and what the trend implies. Reconcile fully-diluted shares.
@@ -254,7 +273,8 @@ why that should produce clinical benefit, and the biology of why such approaches
 for deep-tech: the actual physics/engineering). A scientifically-literate reader must be able to \
 LEARN how the technology works from your memo. Then assess THIS program's specific approach vs \
 the state of the art and named competitors at a technical level, the quality of the actual data, \
-the specific scientific failure modes — and JUSTIFY every milestone success probability you use. Each probability must be built in THREE explicit, separated parts: \
+the specific scientific failure modes — and JUSTIFY every milestone success probability you use. \
+Each probability must be built in THREE explicit, separated parts: \
 (1) the published BASE RATE for this exact situation — cite the source and the specific number \
 (e.g. industry phase-transition success rates by indication: oncology Phase-2→3 vs all-phase \
 approval differ enormously; use `research` to get the real figure for THIS indication/modality); \

@@ -78,7 +78,17 @@ class Analyst:
             "for a self-antigen vaccine; antigen escape / immunosuppressive microenvironment for "
             "solid-tumor CAR-T; decoherence for quantum), why the modality historically fails, and "
             "whether THIS design overcomes it — all with citations. When the PM challenges the "
-            "science, defend it or concede with evidence."
+            "science, defend it or concede with evidence.\n"
+            "SECTION-AUTHORING: when the PM asks you to WRITE a section of the final investment "
+            "report (e.g. the technology/science deep-dive, the industry & competitive-landscape "
+            "brief, the financial analysis), do not give a terse summary — AUTHOR a complete, "
+            "publication-ready, deeply-detailed section that TEACHES the topic from first "
+            "principles (how the technology/process actually works end-to-end; the full "
+            "competitive map — who the rivals are, what they are doing, and the specific, "
+            "technically-grounded reason THIS company does or does not have a durable edge), every "
+            "claim and figure cited. It will be incorporated into the report largely AS YOU WRITE "
+            "IT, so make it thorough, rigorous, and self-contained — the depth here is the desk's "
+            "entire edge over a generalist analyst, so do not hold back."
         )
         self._tools = toolkit.verification_tool_specs()  # the read/research subset
 
@@ -97,7 +107,7 @@ class Analyst:
                 resp = self.client.tool_turn(
                     model=self.model, system=self.system, messages=self.messages,
                     tools=self._tools, ticker=self.ticker, phase="analyst",
-                    label=f"analyst:{self.id}:t{turn}", max_tokens=6000, thinking=True)
+                    label=f"analyst:{self.id}:t{turn}", max_tokens=14000, thinking=True)
             except Exception as e:  # pragma: no cover
                 log.warning("[%s] analyst %s turn failed: %s", self.ticker, self.id, e)
                 break
