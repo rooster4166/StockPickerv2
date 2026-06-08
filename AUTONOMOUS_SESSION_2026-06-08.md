@@ -43,3 +43,29 @@ above price, there is no systematic underpricing bias. Results pending.
 
 ### Next
 Monitor the 5 runs; analyze the undervalue result; status reports every ~30 min; end 14:06Z.
+
+## Status report #2 — 12:58Z
+
+**Two user requests handled this window:**
+
+1. **Growing-revenue flukes replaced (D18).** The first complex-5 had tiny-base/lumpy "growth":
+   KRRO $6.4M (lumpy collaboration milestones), RANI $1.6M (pre-commercial), STRO $102M but
+   *declining* ($154M→$62M→$102M, lumpy partnership). Per the user ("be sure growing revenue is
+   not a fluke from tiny revenue"), swapped for names with REAL, substantial revenue: **VSTM**
+   ($0→$10M→$31M, RAF/MEK oncology), **VRCA** ($5M→$8M→$36M, derma drug-device), **CDXS**
+   (Codexis, ~$70M, synthetic-biology/enzyme platform — the max cross-domain complexity test).
+   Kept **STIM** ($71→$75→$149M, clean commercial) and **BZAI** ($38.6M real AI-chip ramp).
+
+2. **Deterministic post-analysis price injection (D19).** `runner/report.py:_price_header`
+   prepends, at PUBLISH time only, one header line: market price · engine FMV · implied
+   upside/downside · floor. The price is read at the publish layer, NEVER by the price-blind
+   engine/LLM (same seam as `portfolio/book.py`). 55 tests still green.
+
+**In flight (10 runs, all on the price-injection code):**
+- Cheap-value 5 — NUS, JRVR, ACR, MFIN, CPSS → settles the undervalue-bias question.
+- Complex-growing 5 — STIM, VSTM, VRCA, BZAI, CDXS → cross-domain edge test.
+- ~28 min in at report time; healthy (audit call counts climbing: STIM 27, CDXS 24, MFIN 20).
+  Run IDs in `data/.cheap_runmap.txt` + `data/.complex_runmap.txt`.
+
+**Next:** on completion confirm the price header renders + FMV-vs-price is sane; analyze both
+batches; final report; delete `AUTONOMOUS_ACTIVE` at 14:06Z.
