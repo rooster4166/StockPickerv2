@@ -88,7 +88,8 @@ def main(path: str) -> None:
         print("\n[PHASE 1 — FINANCIALS]")
         _wrap("summary", fin.get("summary"))
         _wrap("anomalies", fin.get("anomalies"))
-        print(f"    revenue_trend: {[(p['period'], p['value']) for p in fin.get('revenue_trend', [])]}")
+        _rt = [(p["period"], p["value"]) for p in fin.get("revenue_trend", [])]
+        print(f"    revenue_trend: {_rt}")
         print(f"    citations: {len(fin.get('citations', []))}")
 
         biz = run["business"]

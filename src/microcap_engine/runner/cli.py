@@ -70,6 +70,11 @@ def one(
             console.print(f"[dim]Full memo: {memo_path}[/dim]")
         if result.transcript_path:
             console.print(f"[dim]Full investigation transcript: {result.transcript_path}[/dim]")
+        # Auto-publish the clean, committable report (memo + transcript + dossier).
+        from microcap_engine.runner.report import publish_from_result
+        folder = publish_from_result(engine.run_id, ticker, result)
+        if folder:
+            console.print(f"[dim]Published report -> {folder}[/dim]")
     elif result.runs:  # phased result
         rt = result.runs[0].redteam
         console.print(f"Red-team: would_break_thesis={rt.would_break_thesis}, "

@@ -296,13 +296,17 @@ def _h_financials(ctx, inp) -> ToolReply:
 
 # Price-blinding: any metric derived from the market price/market cap must NOT reach the
 # PM (it could back out the price). Strip them from the ratios tool. The PM reasons on
-# operational ratios (margins, returns, turnover, leverage, liquidity, growth) only.
-_PRICE_DERIVED = ("price", "marketcap", "market_cap", "evto", "ev_to", "enterprisevalue",
-                  "enterprise_value", "yield", "dividendpershare", "pricefairvalue")
+# operational ratios (margins, returns, turnover, leverage, liquidity, growth) and
+# FUNDAMENTAL per-share values only. NOTE: we strip "...yield" (metric÷price) but keep
+# fundamentals like dividendPerShare and bookValuePerShare (NOT price-derived).
+_PRICE_DERIVED = ("price", "marketcap", "market_cap", "evto", "ev_to", "evmultiple",
+                  "enterprisevalue", "enterprise_value", "yield")
 
 
 def _is_price_derived(key: str) -> bool:
     k = key.lower()
+    # 'dividendPerShare' / 'bookValuePerShare' etc. are fundamentals — keep them even
+    # though 'price' appears nowhere; only genuine price/market-derived metrics go.
     return any(tok in k for tok in _PRICE_DERIVED)
 
 

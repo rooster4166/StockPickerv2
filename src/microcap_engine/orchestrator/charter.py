@@ -255,6 +255,22 @@ uncertain drivers, the plausible range and PROBABILITY WEIGHT of each, and how t
 the single expected FMV, with a confidence band around it. Make the weighting explicit.
   8. **Risks & what would change my mind.**
   9. **Conclusion** — the fair market value, its confidence band, the floor, and your conviction.
+
+COMPLETENESS & POLISH — the memo IS the full synthesis of your entire investigation, not a \
+summary of it. Every material thing you or your analysts uncovered must make it into the report \
+at full specificity: the exact figures (pull them with `get_statement` / `read_filing_section` — \
+e.g. the reserve roll-forward and development triangle, statutory surplus / RBC, segment and \
+channel detail, the insider/ownership picture), the precise per-period numbers (no blank "—" \
+cells or vague "+9% YoY" where the actual figure is retrievable), and the specific reasoning \
+behind every assumption. An 80-step investigation must read DEEPER than a one-shot memo — if it \
+doesn't, you left findings in your notes. ABSOLUTELY FORBIDDEN: any process/tooling artifact in \
+the report — never write "could not be machine-retrieved this session", "could not retrieve this \
+session", "unverified this session", or anything referencing your tools, steps, or session. If a \
+figure matters, GO GET IT (get_statement, read_filing_section, an analyst follow-up) before \
+submitting; if it is genuinely not in the public record, state that as a clean business fact \
+("the company does not disclose X") — never as a tooling limitation. The reader must never see \
+the seams of how the memo was produced.
+
 Submit this PLUS the structured dossier. A decorrelated reviewer (with the SAME data + web tools \
 you have) WILL then independently verify your numbers and attack the analysis; if it finds \
 valuation-changing ERRORS you are sent back to FIX or REBUT them with evidence, then resubmit. \
