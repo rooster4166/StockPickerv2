@@ -294,12 +294,26 @@ def _h_financials(ctx, inp) -> ToolReply:
     return ToolReply(content=digest.financials_block(ctx.data))
 
 
+# Price-blinding: any metric derived from the market price/market cap must NOT reach the
+# PM (it could back out the price). Strip them from the ratios tool. The PM reasons on
+# operational ratios (margins, returns, turnover, leverage, liquidity, growth) only.
+_PRICE_DERIVED = ("price", "marketcap", "market_cap", "evto", "ev_to", "enterprisevalue",
+                  "enterprise_value", "yield", "dividendpershare", "pricefairvalue")
+
+
+def _is_price_derived(key: str) -> bool:
+    k = key.lower()
+    return any(tok in k for tok in _PRICE_DERIVED)
+
+
 def _h_ratios(ctx, inp) -> ToolReply:
     r = ctx.fmp.get_ratios(ctx.ticker)
     if not r:
         return ToolReply(content="No ratios available.")
-    lines = [f"{k}: {round(v, 4) if isinstance(v, float) else v}" for k, v in r.items()]
-    return ToolReply(content="TTM RATIOS & KEY METRICS:\n" + "\n".join(lines))
+    lines = [f"{k}: {round(v, 4) if isinstance(v, float) else v}"
+             for k, v in r.items() if not _is_price_derived(k)]
+    return ToolReply(content="TTM OPERATIONAL RATIOS (price-blind — margins, returns, "
+                             "turnover, leverage, liquidity):\n" + "\n".join(lines))
 
 
 def _h_peers(ctx, inp) -> ToolReply:
@@ -361,11 +375,10 @@ def _h_dividends(ctx, inp) -> ToolReply:
     divs = ctx.fmp.get_dividends(ctx.ticker, limit=int(inp.get("limit", 24)))
     if not divs:
         return ToolReply(content=f"No dividend history for {ctx.ticker} (may pay none).")
-    lines = ["DIVIDEND HISTORY (most recent first):"]
+    lines = ["DIVIDEND HISTORY (most recent first; yield omitted — price-blind):"]
     for d in divs[:24]:
         lines.append(f"  {d.get('date')}: ${d.get('dividend')} "
-                     f"(adj ${d.get('adjDividend')}, yield {d.get('yield')}, "
-                     f"freq {d.get('frequency')})")
+                     f"(adj ${d.get('adjDividend')}, freq {d.get('frequency')})")
     return ToolReply(content="\n".join(lines))
 
 

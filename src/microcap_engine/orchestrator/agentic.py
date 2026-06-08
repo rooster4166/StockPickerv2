@@ -56,7 +56,12 @@ _REDTEAM_GATE_SYSTEM = (
     "severity='high' AND would_change_valuation=true. Use 'low'/'medium' for everything else.\n"
     "If the memo's numbers tie to the filings AND its discount rate and probabilities are "
     "defensible, say so with no high+would_change concerns. Be exacting; do not manufacture errors "
-    "from ordinary, already-priced uncertainty."
+    "from ordinary, already-priced uncertainty.\n"
+    "PRICE-BLINDING (do not break it): the author values INDEPENDENTLY of the market price by "
+    "design. NEVER state the market price, market cap, or an analyst price target in your concerns "
+    "(they go back to the author and would contaminate the blind valuation), and NEVER flag the "
+    "memo for omitting the price — that omission is correct. Critique the analysis, not its "
+    "distance from price."
 )
 
 
@@ -193,6 +198,22 @@ class AgenticOrchestrator:
             return (False, f"submit_final REJECTED — the dossier is invalid: {e}. Fix it and "
                            f"call submit_final again.", None, None)
 
+        # INVARIANT #1 — the published fair value MUST be an actual compute_valuation output,
+        # not a hand-edited memo table. Require the dossier headline to match a computed value.
+        computed = [v.fair_value_per_share for v in self.ctx.valuations
+                    if v.fair_value_per_share is not None]
+        fv = dossier.fair_value_per_share
+        matched = any(abs(fv - c) <= 0.03 * max(abs(c), 1e-6) for c in computed)
+        if not computed or not matched:
+            recent = [round(c, 4) for c in computed[-6:]]
+            return (False,
+                    f"submit_final REJECTED — your headline fair_value_per_share ({fv}) was NOT "
+                    f"produced by the code engine (compute_valuation results: {recent or 'NONE'}). "
+                    "The headline must be the EXACT output of compute_valuation, never a hand-"
+                    "edited memo table (invariant: judgment in the LLM, MATH IN CODE). Re-run "
+                    "compute_valuation with your FINAL inputs and submit with that exact value.",
+                    None, None)
+
         # GATE 1 — red-team: real errors only (the prompt forbids flagging priced uncertainty).
         report = self._red_team(memo, dossier)
         blockers = [c for c in report.concerns
@@ -327,8 +348,13 @@ class AgenticOrchestrator:
             f"# {d.profile.name} ({d.ticker}) — Full Investigation Transcript",
             "\n*The complete research history: every step the PM took, what each tool returned, "
             "every valuation computed, and every red-team round — followed by the final memo.*\n",
-            f"\n**Outcome:** {outcome.action} | **Red-team rounds:** {outcome.red_team_rounds} | "
-            f"**Tool calls:** {outcome.tool_calls}\n",
+            f"\n**Outcome:** {outcome.action} | **Red-team reject-rounds:** "
+            f"{outcome.red_team_rounds} | **Judge:** {outcome.judge_score or 0}/100 "
+            f"(best-in-existence={outcome.judge_approved}) | **Tool calls:** "
+            f"{outcome.tool_calls}\n",
+            "\n*(Each submission was scrutinized by a tool-verifying red-team AND an independent "
+            "best-in-existence judge; 'reject-rounds' counts only rounds that sent the memo back — "
+            "the gates ran on every submission.)*\n",
             "\n---\n",
         ]
         for turn in self.transcript:

@@ -52,3 +52,21 @@ def test_portfolio_layer_is_allowed_to_use_quote():
     # Sanity: the portfolio/runner layer is where the price legitimately enters.
     book = (SRC / "portfolio" / "book.py").read_text(encoding="utf-8")
     assert "price" in book.lower()
+
+
+def test_ratios_tool_strips_price_derived_fields():
+    """The ratios tool must NOT hand the price-blind PM any price/market-cap-derived
+    metric (it could back out the price). Audit found marketCap + price multiples
+    leaking; this locks the scrub."""
+    from microcap_engine.orchestrator.tools import _is_price_derived
+    must_strip = ["marketCap", "priceToBookRatioTTM", "priceToEarningsRatioTTM",
+                  "priceToSalesRatioTTM", "evToSalesTTM", "evToEBITDATTM",
+                  "earningsYieldTTM", "freeCashFlowYieldTTM", "priceToFairValueTTM",
+                  "debtToMarketCapTTM", "dividendYieldTTM", "enterpriseValueTTM"]
+    for k in must_strip:
+        assert _is_price_derived(k), f"{k} leaks price — must be stripped"
+    must_keep = ["grossProfitMarginTTM", "returnOnEquityTTM", "currentRatioTTM",
+                 "debtToEquityTTM", "netProfitMarginTTM", "assetTurnoverTTM",
+                 "interestCoverageTTM", "returnOnInvestedCapitalTTM"]
+    for k in must_keep:
+        assert not _is_price_derived(k), f"{k} is operational (no price) — must be kept"
