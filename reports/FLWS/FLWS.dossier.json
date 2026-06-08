@@ -1,0 +1,107 @@
+{
+  "ticker": "FLWS",
+  "run_id": "run-20260607T221837-2a87e6",
+  "dossier": {
+    "fair_value_per_share": 3.55,
+    "intrinsic_value_floor": 1.55,
+    "fair_value_low": 2.5,
+    "fair_value_high": 5.25,
+    "valuation_method": "Probability-weighted EV/EBITDA on normalized EBITDA (composite of 3 branches; weights anchored to the ~10-30% empirical base rate of retail turnarounds: 48% decline / 38% cost-driven stabilization / 14% growth turnaround), cross-checked with a 5-stage DCF (terminal-value sensitivity), specialty-retail peers, and a transaction-triangulated hard-asset floor",
+    "confidence": 0.55,
+    "thesis_summary": "FLWS is a post-COVID special situation: a multi-brand online gifting franchise whose revenue has declined four straight years (from ~$2.2B FY2022 to ~$1.55B TTM) and whose Adjusted EBITDA fell from $213M to a ~$40M normalized run-rate, with ~$273M cumulative non-cash impairments. A credible, ahead-of-plan cost reset under new management has not stabilized the top line (Q3 FY2026 -11.6%), and lenders suspended the leverage/fixed-charge covenants in May 2025 (a 2027 cliff looms, though the ~$115M 2028 maturity is refinanceable without dilution at $45-55M EBITDA). Disciplining scenario weights to retail-turnaround base rates, FMV is ~$3.55 with a ~$1.55 no-growth floor (asset-supported to ~$2.00 by the owned Medford real estate/orchards and saleable BloomNet). The base-rate-anchored value sits below the consensus turnaround narrative.",
+    "key_value_drivers": [
+      "Where normalized Adjusted EBITDA settles (~$45M decline / ~$67M stabilization / ~$92M turnaround)",
+      "Whether revenue plateaus near $1.45B vs. drifting to ~$1.3B (base-rate prior favors continued decline)",
+      "Whether the already-achieved $50M cost run-rate sticks net of marketing/MarTech reinvestment (marketing already cut 220-280 bps of sales)",
+      "Exit EV/EBITDA multiple (4.5x melting / 5.75x stabilizing / 7x re-rate), all below peer median ~10x",
+      "2027 covenant cliff (revert to 2.50x/1.50x) and the financeable ~$115M June-2028 maturity; owned real estate provides sale-leaseback flexibility"
+    ],
+    "key_risks": [
+      "Structural search/AI traffic erosion makes the revenue decline permanent (modal base-rate outcome)",
+      "2027 covenant cliff after the May-2025 covenant holiday; gross leverage ~5x reported Adj EBITDA",
+      "Stabilization fails because cost savings are consumed by reinvestment with no demand response",
+      "Recurring non-cash impairments signal falling internal forecasts (Consumer Floral at ~zero excess fair value)",
+      "Founder dual-class control forecloses takeover-premium optionality"
+    ],
+    "what_would_change_my_mind": [
+      "Two+ quarters of underlying (ex-deliberate-cut) revenue stabilization with marketing-contribution margin holding",
+      "Restored covenant headroom / clean refinancing of the June 2028 maturity, or an announced Medford sale-leaseback",
+      "FCF returning toward the $50M+ FY2024 level",
+      "Accelerating decline in the Gourmet segment (currently the stable anchor)",
+      "A going-concern qualification or a punitive covenant amendment"
+    ],
+    "diluted_shares_used": 64100000.0,
+    "citations": [
+      {
+        "source_kind": "fundamentals",
+        "quote": "Revenue FY2022 $2,207,885K -> FY2023 $2,017,853K -> FY2024 $1,831,421K -> FY2025 $1,685,658K; Adjusted EBITDA ~$93M FY2024 -> $29.2M FY2025; normalized FY2026 ~$40M run-rate",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "achieving our previously announced $50 million in savings 2-year target in less than a year ... now targeting an incremental $15 million to $20 million ... approximately $65 million to $70 million",
+        "accession": null,
+        "section": "Q3 FY2026 earnings call",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Marketing and sales $86,236K = 29.4% of revenue (Q3) vs $106,728K = 32.2% PY; 25.7% (9M) vs 27.9% PY",
+        "accession": null,
+        "section": "Q3 FY2026 10-Q (Item 7)",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "May 6, 2025 amendment replaced the financial covenants with a minimum-liquidity covenant through Dec 27, 2026; pricing +350 bps; revolver cut to $205M; baseline reverts to max leverage 2.50x (3.25x Sept) / min fixed-charge coverage 1.50x",
+        "accession": null,
+        "section": "8-K May 7, 2025 / 10-Q Note 10",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Term loan gross $145.0M; revolver $0; cash $50.7M -> net funded debt ~$94M ex-leases; $97M balloon due June 2028 (~$115M FY2028 to refinance); effective rate ~7.3%; seasonal net-debt Sep peak ~$258M, Dec net cash ~-$42M, average ~$106M",
+        "accession": null,
+        "section": "10-Q Note 10 (Mar 29, 2026)",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Owned: Medford OR 1,112,000 sq ft + ~3,350 acres orchards/land; Hebron OH 330,900 sq ft; Jacksonville FL 180,000 sq ft; Westerville OH 88,000 sq ft; gross land/orchards/buildings $125.8M; net PP&E $215.6M",
+        "accession": null,
+        "section": "FY2025 10-K Item 2 Properties",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Cumulative non-cash impairments: FY2023 $64.6M + FY2024 $19.8M + FY2025 $143.8M + Q3 FY2026 $45.2M = ~$273.4M",
+        "accession": null,
+        "section": "FY2025 10-K MD&A / risk factor",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "Turnaround base rate: BCG ~26% of transformations create value; Stall Points/HBR ~10% recapture sustainable growth; retail subset harder due to e-commerce share gains",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Peer EV/EBITDA TTM: SBH 6.2x, BOBS 8.2x, SVV 10.4x, EYE 10.9x, ARKO 10.7x, WOOF 10.8x, RVLV 11.4x (median ~10x); shares ~64.1M, diluted=basic (anti-dilutive); tangible BV/share ~$1.74",
+        "accession": null,
+        "section": null,
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "judge_approved": true,
+    "judge_score": 95,
+    "judge_gaps": [],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}
