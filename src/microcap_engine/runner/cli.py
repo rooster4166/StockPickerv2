@@ -124,6 +124,49 @@ def universe(
 
 
 @app.command()
+def screen(
+    top: int = typer.Option(10, help="How many top edge picks to return."),
+    prior_keep: int = typer.Option(40, help="How many top-of-prior names get Sonnet triage."),
+    tickers: str = typer.Option("", help="Comma list to screen instead of the universe "
+                                         "(for backtests, e.g. ANIX,KINS,ACRE)."),
+    limit: int = typer.Option(0, help="Cap universe names scored in stage 1 (0 = all)."),
+    out: str = typer.Option("", help="Optional path to write the ranked picks JSON."),
+):
+    """Edge pre-screener: rank names by the engine's differential edge, return top picks."""
+    from microcap_engine.screen.hunt import hunt
+    fmp = FMPProvider()
+    engine = Engine.create()
+    if tickers.strip():
+        names = [t.strip().upper() for t in tickers.split(",") if t.strip()]
+    else:
+        rows = screen_universe(fmp)
+        names = [r.ticker for r in rows]
+        if limit:
+            names = names[:limit]
+    console.print(f"[bold]Edge-screening {len(names)} names[/bold] "
+                  f"(stage-2 triage on top {prior_keep})...")
+    picks = hunt(fmp, engine.client, names, prior_keep=prior_keep, top=top)
+    table = Table("Rank", "Ticker", "Edge", "Prior", "#An", "Barrier", "CovGap", "Dive?", "Sector")
+    for i, c in enumerate(picks, 1):
+        tr = c.triage
+        table.add_row(
+            str(i), c.ticker, f"{c.final_edge:.3f}", f"{c.edge_prior:.3f}", str(c.n_analysts),
+            f"{tr.complexity_barrier:.2f}" if tr else "-",
+            f"{tr.coverage_understanding_gap:.2f}" if tr else "-",
+            ("YES" if tr and tr.recommend_deep_dive else "no") if tr else "-",
+            (c.sector or "-")[:18])
+    console.print(table)
+    for c in picks[:top]:
+        if c.triage:
+            console.print(f"  [dim]{c.ticker}: {c.triage.reasoning}[/dim]")
+    cost = sum(engine.client.audit.summary(c.ticker).get("cost_usd", 0.0) for c in picks)
+    console.print(f"[dim]triage cost ≈ ${cost:.2f} for {len(picks)} names[/dim]")
+    if out:
+        Path(out).write_text(json.dumps([c.model_dump() for c in picks], indent=2, default=str))
+        console.print(f"Wrote {out}")
+
+
+@app.command()
 def run(
     capital: float = typer.Option(100_000.0),
     mos: float = typer.Option(settings.margin_of_safety),

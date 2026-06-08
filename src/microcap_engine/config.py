@@ -46,6 +46,7 @@ class Settings(BaseSettings):
     redteam_model: str = "claude-opus-4-8"     # phase 7 (strong adversary)
     extract_model: str = "claude-sonnet-4-6"   # transcript distillation
     cheap_gate_model: str = "claude-sonnet-4-6"  # fast triage gate
+    edge_triage_model: str = "claude-sonnet-4-6"  # stage-2 edge triage (pre-screener)
 
     # ── Strategy constants ─────────────────────────────────────────────────
     # "agentic" (tool-using PM, default) or "phased" (the older fixed cascade).
