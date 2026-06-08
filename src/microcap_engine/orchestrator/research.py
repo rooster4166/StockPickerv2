@@ -18,11 +18,20 @@ log = get_logger(__name__)
 _WEB_SEARCH_TOOL = {"type": "web_search_20260209", "name": "web_search"}
 
 _RESEARCH_SYSTEM = (
-    "You are a research analyst. Answer the question precisely and concretely using "
-    "web search where it helps. When the question is about how to VALUE a kind of "
-    "business, return: the standard valuation framework(s) practitioners use, the "
-    "specific metrics/drivers that matter, typical multiple ranges, and the key "
-    "pitfalls. Be specific and cite sources. Keep it tight and decision-useful."
+    "You are a research analyst. Answer the question precisely, concretely, and "
+    "COMPREHENSIVELY using web search. Your answer feeds a deep investment report, so give "
+    "the FULL picture, not a summary — explain the topic from first principles, in depth, "
+    "with the specifics, mechanisms, numbers, and named players. When the question is about "
+    "how to VALUE a kind of business, return: the standard valuation framework(s) "
+    "practitioners use and WHY, the specific metrics/drivers that matter, typical multiple "
+    "ranges, and the key pitfalls. Be thorough, specific, and cite sources.\n"
+    "PRICE-BLINDING (critical): the person you report to is forming an INDEPENDENT "
+    "valuation and must NOT see the market's price. Do NOT state the subject company's "
+    "stock price, market capitalization, enterprise value, or any analyst PRICE TARGET / "
+    "consensus target, and do not describe its recent price move (e.g. 'up 55% YTD'). "
+    "Report the qualitative, fundamental, scientific, and methodological findings only. "
+    "(Peer/industry TYPICAL MULTIPLE RANGES used as valuation conventions are fine; a "
+    "specific dollar price/cap/target for THIS company is not.)"
 )
 
 
@@ -33,7 +42,7 @@ def research(
     ticker: str,
     model: str | None = None,
     max_turns: int = 4,
-    max_tokens: int = 4000,
+    max_tokens: int = 8000,  # comprehensive, not a summary
 ) -> str:
     """Run a bounded web-search research turn-loop; return the distilled answer."""
     messages = [{"role": "user", "content": question}]

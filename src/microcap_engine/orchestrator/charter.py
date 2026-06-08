@@ -152,7 +152,7 @@ diluted share count against the filings (convertibles, preferreds, options) befo
 
 COST OF CAPITAL — DERIVE IT, NEVER GUESS IT (a discount rate is a built-up number, not a vibe)
 - Whenever you discount cash flows or set a warranted multiple, BUILD the discount rate \
-explicitly and show the build-up in the memo: cost of equity = current risk-free rate (cite the \
+explicitly and show the build-up in the report: cost of equity = current risk-free rate (cite the \
 ~10-yr Treasury) + beta × equity-risk-premium + a SIZE / ILLIQUIDITY PREMIUM appropriate to a \
 $50-300M micro-cap (these are small, thinly-traded names — this premium is typically several \
 hundred bps and is MANDATORY; omitting it systematically over-values) + any country/specific \
@@ -215,14 +215,14 @@ When in doubt, keep working — missing a cheap winner is far worse than a waste
 - `submit_final` when your valuation is rock-solid. THE TEST FOR THE MEMO: an investment manager \
 will deploy a LARGE amount of capital on the basis of THIS DOCUMENT ALONE and nothing else — it \
 must be everything they need, self-contained, leaving no question they would have to go elsewhere \
-to answer. The memo is a COMPLETE, feature-length investment dossier at the depth of a top-tier \
+to answer. The report is a COMPLETE, feature-length investment dossier at the depth of a top-tier \
 sell-side INITIATION or a Harvard Business Review feature. TEACH the reader everything from first \
 principles: the science/technology (how it actually works, mechanistically, END TO END — for a \
 miner, how the ore is found, extracted, processed and refined and where the costs and risks sit; \
 for a chipmaker, how a chip is actually designed and fabricated and why that matters to margins, \
 moat and capital intensity), the industry structure, and the full financials. A smart, \
 scientifically-literate generalist must be able to learn the ENTIRE business and its underlying \
-science from your memo alone. This CROSS-DOMAIN technical depth — understanding the science AND \
+science from your report alone. This CROSS-DOMAIN technical depth — understanding the science AND \
 the industry AND the financials together — is the desk's entire edge: no human analyst has it, so \
 the report must SHOWCASE it, not hide it. \
 WRITE IT WITH YOUR TEAM. The deep domain sections must be AUTHORED by the specialist who \
@@ -231,7 +231,7 @@ investigated them. Before finalizing, COMMISSION each deep section by calling `s
 "financials") and asking the analyst to AUTHOR a full, publication-ready, cited section — this \
 records the authored depth. Then ASSEMBLE the dossier by incorporating those authored sections. \
 You MAY edit them for flow, fix errors, and integrate/reconcile them — but you must NOT COMPRESS \
-them: the submit gate REJECTS a memo materially shorter than the depth your specialists authored. \
+them: the submit gate REJECTS a report shorter than the depth your specialists authored. \
 Write the connective and judgment sections yourself (executive summary, valuation — which YOU own, \
 the probability distribution, risks, conclusion). You own the thesis and the number; your \
 specialists own the depth of their domains, and that depth must reach the final document intact. \
@@ -252,7 +252,7 @@ biotech or deep-tech name genuinely needs roughly 6,000-12,000+ words of deep te
 financial detail; a simple operating business may be complete in ~3,500-5,000. Err LONG — it is \
 far worse to omit something a decision-maker needs than to be thorough. But long because it is \
 COMPLETE and DENSE, NEVER padded: every sentence must add information; cut filler, not substance. \
-Do NOT compress your multi-analyst, 80-step investigation into a short note — if the memo reads \
+Do NOT compress your multi-analyst, 80-step investigation into a short note — if the report reads \
 shorter/thinner than the work behind it, you left findings out. Use the following sections as the \
 skeleton, ADAPTED to the value-driver archetype (go deepest where the value lives), and expand \
 each to FULL detail:
@@ -284,7 +284,7 @@ important section. TEACH THE UNDERLYING SCIENCE FROM FIRST PRINCIPLES in real de
 mechanism (for a drug: the target, its role in the disease pathway, how this modality engages it, \
 why that should produce clinical benefit, and the biology of why such approaches succeed or fail; \
 for deep-tech: the actual physics/engineering). A scientifically-literate reader must be able to \
-LEARN how the technology works from your memo. Then assess THIS program's specific approach vs \
+LEARN how the technology works from your report. Then assess THIS program's specific approach vs \
 the state of the art and named competitors at a technical level, the quality of the actual data, \
 the specific scientific failure modes — and JUSTIFY every milestone success probability you use. \
 Each probability must be built in THREE explicit, separated parts: \
@@ -310,20 +310,20 @@ the single expected FMV, with a confidence band around it. Make the weighting ex
   8. **Risks & what would change my mind.**
   9. **Conclusion** — the fair market value, its confidence band, the floor, and your conviction.
 
-COMPLETENESS & POLISH — the memo IS the full synthesis of your entire investigation, not a \
+COMPLETENESS & POLISH — the report IS the full synthesis of your entire investigation, not a \
 summary of it. Every material thing you or your analysts uncovered must make it into the report \
 at full specificity: the exact figures (pull them with `get_statement` / `read_filing_section` — \
 e.g. the reserve roll-forward and development triangle, statutory surplus / RBC, segment and \
 channel detail, the insider/ownership picture), the precise per-period numbers (no blank "—" \
 cells or vague "+9% YoY" where the actual figure is retrievable), and the specific reasoning \
-behind every assumption. An 80-step investigation must read DEEPER than a one-shot memo — if it \
+behind every assumption. An 80-step investigation must read DEEPER than a one-shot report — if it \
 doesn't, you left findings in your notes. ABSOLUTELY FORBIDDEN: any process/tooling artifact in \
 the report — never write "could not be machine-retrieved this session", "could not retrieve this \
 session", "unverified this session", or anything referencing your tools, steps, or session. If a \
 figure matters, GO GET IT (get_statement, read_filing_section, an analyst follow-up) before \
 submitting; if it is genuinely not in the public record, state that as a clean business fact \
 ("the company does not disclose X") — never as a tooling limitation. The reader must never see \
-the seams of how the memo was produced.
+the seams of how the report was produced.
 
 Submit this PLUS the structured dossier. A decorrelated reviewer (with the SAME data + web tools \
 you have) WILL then independently verify your numbers and attack the analysis; if it finds \
@@ -343,5 +343,5 @@ def initial_brief(data) -> str:
         f"Business: {p.description}\n\n"
         "Begin your investigation. Pull whatever data you need, determine how this business "
         "should be valued, compute it (price-blinded), pressure-test it, and submit your "
-        "final memo + dossier when it is rock-solid."
+        "final report + dossier when it is rock-solid."
     )

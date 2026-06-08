@@ -13,6 +13,7 @@ price. The valuation tool is the code-enforced gate (only an AssumptionSet in).
 from __future__ import annotations
 
 import json
+import re as _re
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -255,8 +256,11 @@ def tool_specs() -> list[dict]:
                 "properties": {
                     "markdown_memo": {
                         "type": "string",
-                        "description": "The FULL feature-length memo (markdown, ~2,500-5,000+ "
-                                       "words), explanatory like a Harvard Business Review piece: "
+                        "description": "The FULL COMPREHENSIVE INVESTMENT REPORT (markdown) — a "
+                                       "complete, feature-length initiation an investment manager "
+                                       "could deploy capital from with nothing else; length scales "
+                                       "with complexity (a complex name needs many thousands of "
+                                       "words of deep detail), explanatory like an HBR feature: "
                                        "exec summary; business deep-dive; industry & competition; "
                                        "financial analysis (with sector metrics explained); what "
                                        "management said on the calls; valuation (why this method, "
@@ -417,7 +421,7 @@ def _h_ownership(ctx, inp) -> ToolReply:
 
 
 def _h_news(ctx, inp) -> ToolReply:
-    return ToolReply(content=digest.news_text(ctx.data))
+    return ToolReply(content=_redact_market_price(digest.news_text(ctx.data)))
 
 
 def _h_transcripts(ctx, inp) -> ToolReply:
@@ -459,9 +463,34 @@ def _h_read_filing(ctx, inp) -> ToolReply:
     return ToolReply(content=f"No {form} available for {ctx.ticker}.")
 
 
+# Price-blinding backstop: redact the clearest market-price/cap/target leaks from free-text
+# research and news (the research subagent is also instructed not to include them). Conservative
+# — anchored to price-context words so it won't touch operational figures (revenue, margins).
+_PRICE_REDACT = [
+    _re.compile(r"(price target|target price|price objective|consensus target|pt of)"
+                r"[^.\n]{0,30}?\$\s?[\d,]+(\.\d+)?", _re.I),
+    _re.compile(r"(market cap(italization)?|mkt cap|enterprise value)"
+                r"[^.\n]{0,25}?\$\s?[\d,]+(\.\d+)?\s?(million|billion|trillion|bn|b|m)?", _re.I),
+    _re.compile(r"\$\s?[\d,]+(\.\d+)?\s?(million|billion|trillion|bn|b)?\s+"
+                r"(market cap|mkt cap|enterprise value|valuation)", _re.I),
+    _re.compile(r"(trad(es|ing|ed)|priced?|quoted?|changing hands|closed|last traded)"
+                r"[^.\n]{0,15}?(at|around|near)\s?\$\s?[\d,]+(\.\d+)?", _re.I),
+    _re.compile(r"(stock|shares?|share price)\s+(\w+\s+){0,2}"
+                r"(up|down|gained|lost|fell|rose|surged|plunged|dropped|rallied|jumped|declined)"
+                r"\s+(by\s+)?[\d.]+\s?%", _re.I),
+    _re.compile(r"[\d.]+\s?%\s+(so far this year|year[- ]to[- ]date|ytd|this year)", _re.I),
+]
+
+
+def _redact_market_price(text: str) -> str:
+    for rx in _PRICE_REDACT:
+        text = rx.sub("[price redacted — price-blind]", text or "")
+    return text
+
+
 def _h_research(ctx, inp) -> ToolReply:
     q = inp.get("question", "")
-    ans = research(ctx.client, q, ticker=ctx.ticker, model=ctx.model)
+    ans = _redact_market_price(research(ctx.client, q, ticker=ctx.ticker, model=ctx.model))
     return ToolReply(content=f"RESEARCH — {q}\n{ans}")
 
 
