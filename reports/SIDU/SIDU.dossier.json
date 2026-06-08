@@ -1,0 +1,84 @@
+{
+  "ticker": "SIDU",
+  "run_id": "run-20260608T005418-5974e7",
+  "dossier": {
+    "fair_value_per_share": 1.43,
+    "intrinsic_value_floor": 1.15,
+    "fair_value_low": 1.05,
+    "fair_value_high": 2.25,
+    "valuation_method": "Net cash + risk-adjusted option value: bottom-up probability-weighted composite ($1.43, expected value) bracketed by an independent Black-Scholes growth-option ceiling ($1.86, disciplined upper bound); cross-checked vs net-cash time-decay, tangible book, and EV/forward-sales comps",
+    "confidence": 0.7,
+    "thesis_summary": "Sidus is a pre-commercial 'space-as-a-service' micro-cap whose value is dominated by ~$163.6M pro-forma net cash (debt-free, no preferred; ~$1.59/sh static reference on ~103M economic shares, ~$1.79 tangible book), not earnings, which are deeply negative (FY25 revenue $3.4M down 28%, gross margin -168%, net loss -$29.5M, FCF -$26.4M). Arm's-length external revenue collapsed ~64% in two years (~$5.0M FY23 -> ~$1.8M FY25) while parent CTC pass-through rose to ~47% of revenue. The operating business destroys value; real but unproven optionality (3 LizzieSats with 1 operational, a software-defined data roadmap, Fortis compute, a SHIELD/Golden Dome IDIQ) is the right tail. A bottom-up composite gives an expected value of ~$1.43; an independent Black-Scholes growth-option ceiling (assuming capital discipline) caps value at ~$1.86, and the ~$0.43 gap is the empirically-validated cost of indiscriminate burn/dilution. The ~$4-5 market issuance prices embed a $270-360M sentiment/technical premium (Russell forced-buying June 26 2026, ATM reflexivity) that fundamentals do not support.",
+    "key_value_drivers": [
+      "Pro-forma net cash ~$163.6M (debt-free) vs ~103M economic shares = ~$1.59/sh static reference",
+      "Whether the business reaches positive gross margin and DaaS scale (external revenue is currently shrinking)",
+      "Magnitude of future dilution via undrawn $100M ATM + ~$340M shelf",
+      "Defense optionality: SHIELD/Golden Dome IDIQ converting to funded task orders",
+      "Technical/sentiment premium: Russell index forced-buying (June 26, 2026) and ATM-funded momentum"
+    ],
+    "key_risks": [
+      "Continued discretionary dilution leaking per-share value despite a healthy cash balance",
+      "Negative gross margins -- cash consumed at the gross line regardless of revenue",
+      "Collapsing external demand: ~64% two-year decline; ~47% of revenue now related-party (parent CTC)",
+      "On-orbit execution risk (LS1 impaired/dead, LS2 troubled, only LS3 operational)",
+      "Sentiment/technical premium can persist far above intrinsic value; shorting carries squeeze/borrow risk"
+    ],
+    "what_would_change_my_mind": [
+      "Signed, FUNDED SHIELD/Golden Dome task orders with disclosed dollar value",
+      "A structural swing to positive gross margin",
+      "Genuine recurring DaaS ramp with multiple arm's-length paying subscribers (reversing external-revenue decline)",
+      "A halt to dilution / capital-return signal",
+      "Conversely: further satellite failures, ATM emptied at low prices, or burn accelerating past ~$40M/yr"
+    ],
+    "diluted_shares_used": 106000000.0,
+    "citations": [
+      {
+        "source_kind": "filing",
+        "quote": "Non-related party revenue decreased ~54% to ~$1.8M vs ~$3.9M; related party revenue increased 101% to ~$1.6M vs ~$0.8M; cost of revenue $9,076,445; gross loss $(5,692,567) = (168)% margin; SG&A $22,315,569; net loss $(29,474,304); accumulated deficit ~$89.8M; ~$4.5M LS1 impairment.",
+        "accession": null,
+        "section": "Item 7",
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "FY2025: revenue 3,383,878; gross_profit -5,692,567; net_income -29,474,304; op_cash_flow -18,153,485; capex -8,174,345; free_cash_flow -26,327,830. Shares 111.6K (FY21) -> 24.7M (FY25) -> 66.6M (Q1FY26).",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "April 2026 closed offering of 13,453,700 shares at $4.35 (~$58.5M); May 2026 priced/closed $100M registered direct of 19,685,039 shares at $5.08. June 1, 2026: expected Russell 3000/2000/Microcap inclusion at June 2026 reconstitution.",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Pro forma ~97.3M shares issued (~103M incl penny pre-funded warrants; ~106-108M fully diluted); pro-forma cash ~$164M; April net proceeds $53,916,703 actual; asset-based loan repaid Jan 2026 (no funded debt); no preferred; non-cash tangible assets ~$20M (PP&E/satellites $17.3M); live undrawn $100M ATM + ~$340M shelf headroom.",
+        "accession": null,
+        "section": "Q1 2026 10-Q / 424B5",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "We have incurred significant losses since inception... net losses of $29,474,304 and $17,524,056 for 2025 and 2024... we may require substantial additional funding... our current investors may be materially diluted... going concern.",
+        "accession": null,
+        "section": "Item 1A",
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "judge_approved": false,
+    "judge_score": 93,
+    "judge_gaps": [
+      "No treatment of Sidus's dual-class (Class A/Class B) control structure or CEO/insider voting and economic alignment \u2014 material given the related-party dealings and discretionary dilution at the heart of the thesis.",
+      "Lists 'cost-to-replace' as a core valuation method for these names but never computes a satellite/infrastructure replacement floor (the ~$17.3M PP&E and the cumulative build cost) as an independent check.",
+      "Does not probe whether the ~$1.6M related-party revenue / ~$1.7M related-party COGS are at arm's-length terms \u2014 a governance question central to the 'family pass-through' argument.",
+      "Minor internal arithmetic: the 'modest' scenario's stated $1.50 low end computes to ~$1.28; the real-option ceiling's S=$60M/X=$120M inputs are reasonable but un-sensitized (a small ceiling sensitivity table would strengthen it)."
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}

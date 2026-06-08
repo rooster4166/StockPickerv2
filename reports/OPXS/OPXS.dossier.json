@@ -1,0 +1,49 @@
+{
+  "ticker": "OPXS",
+  "run_id": "run-20260608T013037-cfa49b",
+  "dossier": {
+    "fair_value_per_share": 9.53,
+    "intrinsic_value_floor": 6.78,
+    "fair_value_low": 7.5,
+    "fair_value_high": 11.25,
+    "valuation_method": "Probability-weighted multi-stage DCF (proven cash-flow compounder), reconciled with profitable defense-supplier EV/EBITDA and P/E comps (DCF and base comps weighted roughly equally); no-growth EPV floor. Central WACC 13.0%: 4.5% risk-free + 1.0 bottom-up beta x 5.0% ERP + 3.5% micro-cap size/illiquidity premium (grounded in CRSP smallest-decile premia of ~3.5-5%); stressed to 12.5% (bull) and 14.0% (bear).",
+    "confidence": 0.66,
+    "thesis_summary": "Optex is a debt-free, net-cash defense-optics manufacturer that transformed from break-even (FY21) to ~$41M revenue, 17% EBIT margins and ~22% ROIC (FY25), driven by mandated laser-protection coatings (AOC) and periscopes on Abrams/Bradley/Stryker/XM30. Valued as the cash-flow compounder it is, intrinsic fair value is ~$9.50 (DCF $8.64 at 13% WACC; base comps $9.8-10.9; bull comps 11-12x = $13-14.6; floor $6.78). The stock has re-rated ~110-125% over 12 months and trades near $12-14 vs a lone $16 analyst target, so it is modestly-to-moderately over-valued \u2014 a hold/trim, and a conviction buy only below ~$9 on a catalyst. Key risks: customer/program concentration and government contract-timing lumpiness.",
+    "key_value_drivers": [
+      "Sustained high-single/low-double-digit revenue growth on defense supercycle, AOC laser-filter franchise, XM30/NVG programs and new product lines",
+      "EBIT margin expansion to ~18-19% as legacy loss contracts roll off and higher-margin AOC mix grows (gross margin 35% in Q2 FY26)",
+      "Backlog (~$36.8M) conversion and book-to-bill near/above 1x after post-shutdown award normalization",
+      "Warranted multiple: base 8-10x EV/EBITDA (micro-cap discount) with 11-12x bull case; rerating optionality toward 13-16x sector/M&A",
+      "Capital allocation: $10M buyback accretive ONLY if executed below ~$9-10 (value-neutral-to-destructive at recent ~$12-14); net cash, ~22% ROIC"
+    ],
+    "key_risks": [
+      "Valuation/mean-reversion: shares trade ~20-30% ABOVE intrinsic fair value at recent prices",
+      "Customer and weapons-program concentration (DoD + few primes); program cancellation/budget risk",
+      "Government appropriations/shutdown-driven contract-timing volatility (hit FY26 H1 revenue)",
+      "Working-capital intensity (inventory ~35% of revenue) makes quarterly FCF lumpy (FY24 and FY26 H1 inventory builds)",
+      "Micro-cap illiquidity/thin float (~30k shares/day), CEO transition, ~110k-share insider selling by departing CEO at $13-14 in Jan 2026; commodity/opex margin pressure"
+    ],
+    "what_would_change_my_mind": [
+      "Book-to-bill sustained >1.1x and durable EBIT margins >19% (bullish)",
+      "AOC winning new EMI/IR-signature or NVG programs at scale; buyback executed on weakness sub-$9 (bullish)",
+      "Acquisition interest at strategic 13-16x EBITDA (bullish)",
+      "Major program loss or backlog falling below ~$30M (bearish)",
+      "Gross margin reverting toward mid-20s, or value-destructive M&A/dilution (bearish)"
+    ],
+    "diluted_shares_used": 7050000.0,
+    "citations": []
+  },
+  "judge": {
+    "judge_approved": false,
+    "judge_score": 90,
+    "judge_gaps": [
+      "DCF remains somewhat black-box: show the explicit year-by-year projection schedule (revenue, EBIT, taxes, capex, working-capital investment, FCF) so the reader can audit the $8.64 and the ~56% terminal-value weighting.",
+      "Citations array is empty \u2014 a best-in-class memo would cite the specific 10-K/10-Q/transcript pages for backlog, guidance, covenant terms, and segment data.",
+      "XM30 $2.8M sighting award and a few 2026 order specifics are asserted without independent in-memo sourcing.",
+      "Could add a brief reverse-DCF ('what is priced in at $12?') to complement the forward DCF \u2014 a clean way to frame the overvaluation for a skeptical reader.",
+      "A short scenario on M&A take-out probability/value (given the 13\u201316x sector M&A anchor and a clean, debt-free target) would round out the upside optionality."
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "ticker": "GCTS",
+  "run_id": "run-20260608T005418-78f750",
+  "dossier": {
+    "fair_value_per_share": 0.17,
+    "intrinsic_value_floor": 0.02,
+    "fair_value_low": 0.08,
+    "fair_value_high": 0.35,
+    "valuation_method": "Probability-weighted rNPV ($0.15) + forward Merton structural option (equity = BS call on ~$40M assets struck at $62.6M debt; $0.22 vanilla, ~$0.17-0.19 after financing drag), reconciled with an independent REVERSE Merton (market price implies ~$335M enterprise value = 8.4x my estimate). sigma grounded in the company's own 94.0% implied volatility; debt term-out and sigma sensitivities shown. Synthesis FMV ~$0.17.",
+    "confidence": 0.5,
+    "thesis_summary": "GCTS common is a deeply out-of-the-money call on the enterprise, behind $62.6M of senior (mostly related-party) debt with $56.6M due within 12 months vs $7.2M cash, on a going-concern, negative-gross-margin business whose revenue collapsed from $25.5M (FY21) to $2.9M (FY25) -- led geographically by South Korea ($3.5M->$0.08M) and the US as legacy 4G evaporated. Even a successful 5G ramp (FWA/RedCap/NTN) reaches only adj-EBITDA breakeven ~$90M revenue (FY2029-30) and needs ~$90-110M of dilutive financing that more than doubles the share count, capping success near $1-1.8/share. rNPV ($0.15) and Merton ($0.17-0.27) converge on FMV ~$0.17; a reverse Merton shows the ~$2.35-3.44 price implies a ~$335M enterprise value (8.4x mine), i.e., strong-success priced as already certain. Distribution is right-skewed: most-likely outcome is near-total loss; the mean is held up by a thin success tail plus option time value.",
+    "key_value_drivers": [
+      "Today's enterprise value -- the single falsifiable number (market-implied ~$335M vs my ~$40M)",
+      "Resolution of $62.6M senior debt ($56.6M due within 12 months): related-party term-out/conversion (+$0.05-0.10/sh) vs forced restructuring (~halves option value)",
+      "Whether the 5G ramp scales FWA chip volume to multi-million units (1.0-3.5M / 2.5-9% share sensitivity)",
+      "Cumulative dilution to fund breakeven (~$90-110M -> ~150-170M shares)",
+      "Blended gross margin: 35-40% commodity modem vs ~50% with NTN/satellite licensing mix"
+    ],
+    "key_risks": [
+      "$56.6M near-term debt maturity wall vs $7.2M cash -> restructuring/bankruptcy wipes common (most-likely single outcome)",
+      "Death-spiral dilution via $75M ATM + ~90%-of-VWAP convertibles + $200M shelf",
+      "Customer concentration (74% of FY25 revenue in 4 customers) and geographic concentration in evaporating legacy-4G markets",
+      "Competitive displacement by Qualcomm/MediaTek/Unisoc in FWA, IoT and RedCap",
+      "Structurally thin gross margin cannot cover ~$33-46M opex below ~$100-120M revenue",
+      "Going-concern opinion; no long-term foundry capacity agreements (UMC/Samsung)"
+    ],
+    "what_would_change_my_mind": [
+      "Satellite/NTN reference-platform shipments converting to a multi-million, licensing-rich run-rate",
+      "FWA design wins via MaxLinear reaching volume with disclosed multi-quarter backlog",
+      "Senior debt termed-out or converted by related parties on favorable, non-dilutive terms",
+      "Durable blended gross margin above ~45%",
+      "Conversely: sub-$5M quarterly revenue into 2027, further emergency dilutive issuance, or a covenant/liquidity event"
+    ],
+    "diluted_shares_used": 77500000.0,
+    "citations": [
+      {
+        "source_kind": "filing",
+        "quote": "As of December 31, 2025, we have borrowings with a total principal amount of $62.6 million, of which $56.6 million is contractually due within 12 months from the reporting date.",
+        "accession": null,
+        "section": "Item 7",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Net revenues by customer location FY2025: United States $1,602K, Taiwan $629K, China $411K, Germany $142K, South Korea $82K, Total $2,866K (vs FY2024 South Korea $3,500K, US $4,167K)",
+        "accession": null,
+        "section": "Item 8 - Note 4",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "key inputs for the convertible promissory notes ... implied volatility of 94.0% ... private placement warrants ... volatility of 94.0%",
+        "accession": null,
+        "section": "Item 8 - Note 5",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "For the year ended December 31, 2025, four customers accounted for 74% of our total revenues",
+        "accession": null,
+        "section": "Item 1A",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "delivered 3,000 5G chipsets (+58% QoQ); product gross margin guided to 35% growing into the low 40s; Gogo live 5G air-to-ground network on GCT's chipset; satellite reference-platform agreement, shipments 2H2026; MaxLinear partnership (May 2026)",
+        "accession": null,
+        "section": null,
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "judge_approved": false,
+    "judge_score": 93,
+    "judge_gaps": [
+      "Reverse-Merton implied-EV step uses a deep-ITM approximation (equity = S - PV(debt)) that conflates market equity value \u2014 which already embeds the market's own success-probability distribution \u2014 with clean asset value; the rigorous version solves the two-equation Merton system (equity value AND equity vol simultaneously) to back out implied asset value and asset vol",
+      "Core probabilities (6/15/28/51) remain subjective; the most powerful framing would compute the breakeven success-probability the current price implies (the natural endpoint the reverse Merton gestures toward but doesn't calculate)",
+      "FMV is still a weighted point rather than an actual simulated distribution; the percentile table is illustrative, not a run Monte Carlo",
+      "The ~90% mispricing thesis is realized only through slow ATM dilution over several quarters against severe squeeze/borrow risk \u2014 an inherent actionability limit the memo flags but cannot resolve",
+      "Literal Note 4 / Note 5 text could not be independently read here (tool returns only XBRL header); figures are internally consistent and taxonomy-corroborated but not line-item confirmed"
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}

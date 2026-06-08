@@ -1,0 +1,49 @@
+{
+  "ticker": "ATOM",
+  "run_id": "run-20260608T005418-53e1a3",
+  "dossier": {
+    "fair_value_per_share": 1.8,
+    "intrinsic_value_floor": 1.0,
+    "fair_value_low": 0.95,
+    "fair_value_high": 3.7,
+    "valuation_method": "Probability-weighted, time-discounted scenario valuation (rNPV) of MST adoption outcomes over a built-up net-cash + weak-IP floor; success-case equity values derived from a transparent royalty-ramp DCF and cross-checked vs mature semi-IP royalty multiples (Arm/Rambus/CEVA); probabilities anchored by a correlation-adjusted TRL-gate funnel and an outside view of historical materials insertions; 16% systematic+illiquidity discount rate",
+    "confidence": 0.64,
+    "thesis_summary": "Atomera is a pre-revenue (~$65k FY2025 revenue) semiconductor materials-IP licensor burning ~$15-17M/yr; its value is the probability-weighted PV of a future royalty stream IF its MST film is adopted into high-volume manufacturing, over a ~$1.00/share net-cash floor. The science is real and peer-reviewed with many shots on goal (GAA diffusion-blocking, DRAM, RF-SOI, GaN), but after 10 years public it has zero royalty revenue, its flagship STMicro license just failed at qualification (Oct 2025), and it is structurally a no-fab licensing play of the kind (SuVolta/Amberwave) that historically struggled even with good science. A correlation-adjusted TRL-gate funnel yields ~30% odds of any production conversion and ~15% of a high-volume win, producing an FMV near $1.80/share \u2014 overwhelmingly option value in a convex payoff, and far below the ~$7.6 market price / ~$10 street target, which embed an implied success probability ~2.5-3x what the record supports.",
+    "key_value_drivers": [
+      "Probability MST converts to a royalty-bearing HVM license (correlation-adjusted funnel: ~30% any / ~15% high-volume / ~5% blockbuster)",
+      "Royalty run-rate per socket ($50-80M/yr one socket; $250-350M/yr multi-socket) at near-100% incremental margin, NOL-shielded, corroborated by third-party wafer/ASP data",
+      "Time-to-first-royalty (3.5-4.5 yrs) and the 16% systematic+illiquidity discount rate on distant payoffs",
+      "Ongoing equity dilution modeled from the burn (~46-47M shares in success, ~52-53M in failure; authorized share count rising to 95M)",
+      "Equipment-OEM (likely Applied Materials) co-marketing channel into the four GAA customers, which also gates takeout optionality"
+    ],
+    "key_risks": [
+      "Modal (~70%) outcome is non-conversion plus slow, price-dilutive equity raises",
+      "Reliability/qualification failures (as with STMicro BCD110, Oct 2025) recur at the decisive gate",
+      "No fab and no leverage; the no-fab licensing insertion model has a poor historical record (SuVolta, Amberwave)",
+      "MST thermal-budget and mid-line integration constraints narrow addressable flows",
+      "Active securities-law investigation; single-technology, key-person concentration",
+      "Market price (~$7.6) embeds an implied success probability ~2.5-3x the evidence \u2014 large downside to intrinsic value"
+    ],
+    "what_would_change_my_mind": [
+      "A signed HVM license with a named Tier-1 customer (not a JDA/evaluation)",
+      "Independently-validated 2nm GAA diffusion-blocking superiority",
+      "An RF-SOI or GaN 'starting-wafer' customer converting to production royalties",
+      "Equipment-OEM partner committing reactor co-development with a volume customer (also raises takeout odds)",
+      "Conversely: another flagship engagement collapsing at qualification or an accelerated discounted raise"
+    ],
+    "diluted_shares_used": 38000000.0,
+    "citations": []
+  },
+  "judge": {
+    "judge_approved": true,
+    "judge_score": 93,
+    "judge_gaps": [
+      "A formal Monte Carlo over the joint probability/value distribution would replace the four-point discrete scenarios with a continuous expected value and explicit confidence intervals (polish, not a flaw).",
+      "Could model the near-term catalyst path \u2014 how fast and how far FV converges toward the market if a named HVM license is signed in 2026 \u2014 to size the asymmetry for anyone considering the short side.",
+      "Uses a ~38M fully-diluted estimate; pulling the exact option/RSU/PSU overhang from the proxy would tighten the per-share denominators slightly.",
+      "Insider ownership and the relative-TSR PSU incentive structure are noted only briefly; a short paragraph on management alignment and any insider selling would round out the governance picture."
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}
