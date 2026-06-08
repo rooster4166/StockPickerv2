@@ -69,3 +69,67 @@ Monitor the 5 runs; analyze the undervalue result; status reports every ~30 min;
 
 **Next:** on completion confirm the price header renders + FMV-vs-price is sane; analyze both
 batches; final report; delete `AUTONOMOUS_ACTIVE` at 14:06Z.
+
+## FINAL report — 14:18Z (session end, +12 min justified overrun)
+
+### Session summary (12:06Z → 14:18Z)
+Shipped this session, all committed + pushed, **55 unit/integration tests green**:
+1. Price-blinding made architectural (peers/insider/research/news scrubbed; regex backstop).
+2. Consolidation gate tightened (headline must equal a recent compute_valuation output, last-4
+   @ ±0.5%); no-compression submit check (report ≥ 0.85× specialist-authored words).
+3. Charter reworded memo→"comprehensive report"; research subagent COMPREHENSIVE + 8k tokens.
+4. Engine edge bugs fixed (excess_returns ROE≤g, rnpv no-discount, safe_eval Pow cap, stale
+   quarters); conceptual fixes (ANCHOR HONESTLY, FLOOR DISCIPLINE, PoS discipline, completeness).
+5. **D18** — replaced tiny-base/lumpy "growing revenue" flukes (KRRO/RANI/STRO) with real-revenue
+   complex names (VSTM/VRCA/CDXS); kept STIM/BZAI.
+6. **D19** — deterministic post-analysis price injection in `runner/report.py:_price_header`
+   (market price · FMV · implied % · floor), price read at publish layer only.
+
+### Validation runs — LAUNCHED, none finished in the 2h window (all 10 still running)
+The "comprehensive report" charter + persistent analyst team + per-name web research made the
+runs **far deeper and longer than any prior run**. At 14:17Z, ~90 min in, state was:
+
+| Run  | calls | cost   | stage at 14:17Z         |
+|------|-------|--------|-------------------------|
+| STIM |  67   | $29.47 | red-team gate           |
+| MFIN |  61   | $28.36 | pm:step14 (passed 1 RT round, 0 gaps) |
+| BZAI |  52   | $22.91 | pm:step15               |
+| CDXS |  48   | $22.86 | pm:step18               |
+| ACR  |  47   | $14.07 | analyst:a3-cre          |
+| JRVR |  46   | $19.38 | pm:step11               |
+| VRCA |  36   | $13.09 | analyst:a3-healthcare   |
+| VSTM |  35   | $15.64 | pm:step4                |
+| NUS  |  34   | $ 8.18 | pm:step6                |
+| CPSS |  30   | $10.63 | analyst:a1-forensic     |
+
+**~$184 total / 10 runs.** Runs are PROGRESSING (step counters climbing; not stuck in red-team
+loops). They continue in the background after this session ends and **auto-publish to
+`data/reports/<TKR>/<TKR>.memo.md` on finish** (on the price-injection code).
+
+### Price-header verification — PENDING a live report
+No run published within the window, so the header was **not yet seen on a real report**. It is
+code-wired (`publish_from_result` → `_price_header`) and synthetically smoke-tested
+(`KINS` → "Market price $15.43 · Engine FMV $10.00 · Implied -35% (OVERVALUED) · Floor $6.00").
+**TODO when the first report lands:** confirm the header renders at top and implied% = (FMV−price)/price.
+
+### Undervalue-bias verdict — PENDING (no cheap run finished)
+Cannot yet answer whether the engine values beaten-down sub-book names (NUS/JRVR/ACR/MFIN/CPSS)
+above market. MFIN reached the gate with "0 errors, 0 gaps" but no published FMV yet.
+
+### Edge test — PRELIMINARY POSITIVE (from the live traces, not final memos)
+The audit traces show the cross-domain depth the edge depends on, working as intended:
+- **CDXS** — researched siRNA/oligonucleotide drug-substance chemistry + CodeEvolver directed-
+  enzyme-evolution, with life-science + biotech analysts (18 PM steps deep).
+- **JRVR** — E&S/specialty insurance methodology + Kinsale (KNSL) comps + forensic analyst.
+- **MFIN** — SEC v. Medallion litigation + ZimCal governance probe via a governance analyst.
+- **STIM** — medtech analyst + BrainsWay (BWAY) comparable, into the red-team gate.
+The investigation *quality* is there; final valuations are pending the memos.
+
+### KEY FINDING / top follow-up — bound the loop
+The quality push has a real **cost + latency** consequence: ~5–10× the cost ($8–29 vs ~$3–6) and
+~3× the runtime (90+ min vs ~30) of pre-charter runs, and the loop is effectively **unbounded**
+(STIM/CDXS ran 18 PM steps). Recommend a **step/cost budget** — e.g. Opus `task_budget` so the PM
+sees a token countdown and self-moderates, or a soft cap on PM steps / analyst spawns — to keep
+"comprehensive" from becoming "unbounded." This is the #1 thing to tune next.
+
+### Session ended 14:18Z — `AUTONOMOUS_ACTIVE` sentinel deleted. Runs continue in background.
