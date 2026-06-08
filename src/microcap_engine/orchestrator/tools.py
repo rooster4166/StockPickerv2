@@ -101,9 +101,19 @@ def tool_specs() -> list[dict]:
                                   "description": "balance_sheet | income | cash_flow"},
                     "period": {"type": "string", "description": "annual (default) or quarter"},
                     "limit": {"type": "integer", "description": "how many periods (default 4)"},
+                    "ticker": {"type": "string",
+                               "description": "Optional — defaults to this company; pass a PEER "
+                                              "ticker to pull a comparable's full statements for "
+                                              "a deeper comps cross-check."},
                 },
                 "required": ["statement"],
             },
+        },
+        {
+            "name": "get_dividends",
+            "description": "Dividend history (amount, dates, yield, frequency) — for payout "
+                           "sustainability and yield analysis of income/financial/REIT names.",
+            "input_schema": {"type": "object", "properties": {}},
         },
         {
             "name": "get_insider_activity",
@@ -258,7 +268,7 @@ def tool_specs() -> list[dict]:
 # and claims (no compute_valuation/reject/submit — reviewers verify, they don't value).
 _VERIFICATION_TOOLS = {
     "get_financials", "get_ratios", "get_peers", "get_segments", "get_statement",
-    "get_insider_activity", "get_ownership",
+    "get_insider_activity", "get_ownership", "get_dividends",
     "read_filing_section", "get_news", "get_transcripts", "research",
 }
 
@@ -319,10 +329,11 @@ def _h_statement(ctx, inp) -> ToolReply:
     if which in ("cashflow", "cash"):
         which = "cash_flow"
     period = "quarter" if str(inp.get("period", "annual")).lower().startswith("q") else "annual"
-    rows = ctx.fmp.get_statement(ctx.ticker, which, period=period, limit=int(inp.get("limit", 4)))
+    tkr = (inp.get("ticker") or ctx.ticker).upper()  # optional: pull a PEER's statement for comps
+    rows = ctx.fmp.get_statement(tkr, which, period=period, limit=int(inp.get("limit", 4)))
     if not rows:
-        return ToolReply(content=f"No {which} data available for {ctx.ticker}.")
-    out = [f"{which.upper().replace('_', ' ')} ({period}, most recent first) — full line items:"]
+        return ToolReply(content=f"No {which} data available for {tkr}.")
+    out = [f"{tkr} {which.upper().replace('_', ' ')} ({period}, recent first) — full line items:"]
     for r in rows:
         per = f"{r.get('fiscalYear', '?')}-{r.get('period', '')}".strip("-")
         lines = [f"  {k}={v}" for k, v in r.items()
@@ -343,6 +354,18 @@ def _h_insider(ctx, inp) -> ToolReply:
             f"({t.get('typeOfOwner', '')}): {t.get('transactionType')} "
             f"{t.get('securitiesTransacted')} @ {t.get('price')} "
             f"-> owns {t.get('securitiesOwned')}")
+    return ToolReply(content="\n".join(lines))
+
+
+def _h_dividends(ctx, inp) -> ToolReply:
+    divs = ctx.fmp.get_dividends(ctx.ticker, limit=int(inp.get("limit", 24)))
+    if not divs:
+        return ToolReply(content=f"No dividend history for {ctx.ticker} (may pay none).")
+    lines = ["DIVIDEND HISTORY (most recent first):"]
+    for d in divs[:24]:
+        lines.append(f"  {d.get('date')}: ${d.get('dividend')} "
+                     f"(adj ${d.get('adjDividend')}, yield {d.get('yield')}, "
+                     f"freq {d.get('frequency')})")
     return ToolReply(content="\n".join(lines))
 
 
@@ -473,6 +496,7 @@ _HANDLERS = {
     "get_statement": _h_statement,
     "get_insider_activity": _h_insider,
     "get_ownership": _h_ownership,
+    "get_dividends": _h_dividends,
     "read_filing_section": _h_read_filing,
     "get_news": _h_news,
     "get_transcripts": _h_transcripts,

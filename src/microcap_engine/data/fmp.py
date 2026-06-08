@@ -223,10 +223,12 @@ class FMPProvider:
                     operating_income=_f(i, "operatingIncome", "ebit"),
                     net_income=_f(i, "netIncome", "bottomLineNetIncome"),
                     ebitda=_f(i, "ebitda"),
-                    operating_cash_flow=_f(c, "operatingCashFlow", "netCashProvidedByOperatingActivities"),
+                    operating_cash_flow=_f(c, "operatingCashFlow",
+                                           "netCashProvidedByOperatingActivities"),
                     capital_expenditure=_f(c, "capitalExpenditure"),
                     free_cash_flow=_f(c, "freeCashFlow"),
-                    cash_and_equivalents=_f(b, "cashAndCashEquivalents", "cashAndShortTermInvestments"),
+                    cash_and_equivalents=_f(b, "cashAndCashEquivalents",
+                                            "cashAndShortTermInvestments"),
                     total_debt=_f(b, "totalDebt"),
                     total_assets=_f(b, "totalAssets"),
                     total_equity=_f(b, "totalStockholdersEquity", "totalEquity"),
@@ -402,6 +404,13 @@ class FMPProvider:
         """Recent insider (Form 4) transactions — buys/sells, who, when, how many shares."""
         try:
             return self._get("insider-trading/search", symbol=ticker, page=0, limit=limit) or []
+        except Exception:  # pragma: no cover
+            return []
+
+    def get_dividends(self, ticker: str, limit: int = 40) -> list[dict]:
+        """Dividend history (amount, dates, yield) — for payout/yield analysis of income names."""
+        try:
+            return (self._get("dividends", symbol=ticker) or [])[:limit]
         except Exception:  # pragma: no cover
             return []
 
