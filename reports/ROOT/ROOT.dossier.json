@@ -1,0 +1,51 @@
+{
+  "ticker": "ROOT",
+  "run_id": "run-20260607T233400-0c58b0",
+  "dossier": {
+    "fair_value_per_share": 22.66,
+    "intrinsic_value_floor": 19.7,
+    "fair_value_low": 14.0,
+    "fair_value_high": 33.0,
+    "valuation_method": "Warranted price-to-book on common equity, normalized through-cycle ROE vs built-up cost of equity (excess-returns / residual income), probability-weighted across a 5-branch outcome tree (incl. persistent-releases and strategic-takeover branches); cross-checked with peer P/B and a no-growth floor.",
+    "confidence": 0.58,
+    "thesis_summary": "Root genuinely turned profitable, but the reported ~16% ROE and 'record' 47% Q1'26 ROE are flattered by growing favorable prior-year reserve development ($19.4M/$29.4M/$18.5M in 2024/25/Q1'26), an expense ratio that actually ROSE to 32.3% (acquisition costs are variable and merely relocated as the channel mix shifted), and a current-accident-year combined ratio of ~100.3% (underwriting ~breakeven). Durable profit leans on net investment income (~$34M pre-tax, which FELL YoY). Normalized through-cycle ROE is ~13-14% vs a fairly-built ~12.5% cost of equity, warranting only ~1.0-1.2x book. Probability-weighted fair value \u2248 $22-23/share (floor ~$20; peer P/B cross-check ~$26.5) vs a ~$50-56 market and $78-94 Street targets -> SELL/Underperform, ~55% downside.",
+    "key_value_drivers": [
+      "Normalized through-cycle ROE (~9% soft-market floor / ~13-15.5% mid-cycle / ~18% structural winner) vs ~12.5% cost of equity",
+      "Current-accident-year combined ratio ~100.3% (loss 68.0% + expense 32.3%); reported sub-100% only via ~2 pts of growing reserve releases",
+      "Expense ratio rose to 32.3% - acquisition costs are variable; structural operating leverage limited to tech&dev (~3.8% NEP, flat dollars)",
+      "Net investment income (~$34M pre-tax pillar; declining as rates ease)",
+      "Cost of equity / re-rating (12.5% base; compression to ~11% the key upside lever)",
+      "Excess statutory capital (~$309M unencumbered; over-capitalized) supporting buybacks and a near-book floor",
+      "Durability of favorable reserve development and strategic-takeover optionality (~2.2x book)"
+    ],
+    "key_risks": [
+      "2024-26 profitability flattered by reserve releases, throttled growth spend, benign seasonality; untested through a soft market",
+      "Soft auto market + scaled-telematics competition (Progressive/GEICO) compress underwriting to a loss",
+      "Expense ratio scales with premium (variable acquisition/servicing) - scale won't transform the combined ratio",
+      "Single-line auto concentration and Carvana dependence; undisclosed retention/LTV-CAC",
+      "$75M buyback near ~$50 destroys value vs ~$22 intrinsic",
+      "Short squeeze / right-tail risk: small Class A float, heavy retail/AI enthusiasm, tight borrow"
+    ],
+    "what_would_change_my_mind": [
+      "Sub-95% CURRENT-accident-year combined ratio sustained through a soft market -> upgrade",
+      "Disclosed retention/LTV-CAC proving a durable acquisition/loss-ratio moat -> upgrade",
+      "Reserve releases proving structurally recurring on a conservatively-reserved growth book",
+      "Structurally lower beta / cost of equity as the company de-risks -> multiple expansion",
+      "Combined-ratio deterioration, fading releases, or an equity raise -> confirms Sell"
+    ],
+    "diluted_shares_used": 17200000.0,
+    "citations": []
+  },
+  "judge": {
+    "judge_approved": false,
+    "judge_score": 92,
+    "judge_gaps": [
+      "Internal inconsistency: the soft-market-fade branch is assigned 9.0% ROE, but the report's own soft-market quantification (combined 102-103%, underwriting loss offset by NII) implies ~0-5% ROE; reconciling this would lower the weighted FMV toward ~$20 and should be fixed for consistency.",
+      "The full Note 5 reserve roll-forward (beginning net reserves, paid-current vs paid-prior rows) and the exact statutory RBC ratio are not reproduced (self-disclosed retrieval gaps); a flawless version would include the complete development triangle and the actual RBC percentage by subsidiary.",
+      "The prior-year-development dollar figures are cited rather than reproduced from the filing, leaving a small audit-trail gap (though corroborated indirectly).",
+      "The base-case normalized ROE (~13-14%) already assumes underwriting reaches a slight profit via scale; the report could state more explicitly that the strictly-current-AY-breakeven read implies a much lower ROE (~5-6%), making clear how generous the base case is."
+    ],
+    "action": "evaluated",
+    "reject_reason": null
+  }
+}
