@@ -54,9 +54,14 @@ JUDGE_SYSTEM = (
     "RETRIEVABLE GAPS: if the memo leaves a figure blank ('—'), vague ('+9% YoY'), or 'unverified' "
     "where the data IS in the filings, pull it yourself (get_statement, read_filing_section) to "
     "confirm it was retrievable, and if so flag it — a best-in-existence memo fills every "
-    "retrievable number at full specificity. (iii) DEPTH: an exhaustive multi-analyst "
-    "investigation must read DEEPER than a quick memo; if it reads thin or summarized, material "
-    "findings were left out — say so.\n"
+    "retrievable number at full specificity. (iii) DEPTH & TEACHING: this must be a COMPLETE, "
+    "feature-length initiation report from which a senior partner could decide WITHOUT the "
+    "filings — it must TEACH from first principles. For a science/deep-tech name, the memo must "
+    "explain the actual MECHANISM/physics in real technical depth (a scientifically-literate "
+    "reader should learn how it works from the memo) AND give a full industry/competitive brief; "
+    "a thin, summarized, or note-length memo on a COMPLEX business is itself a disqualifying gap — "
+    "an exhaustive multi-analyst investigation must read DEEPER and LONGER than a quick memo. Hold "
+    "non-approval until the depth matches the complexity.\n"
     "PRICE-BLINDING (CRITICAL INVARIANT — do not break it): the author is PRICE-BLIND by design "
     "and must value INDEPENDENTLY of the market price. Therefore: (i) NEVER penalize the memo for "
     "omitting the market price, market cap, or a price comparison — that omission is CORRECT, not "
@@ -100,7 +105,7 @@ def judge_task(data: NameData, memo: str, dossier: FinalDossier) -> str:
         "rely only on the ground-truth block — pull financials/ratios/filings yourself where it "
         "matters), then judge whether the report is best-in-existence.\n\n"
         f"STRUCTURED DOSSIER:\n{dossier.model_dump_json(indent=2)}\n\n"
-        f"FULL MEMO TO JUDGE:\n{memo[:48000]}"
+        f"FULL MEMO TO JUDGE:\n{memo[:120000]}"
     )
 
 

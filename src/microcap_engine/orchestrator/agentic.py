@@ -129,7 +129,7 @@ class AgenticOrchestrator:
             resp = self.client.tool_turn(
                 model=self.model, system=PM_CHARTER, messages=messages, tools=tools,
                 ticker=t, phase="pm", label=f"pm:step{step}",
-                max_tokens=20000, thinking=True,  # room for a long, comprehensive memo
+                max_tokens=28000, thinking=True,  # room for a long, comprehensive memo + thinking
             )
             messages.append({"role": "assistant", "content": resp.content})
             thinking = "".join(getattr(b, "thinking", "") or "" for b in resp.content
@@ -281,7 +281,7 @@ class AgenticOrchestrator:
         body = (
             f"STRUCTURED DOSSIER:\n{dossier.model_dump_json(indent=2)}\n\n"
             f"VALUATIONS COMPUTED (code):\n{vals}\n\n"
-            f"FULL MEMO (read its 'Response to Reviewer' section if present):\n{memo[:40000]}"
+            f"FULL MEMO (read its 'Response to Reviewer' section if present):\n{memo[:120000]}"
         )
         if self._red_team_reviewer is None:
             self._red_team_reviewer = ToolReviewer(

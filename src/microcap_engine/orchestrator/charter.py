@@ -212,28 +212,49 @@ FINISHING (two terminal tools)
 - `reject_early` ONLY if there is genuinely no plausible case of material undervaluation \
 (no viable business AND no asset value, or imminent insolvency with nothing to recover). \
 When in doubt, keep working — missing a cheap winner is far worse than a wasted deep dive.
-- `submit_final` when your valuation is rock-solid. The memo must read like a feature-length \
-Harvard Business Review / top-tier sell-side initiation — **comprehensive and EXPLANATORY, not \
-terse**. Aim for ~2,500-5,000+ words. TEACH the reader: don't just state conclusions, explain \
-the business, the industry, and the methods from first principles so a smart generalist fully \
-understands. Use the following as the skeleton, but ADAPT it to the value-driver archetype: go \
-deepest on the sections that actually carry this company's value, and don't pad sections that \
-don't apply to it. Required sections (expand the relevant ones substantially):
+- `submit_final` when your valuation is rock-solid. The memo must be a COMPLETE, feature-length \
+investment report at the depth of a top-tier sell-side INITIATION or a Harvard Business Review \
+feature — it must contain EVERYTHING a senior partner at an investment firm needs to make the \
+decision FROM THIS DOCUMENT ALONE, without going back to the filings. TEACH the reader \
+everything from first principles: the science/technology (how it actually works, mechanistically), \
+the industry structure and where this company fits, and the full financials — a smart, \
+scientifically-literate generalist must be able to learn the ENTIRE business and its underlying \
+science from your memo. \
+LENGTH is whatever COMPLETENESS demands and SCALES WITH COMPLEXITY: a complex clinical-stage \
+biotech or deep-tech name genuinely needs roughly 6,000-12,000+ words of deep technical AND \
+financial detail; a simple operating business may be complete in ~3,500-5,000. Err LONG — it is \
+far worse to omit something a decision-maker needs than to be thorough. But long because it is \
+COMPLETE and DENSE, NEVER padded: every sentence must add information; cut filler, not substance. \
+Do NOT compress your multi-analyst, 80-step investigation into a short note — if the memo reads \
+shorter/thinner than the work behind it, you left findings out. Use the following sections as the \
+skeleton, ADAPTED to the value-driver archetype (go deepest where the value lives), and expand \
+each to FULL detail:
   1. **Executive summary** — the thesis, the value, the conviction, in a few tight paragraphs.
-  2. **Business deep-dive** — exactly how the company makes money: every segment/channel, unit \
-economics, the competitive moat (or lack of), customers, suppliers, the value chain and where \
-this company sits in it. Explain any industry-specific mechanics a generalist wouldn't know.
-  3. **Industry & competition** — how this industry works and is valued, TAM and growth, the \
-cycle, named competitors with figures, where this company wins/loses, adjacent dependencies.
+  2. **Business deep-dive** — a COMPLETE, mechanistic account of how the company makes (or intends \
+to make) money: the product/technology explained in real detail (how it actually works), the unit \
+economics with NUMBERS, every segment/channel, the moat dissected, customers, suppliers, the full \
+value chain and exactly where this company sits in it. The reader should come away understanding \
+the business as well as an insider would.
+  3. **Industry & competition** — a FULL industry brief from the ground up: how the industry \
+works end-to-end, its structure and economics, the technology/science landscape, TAM and growth \
+with figures, the cycle and its drivers, how the industry is VALUED and which metrics matter, the \
+NAMED competitors with their figures and how they compare technically, regulatory/structural \
+forces, adjacent dependencies, and precisely where THIS company wins or loses and why. Teach the \
+whole industry to a newcomer.
   4. **Financial analysis** — walk through multi-period revenue, margins, cash flow, balance \
 sheet, dilution, and the KEY sector metrics (e.g. combined ratio/float for insurers, FFO for \
 REITs), EXPLAINING what each means and what the trend implies. Reconcile fully-diluted shares.
   5. **What management said** — synthesize the recent earnings calls: guidance, tone shifts, \
 capital allocation, and any red flags from the Q&A.
   5b. **Technology / scientific assessment — ONLY for science-/technology-contingent names** \
-(biotech, quantum, deep-tech, exploration). Teach the underlying science, assess THIS program's \
-approach vs the state of the art and competitors, and JUSTIFY every milestone success \
-probability you will use. Each probability must be built in THREE explicit, separated parts: \
+(biotech, quantum, deep-tech, exploration) — and for those names this is the LONGEST, most \
+important section. TEACH THE UNDERLYING SCIENCE FROM FIRST PRINCIPLES in real depth: the actual \
+mechanism (for a drug: the target, its role in the disease pathway, how this modality engages it, \
+why that should produce clinical benefit, and the biology of why such approaches succeed or fail; \
+for deep-tech: the actual physics/engineering). A scientifically-literate reader must be able to \
+LEARN how the technology works from your memo. Then assess THIS program's specific approach vs \
+the state of the art and named competitors at a technical level, the quality of the actual data, \
+the specific scientific failure modes — and JUSTIFY every milestone success probability you use. Each probability must be built in THREE explicit, separated parts: \
 (1) the published BASE RATE for this exact situation — cite the source and the specific number \
 (e.g. industry phase-transition success rates by indication: oncology Phase-2→3 vs all-phase \
 approval differ enormously; use `research` to get the real figure for THIS indication/modality); \
