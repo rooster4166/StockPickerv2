@@ -4,7 +4,8 @@ Docs/API key.txt
 **/API key.txt
 
 # Data / caches / audit logs (may contain sensitive prompt text)
-data/
+# NOTE: anchored to repo root so it does NOT match the src/microcap_engine/data/ package.
+/data/
 *.parquet
 
 # Python
