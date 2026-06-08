@@ -176,11 +176,20 @@ the valuation. Keep going until the value is rock-solid and you can defend every
 - YOU ARE NEVER STUCK. You can value ANY company on earth, in any sector, however unusual — \
 because when you lack something, you always have a defined next move. Whenever you feel \
 uncertain or under-informed, do NOT guess and do NOT settle: name the specific gap, then close \
-it with the right tool — `get_financials/ratios/peers/segments` for the numbers, \
+it with the right tool — `get_financials` for the multi-period summary, `get_statement` for the \
+FULL balance-sheet / income / cash-flow line items (every figure — cash, debt, receivables, \
+goodwill, deferred revenue, current vs long-term), `get_ratios/peers/segments`, \
+`get_insider_activity` and `get_ownership` for insider/institutional behavior, \
 `read_filing_section` for the primary record, `get_news/transcripts` for what's happening and \
 what management says, `research` (web search) to learn an unfamiliar business model, industry \
 convention, SCIENCE, or valuation method, and your analyst team to go deep. Re-run \
-`compute_valuation` as the picture sharpens. Only finalize once every input you relied on is \
+`compute_valuation` as the picture sharpens.
+- DATA DISCIPLINE: pull every QUANTITATIVE / company-specific fact (any balance-sheet, income, \
+cash-flow, ownership, insider, or ratio figure) from the DATA TOOLS — they are the authoritative \
+FMP/SEC source. Do NOT web-search for a number the tools provide (e.g. never `research` "company \
+X balance sheet" — call `get_statement`). Reserve `research` (web) for what the tools genuinely \
+cannot give: industry/scientific understanding, valuation conventions, competitor/qualitative \
+context, and very recent events. Only finalize once every input you relied on is \
 grounded and every knowable gap that could change the value is closed — if a gap is genuinely \
 unknowable from the public record, price it as uncertainty in the probability weighting rather \
 than leaving it as a hole. Missing information is a task, never a dead end.

@@ -87,6 +87,38 @@ def tool_specs() -> list[dict]:
             "input_schema": {"type": "object", "properties": {}},
         },
         {
+            "name": "get_statement",
+            "description": "The FULL as-reported financial statement with EVERY line item "
+                           "(balance sheet: cash, receivables, inventory, goodwill, current vs "
+                           "long-term assets/liabilities, debt, deferred revenue, equity detail; "
+                           "income; or cash flow). Use this whenever you need a specific balance-"
+                           "sheet/income/cash-flow figure — do NOT web-search for financial "
+                           "statement numbers, pull them here.",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "statement": {"type": "string",
+                                  "description": "balance_sheet | income | cash_flow"},
+                    "period": {"type": "string", "description": "annual (default) or quarter"},
+                    "limit": {"type": "integer", "description": "how many periods (default 4)"},
+                },
+                "required": ["statement"],
+            },
+        },
+        {
+            "name": "get_insider_activity",
+            "description": "Recent insider (Form 4) transactions — who bought/sold, when, how "
+                           "many shares, and resulting holdings. Use to gauge insider "
+                           "conviction/selling pressure instead of web-searching.",
+            "input_schema": {"type": "object", "properties": {}},
+        },
+        {
+            "name": "get_ownership",
+            "description": "Institutional (13F) ownership summary — number of holders, share "
+                           "count, and net change. Use to gauge institutional vs retail backing.",
+            "input_schema": {"type": "object", "properties": {}},
+        },
+        {
             "name": "read_filing_section",
             "description": "Read a section of an SEC filing. forms: 10-K, 10-Q, DEF 14A (proxy, "
                            "for capital structure / dilution / comp). section examples: "
@@ -225,7 +257,8 @@ def tool_specs() -> list[dict]:
 # Read/verify tools a REVIEWER may use to independently check the memo's numbers
 # and claims (no compute_valuation/reject/submit — reviewers verify, they don't value).
 _VERIFICATION_TOOLS = {
-    "get_financials", "get_ratios", "get_peers", "get_segments",
+    "get_financials", "get_ratios", "get_peers", "get_segments", "get_statement",
+    "get_insider_activity", "get_ownership",
     "read_filing_section", "get_news", "get_transcripts", "research",
 }
 
@@ -271,6 +304,58 @@ def _h_segments(ctx, inp) -> ToolReply:
     if not segs:
         return ToolReply(content="No segment data available.")
     return ToolReply(content="SEGMENT REVENUE:\n" + json.dumps(segs, indent=1, default=str))
+
+
+_STMT_SKIP = {"symbol", "reportedCurrency", "cik", "filingDate", "acceptedDate", "link",
+              "finalLink", "calendarYear"}
+
+
+def _h_statement(ctx, inp) -> ToolReply:
+    """Full as-reported statement (every line item) — so the PM never web-searches for a
+    balance sheet / income / cash-flow number that FMP serves directly."""
+    which = (inp.get("statement") or "balance_sheet").lower().replace("-", "_").replace(" ", "_")
+    if which in ("balancesheet", "balance"):
+        which = "balance_sheet"
+    if which in ("cashflow", "cash"):
+        which = "cash_flow"
+    period = "quarter" if str(inp.get("period", "annual")).lower().startswith("q") else "annual"
+    rows = ctx.fmp.get_statement(ctx.ticker, which, period=period, limit=int(inp.get("limit", 4)))
+    if not rows:
+        return ToolReply(content=f"No {which} data available for {ctx.ticker}.")
+    out = [f"{which.upper().replace('_', ' ')} ({period}, most recent first) — full line items:"]
+    for r in rows:
+        per = f"{r.get('fiscalYear', '?')}-{r.get('period', '')}".strip("-")
+        lines = [f"  {k}={v}" for k, v in r.items()
+                 if k not in _STMT_SKIP and k not in ("date", "fiscalYear", "period")
+                 and isinstance(v, (int, float))]
+        out.append(f"\n[{per}] ({r.get('date', '')})\n" + "\n".join(lines))
+    return ToolReply(content="\n".join(out))
+
+
+def _h_insider(ctx, inp) -> ToolReply:
+    trades = ctx.fmp.get_insider_trades(ctx.ticker, limit=int(inp.get("limit", 25)))
+    if not trades:
+        return ToolReply(content=f"No insider-transaction data for {ctx.ticker}.")
+    lines = ["RECENT INSIDER TRANSACTIONS (Form 4):"]
+    for t in trades[:25]:
+        lines.append(
+            f"  {t.get('transactionDate')} {t.get('reportingName')} "
+            f"({t.get('typeOfOwner', '')}): {t.get('transactionType')} "
+            f"{t.get('securitiesTransacted')} @ {t.get('price')} "
+            f"-> owns {t.get('securitiesOwned')}")
+    return ToolReply(content="\n".join(lines))
+
+
+def _h_ownership(ctx, inp) -> ToolReply:
+    s = ctx.fmp.get_institutional_summary(ctx.ticker)
+    if not s:
+        return ToolReply(content=f"No institutional-ownership data for {ctx.ticker}.")
+    return ToolReply(content=(
+        f"INSTITUTIONAL (13F) OWNERSHIP for {ctx.ticker} (as of {s.get('date')}):\n"
+        f"  holders={s.get('investorsHolding')} (prev {s.get('lastInvestorsHolding')}, "
+        f"change {s.get('investorsHoldingChange')})\n"
+        f"  13F shares={s.get('numberOf13Fshares')} (change {s.get('numberOf13FsharesChange')})\n"
+        f"  total invested=${s.get('totalInvested')}; ownership%={s.get('ownershipPercent')}"))
 
 
 def _h_news(ctx, inp) -> ToolReply:
@@ -385,6 +470,9 @@ _HANDLERS = {
     "get_ratios": _h_ratios,
     "get_peers": _h_peers,
     "get_segments": _h_segments,
+    "get_statement": _h_statement,
+    "get_insider_activity": _h_insider,
+    "get_ownership": _h_ownership,
     "read_filing_section": _h_read_filing,
     "get_news": _h_news,
     "get_transcripts": _h_transcripts,
