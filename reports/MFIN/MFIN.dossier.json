@@ -1,0 +1,42 @@
+{
+  "ticker": "MFIN",
+  "run_id": "run-20260608T122947-f04015",
+  "dossier": {
+    "fair_value_per_share": 10.88,
+    "intrinsic_value_floor": 10.0,
+    "fair_value_low": 8.5,
+    "fair_value_high": 14.5,
+    "valuation_method": "Probability-weighted warranted P/TBV (excess-returns / Gordon residual-income on tangible common equity), each scenario engine-computed and credit-anchored to an explicit recreation net-charge-off rate; cross-checked with P/E, multiple-to-book reconciliation, and an asset/tangible-book floor",
+    "confidence": 0.62,
+    "thesis_summary": "MFIN is a deposit-funded near-prime consumer lender (recreation + home improvement) run through a scarce FDIC-insured industrial-bank charter. Its one real moat is funding (about 8% NIM on roughly 3.9% insured deposits); its assets are cyclical and undifferentiated. Mid-cycle earnings to common of about $38-40M (driven by the recreation NCO rate) imply a low-to-mid-teens ROTCE that sits at-to-below an elevated, governance-laden about 14.5% cost of equity, warranting about 0.9-1.0x tangible book. The Bank is well-capitalized (17.8% Tier 1 leverage vs a 15% floor) so growth/dividend are fundable, but the holdco carries genuine double leverage with thin about 1.0x coverage. Probability-weighting the credit cycle, lumpy equity gains, holdco fragility and the live proxy fight yields a fair value of $10.88, floor about $10 (strict tangible book).",
+    "key_value_drivers": [
+      "Through-cycle recreation net charge-off rate (FY25 about 3.95%) \u2014 each 0.5pt moves normalized earnings to common by about $6-8M and ROTCE by about 2 points",
+      "Cost of equity (about 14.5%, including a 200-300bp governance/specific premium and a micro-cap size premium)",
+      "Mid-cycle ROTCE (about 13-15% adjusted) versus CoE, which sets the warranted P/TBV near 0.9-1.0x",
+      "Lumpy commercial private-equity realizations (about $12-15M/yr) and the scaling asset-light BaaS program (>$771M originated FY2025)",
+      "Holdco double leverage / dividend coverage and the outcome of the June 2026 proxy fight and SBA debenture default"
+    ],
+    "key_risks": [
+      "Recreation/RV collateral is deeply cyclical with about 25% recoveries; recession NCOs of 5-7% could halve normalized earnings and push ROTCE below cost of equity",
+      "Earnings quality: about $12-15M/yr from unforecastable equity gains; Q1-26 EPS fell about 60% YoY on that line alone",
+      "Holdco double leverage (about $179.5M parent debt vs $150.8M goodwill) with thin about 1.0-1.05x, dividend-dependent coverage; Bank upstream is regulator-discretionary",
+      "Governance: CEO under permanent SEC fraud injunction, aged family-controlled board, ISS/Glass Lewis back dissidents, SBA default citing lack of qualified management",
+      "Funding/rate mismatch (negative 20% one-year gap), commoditizing ILC moat, and a permanent about $9.3M/yr 9% Series G preferred drag senior to common"
+    ],
+    "what_would_change_my_mind": [
+      "Recreation NCOs breaking above 5% with rising 90+ delinquencies, or a dividend cut",
+      "Adverse SBA resolution forcing a Medallion Capital wind-down, or confirmation about 20% of the commercial book is genuinely impaired with thin recovery",
+      "A governance overhaul (activist win, independent chair, clawback restoration) compressing CoE toward a clean 12-12.5%",
+      "Evidence the current FICO-688 book seasons to materially lower through-cycle losses than legacy vintages",
+      "Sustained scaling of the asset-light BaaS program into a recurring high-ROE fee stream"
+    ],
+    "diluted_shares_used": 24300000.0,
+    "citations": []
+  },
+  "judge": {
+    "approved": true,
+    "score": 95,
+    "gaps": []
+  },
+  "action": "evaluated"
+}

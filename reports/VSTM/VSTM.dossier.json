@@ -1,0 +1,88 @@
+{
+  "ticker": "VSTM",
+  "run_id": "run-20260608T122947-ed87c0",
+  "dossier": {
+    "fair_value_per_share": 7.16,
+    "intrinsic_value_floor": 3.25,
+    "fair_value_low": 4.5,
+    "fair_value_high": 12.0,
+    "valuation_method": "Probability-weighted sum-of-the-parts / rNPV at ~13% cost of equity, built from explicit per-asset cash-flow schedules: on-market LGSOC franchise NPV gated by RAMP 301 confirmatory survival (~60%), plus PoS-weighted rNPV of VS-7375 (KRAS-G12D, bottom-up ex-China peak ~$2.25B x 22%) and RAMP 205 (PDAC), net of cash burn and below-NAV financing leakage; integrated across discrete company-level scenarios (composite headline $7.16; expected-value SOTP cross-check $7.72)",
+    "confidence": 0.55,
+    "thesis_summary": "Verastem owns the first and only FDA-approved therapy for KRAS-mutant recurrent LGSOC (avutometinib+defactinib, ~$75M annualized run-rate), but the approval is accelerated and conditional on the RAMP 301 confirmatory Phase 3 (~60% survival, readout ~2028). Value is a probability-weighted, schedule-derived sum-of-the-parts at ~13% cost of equity: the on-market orphan franchise (conditional NPV ~$1.0B, NPV/peak ~1.6x) plus a differentiated-but-early KRAS-G12D asset (VS-7375, ~$320M rNPV) and a high-risk PDAC combination (~$68M), netted for heavy cash burn and serial below-NAV dilution. Integrating the full outcome distribution yields a fair value of $7.16 (floor $3.25 on the franchise alone), with a wide, right-skewed band reflecting a ~40% withdrawal tail against meaningful pipeline upside.",
+    "key_value_drivers": [
+      "RAMP 301 confirmatory PFS outcome (~60% franchise survival) \u2014 the master switch",
+      "LGSOC commercial trajectory: re-acceleration of new-patient starts and duration-on-therapy (Q1'26 decelerated to +6.5% seq)",
+      "VS-7375 KRAS-G12D development success and bottom-up ex-China peak (~$2.25B success case, ~22% PoS)",
+      "Dilution trajectory: ~130-145M shares likely by the 2027 readout; below-NAV leakage",
+      "Wild-type label/NCCN expansion optionality (currently declined)"
+    ],
+    "key_risks": [
+      "RAMP 301 fails -> accelerated approval withdrawn ~2028, removing the entire revenue base",
+      "Commercial plateau if the healthy addressable pool is shallower than the funnel implies",
+      "Serial below-NAV equity dilution; sales miss could lock out Oberland debt tranches",
+      "VS-7375 is early, partnered (ex-China only), mid-pack vs Revolution Medicines (pan-RAS Ph3) and Astellas",
+      "Gross-margin compression from Chugai/Pfizer/Oberland royalty stack; Chugai EU/Japan opt-back caps ex-US upside"
+    ],
+    "what_would_change_my_mind": [
+      "RAMP 301 positive (or strong interim) -> franchise de-risked, FMV toward $13-18",
+      "Re-acceleration of new-patient starts + disclosed long duration-on-therapy",
+      "Mature VS-7375 PFS/OS confirming best-in-class durability",
+      "A non-dilutive ex-US or VS-7375 partnership breaking the dilution cycle",
+      "Conversely: RAMP 301 negative, continued commercial stall, or a large discounted raise -> toward the $3.25 floor"
+    ],
+    "diluted_shares_used": 112000000.0,
+    "citations": [
+      {
+        "source_kind": "fundamentals",
+        "quote": "Q1 2026 net product revenue $18.671M; FY2025 product revenue $30.914M; cash $165.55M + ST investments ~$16.1M; total debt $85.5M at 3/31/2026; FY2025 R&D $114.6M, SG&A $81.1M, operating loss $170.1M",
+        "accession": null,
+        "section": "income statement / balance sheet",
+        "url": null
+      },
+      {
+        "source_kind": "news",
+        "quote": "Verastem reported first-quarter 2026 net product revenue of $18.7 million for AVMAPKI FAKZYNJA CO-PACK",
+        "accession": null,
+        "section": null,
+        "url": "businesswire 2026-05-09"
+      },
+      {
+        "source_kind": "news",
+        "quote": "FDA grants Fast Track designation to VS-7375, an oral investigational KRAS G12D inhibitor, for locally advanced or metastatic KRAS G12D-mutated NSCLC",
+        "accession": null,
+        "section": null,
+        "url": "businesswire 2026-06-03"
+      },
+      {
+        "source_kind": "filing",
+        "quote": "FDA accelerated approval May 8, 2025 for KRAS-mutated recurrent LGSOC; continued approval contingent on confirmatory verification of clinical benefit (RAMP 301)",
+        "accession": null,
+        "section": "10-K FY2025",
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Oberland Capital note up to $150M, $75M funded at close, non-amortizing, principal due 2031-2032, 1% revenue interest on first $100M annual net sales, no financial covenants; Oxford term loan repaid in full Jan 2025",
+        "accession": null,
+        "section": "10-K FY2025 Item 7 / liquidity",
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Shares: 44.78M (YE2024) -> 77.74M (YE2025) -> ~87.8M common + ~12.2M pre-funded warrants ~ 100M economic (Q1'26); institutions ~97.6% (162 holders)",
+        "accession": null,
+        "section": "balance sheet / 13F",
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "approved": true,
+    "score": 93,
+    "gaps": [
+      "Per-asset net-cash margins (LGSOC ~44%, VS-7375 ~37%, RAMP 205 ~33%) are stated rather than built from full per-indication P&Ls including the explicit royalty-stack waterfall \u2014 reasonable for rNPV, but a fully-built operating model per asset would be the last increment of rigor.",
+      "The VS-7375 funnel incidence figures are sound estimates but are not individually source-cited; adding citations would make the bottom-up build fully auditable by a third party."
+    ]
+  },
+  "action": "evaluated"
+}

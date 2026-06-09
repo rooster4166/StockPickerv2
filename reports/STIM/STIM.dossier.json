@@ -1,0 +1,42 @@
+{
+  "ticker": "STIM",
+  "run_id": "run-20260608T122947-9a92a3",
+  "dossier": {
+    "fair_value_per_share": 1.33,
+    "intrinsic_value_floor": 0.95,
+    "fair_value_low": 0.95,
+    "fair_value_high": 2.0,
+    "valuation_method": "Time-discounted probability-weighted sum-of-the-parts (rNPV): five realization paths, device marked at separation value ONLY in the transaction path and at consolidated economics otherwise, each discounted to present at an 11% systematic cost of equity (engine output $1.33; undiscounted cross-check $1.61)",
+    "confidence": 0.5,
+    "thesis_summary": "STIM is a vertically-integrated TMS company: a ~78%-gross-margin NeuroStar device franchise (largest US installed base, ~70% recurring annuity) worth ~$175-215M to a strategic buyer is buried inside a low-margin, contribution-negative Greenbrook clinic network plus ~$34M/yr corporate overhead and a $65M first-lien loan. The device alone exceeds the whole enterprise value - which a 14% activist and a capable new CEO are pushing to unlock via a sale - but that value is largely realized only through a transaction; in a keep-both world the corporate-overhead drag suppresses it. A self-projected unfundable covenant breach (~1Q'27) and a guided $13-17M 2026 cash burn vs $13M cash make dilution near-certain. Probability-weighting five paths and discounting to present yields a $1.33 FMV (undiscounted cross-check $1.61) vs a ~$0.95 burn-aware floor.",
+    "key_value_drivers": [
+      "Realization path: device/whole-co sale or separation (captures full SOTP) vs keep-both turnaround (consolidated economics only) vs muddle vs distress",
+      "Device standalone-sale value $150-250M (2.5-3x ~$70M revenue; flat growth + shallow buyer pool cap the multiple below BrainsWay 8.4x / Axonics 9x)",
+      "Greenbrook clinic mark $30-90M (0.3-1.0x revenue; Greenbrook's own sub-1x distressed deal is the anchor; weak buyer pool tilts realization to $40-60M); SPRAVATO concentration + Auvelity threat",
+      "The ~$34M corporate overhead that makes the keep-both entity structurally hard to make profitable",
+      "Dilution (79M -> ~90-115M shares) and realization timing (1-3 yrs), both compressing present value; covenant resolution ~1Q'27"
+    ],
+    "key_risks": [
+      "Going concern: self-projected minimum-revenue covenant breach TTM ending 3/31/2027 on a $65M first-lien loan it cannot repay from cash",
+      "Keep-both structural profitability problem: ~$34M corporate overhead exceeds either segment's contribution",
+      "Near-certain dilution: 2026 OCF guided negative $13-17M vs $13.2M cash; $41.7M untapped ATM",
+      "Device shipments flat-to-declining (159 vs 185 systems) vs profitable BrainsWay (+27%); 510(k) commoditization, SAINT-protocol threat, and a thin device buyer pool",
+      "Greenbrook growth SPRAVATO-concentrated; esketamine LoE ~2031-2035 and oral competitor Auvelity; CEO/CFO churn; strategic review may not complete"
+    ],
+    "what_would_change_my_mind": [
+      "A signed TMS sale at >=3x revenue that retires the debt (lifts FMV toward $2.50)",
+      "Greenbrook clinic segment turning contribution-positive and consolidated sustained positive operating cash flow",
+      "A refinancing/covenant reset removing the going-concern flag",
+      "Negative: covenant breach with the loan called, or a large dilutive raise well below $1.50",
+      "Negative: device revenue and utilization declining outright, loss of major payer coverage, or accelerated esketamine LoE"
+    ],
+    "diluted_shares_used": 90000000.0,
+    "citations": []
+  },
+  "judge": {
+    "approved": false,
+    "score": 94,
+    "gaps": []
+  },
+  "action": "evaluated"
+}

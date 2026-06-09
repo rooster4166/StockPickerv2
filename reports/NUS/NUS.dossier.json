@@ -1,0 +1,100 @@
+{
+  "ticker": "NUS",
+  "run_id": "run-20260608T122947-85f390",
+  "dossier": {
+    "fair_value_per_share": 10.3,
+    "intrinsic_value_floor": 7.75,
+    "fair_value_low": 8.25,
+    "fair_value_high": 13.0,
+    "valuation_method": "Probability-weighted composite of three multi-stage DCFs (decline-vs-stabilization) at 13.5% cost of capital, cross-checked with peer EV/EBITDA and normalized-FCF yield.",
+    "confidence": 0.6,
+    "thesis_summary": "Nu Skin is a high-quality operator of a structurally declining direct-selling (MLM) franchise: revenue down 45% from its 2021 peak and the field force (Customers -45%, Paid Affiliates -52%, Sales Leaders ~-50%) collapsed with it, yet it remains FCF-positive (~$80M normalized), near net-cash on funded debt, pays a covered dividend, and earns a 77.7% core gross margin. Value hinges on whether the decline stabilizes and whether Prysm iO plus LatAm/India restore growth. Bear ($7.62), base ($10.36) and bull ($14.06) DCFs at 13.5% give a probability-weighted FMV of ~$10.30.",
+    "key_value_drivers": [
+      "Trajectory of the secular revenue decline (Sales Leaders the key leading indicator)",
+      "Terminal operating margin (6-9%)",
+      "Prysm iO subscription flywheel / subscriber LTV",
+      "LatAm (+53% YoY) and India (late-2026) offset to China/Korea/N.A. erosion",
+      "Near-net-cash balance sheet and ~$80M normalized FCF"
+    ],
+    "key_risks": [
+      "Decline never inflects (Q1 2026 -12%; Sales Leaders -13% to -19%)",
+      "Prysm iO switching-cost transition accelerates attrition; health-claim FTC/biometric risk",
+      "China/Korea regulatory or secular shock",
+      "Inventory obsolescence on 147 days of pre-bought stock",
+      "Emerging-market mix dilutes premium margins; FY2026 EPS step-down to ~$1.00",
+      "Mid-transformation CFO change; ~$170M offshore/trapped cash"
+    ],
+    "what_would_change_my_mind": [
+      "Two+ quarters of decelerating decline with Customers/Sales Leaders flattening",
+      "Prysm iO subscriber growth well above +5%/+14% with disclosed conversion/LTV data",
+      "India scaling faster than guided",
+      "Core GM >=77% with selling ~40% through the mix shift",
+      "Conversely: decline re-accelerating, a China event, an inventory write-down, or a dividend/buyback cut"
+    ],
+    "diluted_shares_used": 50301000.0,
+    "citations": [
+      {
+        "source_kind": "fundamentals",
+        "quote": "Revenue FY2021 $2,695.7M peak -> FY2025 $1,485.2M (-45%); Q1 2026 -12.0%",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "KPIs YE2021->YE2025: Customers 1,367,559->748,796; Paid Affiliates 271,025->129,311; Sales Leaders ~61,515->30,045",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Adjusted EPS $0.84 (2024)->$1.27 (2025); FY2026 guidance $0.80-$1.20; revenue $1.35-1.50B",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "FY2025 GAAP net income $160.2M inflated by ~$176.2M pre-tax Mavely gain; operating income $90.9M",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Term loan $225M, revolver $0; ~$82M finance leases; cash $239.8M -> ~$67M net debt; coverage ~5.5x",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "filing",
+        "quote": "Core gross margin 77.7%; commissions 40-43% of core revenue; #1 beauty device brand; ageLOC >$15B cumulative",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Dividend $0.39->$0.06/qtr effective Feb 2024; ~21% payout; institutions 73.8%",
+        "accession": null,
+        "section": null,
+        "url": null
+      },
+      {
+        "source_kind": "fundamentals",
+        "quote": "Normalized adjusted EBITDA ~$168M; normalized FCF ~$80M; cost of equity ~13%, valuation centered 13.5%",
+        "accession": null,
+        "section": null,
+        "url": null
+      }
+    ]
+  },
+  "judge": {
+    "approved": true,
+    "score": 92,
+    "gaps": []
+  },
+  "action": "evaluated"
+}

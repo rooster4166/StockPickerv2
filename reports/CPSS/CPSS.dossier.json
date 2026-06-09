@@ -1,0 +1,46 @@
+{
+  "ticker": "CPSS",
+  "run_id": "run-20260608T122947-147a20",
+  "dossier": {
+    "fair_value_per_share": 8.077,
+    "intrinsic_value_floor": 6.25,
+    "fair_value_low": 5.5,
+    "fair_value_high": 11.25,
+    "valuation_method": "Warranted P/B (excess returns): P/B = (ROE - g)/(CoE - g), normalized through-cycle ROE ~10% vs derived cost of equity ~15.5% (Rf 4.3% + beta 1.5 x ERP 5.0% + 3.5% size/illiquidity + 0.2% ABS-fragility/first-loss premium), probability-weighted across the ROE/funding-durability distribution (engine composite output $8.077); cross-checked vs explicit residual-income build, normalized P/E (~5.6x justified), and a fair-value tangible-book stress test.",
+    "confidence": 0.58,
+    "thesis_summary": "CPS is a sub-scale, deep-subprime indirect auto lender whose ROE collapsed from ~38% (2022) to ~6.5% (2025) almost entirely on a funding-cost shock (securitization cost spiked 2.5%->8.5%), NOT a credit blow-up (net charge-offs flat ~7.7%). The spread engine is inflecting up (core ex-marks pretax tripled to $21.5M in 2025; Q1-2026 net income +18% YoY; bad 2022-23 vintages de minimis by end-2026; new ABS at ~5.5%). But the equity is a first-loss residual on an 11-12x-levered ABS-funded book whose solvency (per 2008-09) is hostage to securitization access, demanding ~15.5% cost of equity. Normalized through-cycle ROE ~10% (now a full 31% cash taxpayer) sits below that hurdle, warranting ~0.55x book; four methods converge near $8.08, with fair-valued ~$14 tangible book (robust to a 10%-worse credit miss) and accretive sub-0.6x-book buybacks cushioning downside.",
+    "key_value_drivers": [
+      "Cost of equity (~15.5%) vs normalized ROE (~10%): the warranted-P/B gap is the dominant driver",
+      "Durability of the cost-of-funds roll-down (~$15-24M pre-tax) as 6.5-8.5% 2022-24 ABS refinances at ~5.5% - contingent on benchmark rates, not mechanical",
+      "Run-off of unprofitable 2022-2023 vintages (de minimis by end-2026), lifting NIM and lowering losses",
+      "Structural opex efficiency (core opex 4.8% of managed receivables, down from 5.8%)",
+      "Accretive, ongoing buyback (~5%/yr) at ~0.6x book, compounding per-share book value",
+      "Capital-light optionality: $900M prime forward-flow fee program and direct refi product"
+    ],
+    "key_risks": [
+      "Securitization/warehouse funding-access disruption (existential; CPS nearly failed in 2008-09 when ABS shut for ~2 years; only ~$6-7M unrestricted parent cash; Tricolor-style scrutiny of small subprime issuers)",
+      "Funding-cost roll-down stalls if benchmark/swap rates back up (higher-for-longer); 2025 showed the blended back-book rate is sticky",
+      "Recession lifting unemployment past ~5% pushing charge-offs to 9-10% and turning fair-value marks negative (erodes earnings AND book)",
+      "Irrational subprime competition compressing APRs and dealer acquisition fees from the top",
+      "Sub-scale with no structural moat vs CACC's dealer-holdback model or far larger rivals",
+      "~11-12x balance-sheet leverage amplifies small swings in spread/losses",
+      "Micro-cap liquidity and founder-controlled governance"
+    ],
+    "what_would_change_my_mind": [
+      "Sustained blended cost of funds below 5.5% (durable roll-down) -> bullish",
+      "Net charge-offs holding below 7.5% through a softening labor market -> bullish",
+      "Prime forward-flow scaling to material capital-light fee income -> bullish",
+      "ABS spreads widening or a deal getting pulled -> bearish",
+      "Net charge-offs breaking above 9% or negative fair-value marks -> bearish",
+      "Unemployment spiking past 5.5% -> bearish"
+    ],
+    "diluted_shares_used": 22500000.0,
+    "citations": []
+  },
+  "judge": {
+    "approved": false,
+    "score": 92,
+    "gaps": []
+  },
+  "action": "evaluated"
+}

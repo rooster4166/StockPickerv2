@@ -1,0 +1,24 @@
+{
+  "ticker": "JRVR",
+  "run_id": "run-20260608T122947-b7cf55",
+  "dossier": {
+    "fair_value_per_share": 7.9075,
+    "intrinsic_value_floor": 0.0,
+    "fair_value_low": 4.0,
+    "fair_value_high": 10.0,
+    "valuation_method": "composite",
+    "confidence": 0.3,
+    "thesis_summary": "Budget reached before a finalized memo; last computed value used.",
+    "key_value_drivers": [],
+    "key_risks": [],
+    "what_would_change_my_mind": [],
+    "diluted_shares_used": null,
+    "citations": []
+  },
+  "judge": {
+    "approved": false,
+    "score": 0,
+    "gaps": []
+  },
+  "action": "evaluated"
+}

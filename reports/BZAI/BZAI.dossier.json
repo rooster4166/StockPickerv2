@@ -1,0 +1,45 @@
+{
+  "ticker": "BZAI",
+  "run_id": "run-20260608T122947-294f12",
+  "dossier": {
+    "fair_value_per_share": 0.36,
+    "intrinsic_value_floor": 0.25,
+    "fair_value_low": 0.23,
+    "fair_value_high": 0.57,
+    "valuation_method": "Probability-weighted, time-discounted scenario analysis (rNPV) at 17% cost of equity with base-rate-anchored weights and a bottom-up acquihire branch; anchored by an asset/liquidation floor, cross-checked vs edge-AI M&A comps and a distressed revenue multiple.",
+    "confidence": 0.6,
+    "thesis_summary": "Pre-scale, going-concern edge-AI chip company whose 2025 '20x growth' is low-margin GPU-server resale to two newly-formed China counterparties (about 88% of revenue) under multiple securities-fraud investigations. Novel but uncompetitive GSP silicon (about 2.3 vs Hailo's about 10 TOPS/W), about $15-20M/quarter burn, no financing backstop, about 65% dilution to survive 24 months. Value is a binary option: probability-weighted PV of wipeout (35%), survival (38%), bottom-up acquihire (19%), scale (8%) = about $0.36/share above a melting about $0.25 floor.",
+    "key_value_drivers": [
+      "Authenticity/collectibility of NeoTensr/Starshine revenue",
+      "Cash burn and the about 65% mandatory dilution",
+      "Strategic acquihire value of the GSP IP/team (the swing input)",
+      "A funded competitive next-gen chip",
+      "Gross-margin inflection from about 10% resale to product economics"
+    ],
+    "key_risks": [
+      "Securities-fraud finding or restatement",
+      "Going-concern default; no financing backstop",
+      "Dilution beyond about 65% (death-spiral risk)",
+      "Uncompetitive silicon and CUDA lock-in",
+      "Revenue concentration in possibly-fictitious counterparties; team-only acquihire impairing common"
+    ],
+    "what_would_change_my_mind": [
+      "Confirmation NeoTensr/Starshine revenue is real and fully collected",
+      "Clean 10-K/A with unqualified ICFR",
+      "A named production design win at scale",
+      "A funded next-gen tape-out on an advanced node",
+      "A committed financing facility or strategic-acquirer interest above team-only level"
+    ],
+    "diluted_shares_used": 158000000.0,
+    "citations": []
+  },
+  "judge": {
+    "approved": true,
+    "score": 94,
+    "gaps": [
+      "Truly marginal at this point: the ~150-engineer headcount underpinning the acquihire branch is inferred from R&D spend rather than pulled from a filing/headcount disclosure \u2014 confirming it directly (10-K/LinkedIn) would fully nail down the swing input, though it is already bounded by the disclosed sensitivity.",
+      "The retention-package and securities-litigation deductions in the acquihire bridge are applied qualitatively to reach the ~$180M net-to-common; quantifying each (e.g., a stated retention pool and an estimated litigation reserve) would make an already-sound derivation fully explicit. Neither item changes the conclusion."
+    ]
+  },
+  "action": "evaluated"
+}
