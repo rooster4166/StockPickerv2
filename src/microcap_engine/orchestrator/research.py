@@ -41,8 +41,8 @@ def research(
     *,
     ticker: str,
     model: str | None = None,
-    max_turns: int = 4,
-    max_tokens: int = 8000,  # comprehensive, not a summary
+    max_turns: int = 3,
+    max_tokens: int = 6000,  # comprehensive but bounded
 ) -> str:
     """Run a bounded web-search research turn-loop; return the distilled answer."""
     messages = [{"role": "user", "content": question}]

@@ -51,10 +51,11 @@ class Settings(BaseSettings):
     # ── Strategy constants ─────────────────────────────────────────────────
     # "agentic" (tool-using PM, default) or "phased" (the older fixed cascade).
     engine_mode: str = "agentic"
-    agentic_max_steps: int = 60
-    # Generous ceiling so a deep investigation is never force-submitted mid-analysis;
-    # quality-over-cost for research/validation. Lower it for cost-sensitive batch runs.
-    agentic_max_cost_usd: float = 75.0
+    # Decisive-by-design: diagnose the value driver, acquire the ONE lens it needs, value it,
+    # reconcile, submit. The report is ASSEMBLED IN CODE from analyst-authored sections + the
+    # dossier, so the PM does not re-type prose — it converges in ~12-20 steps, not 60.
+    agentic_max_steps: int = 22
+    agentic_max_cost_usd: float = 16.0  # hard finalize at this spend (was 75 → runaway $55-77)
 
     margin_of_safety: float = 0.30  # required (FV - price)/price to enter the pool
     dispersion_norm: float = 0.40  # confidence = max(0, 1 - dispersion/DISP_NORM)

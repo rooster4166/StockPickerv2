@@ -246,35 +246,45 @@ def tool_specs() -> list[dict]:
         },
         {
             "name": "submit_final",
-            "description": "Submit your FINAL valuation: an extremely in-depth markdown investment "
-                           "memo justifying the value from start to finish, PLUS the structured "
-                           "dossier. After you submit, a red-team will attack it; if it finds "
-                           "valuation-changing flaws you will be sent back to fix or rebut them. "
-                           "Only submit when your valuation is rock-solid.",
+            "description": "Submit your FINAL valuation. The full comprehensive report is "
+                           "ASSEMBLED IN CODE from the deep sections your analysts authored "
+                           "(everything you commissioned with as_section), your valuation, and the "
+                           "fields below — so you do NOT re-type the section prose here (wasted "
+                           "effort and the #1 source of cost). You write only the executive "
+                           "summary, the valuation walk-through, and the conclusion; code "
+                           "stitches in the sections at full depth. After you submit, a red-team "
+                           "attacks it; if it finds valuation-"
+                           "changing flaws you are sent back to fix or rebut. Only submit when the "
+                           "valuation is rock-solid.",
             "input_schema": {
                 "type": "object",
                 "properties": {
-                    "markdown_memo": {
+                    "executive_summary": {
                         "type": "string",
-                        "description": "The FULL COMPREHENSIVE INVESTMENT REPORT (markdown) — a "
-                                       "complete, feature-length initiation an investment manager "
-                                       "could deploy capital from with nothing else; length scales "
-                                       "with complexity (a complex name needs many thousands of "
-                                       "words of deep detail), explanatory like an HBR feature: "
-                                       "exec summary; business deep-dive; industry & competition; "
-                                       "financial analysis (with sector metrics explained); what "
-                                       "management said on the calls; valuation (why this method, "
-                                       "fully worked, with the discount-rate build-up, "
-                                       "sensitivity, a cross-check); the probability-weighted "
-                                       "distribution (NOT a bull/bear split); risks; conclusion. "
-                                       "Teach the reader — do not be terse. Write CLEAN GitHub-"
-                                       "flavored markdown: for approximations use the '≈' symbol "
-                                       "or the word 'about' — do NOT use a '~' tilde, which GitHub "
-                                       "renders as strikethrough.",
+                        "description": "The opening of the report (300-700 words): the thesis, the "
+                                       "diagnosed value driver, the headline fair value vs the "
+                                       "floor, the 2-4 things that have to be true, and the call. "
+                                       "Teach, don't be terse. CLEAN GitHub markdown — for "
+                                       "approximations use '≈' or 'about', never a '~' tilde.",
+                    },
+                    "valuation_writeup": {
+                        "type": "string",
+                        "description": "The valuation section (markdown): WHY this method fits the "
+                                       "diagnosed driver, the discount-rate build-up (the ONE rate "
+                                       "you used — it must match compute_valuation), the worked "
+                                       "numbers, the probability-weighted distribution (not a "
+                                       "bull/bear split), a cross-check, and the share count used "
+                                       "(state it is diluted / post-financing for a cash-burner). "
+                                       "This is where your effort goes — be rigorous and explicit.",
+                    },
+                    "conclusion": {
+                        "type": "string",
+                        "description": "Risks, what-would-change-my-mind, and the bottom line "
+                                       "(markdown). Optional connective tissue between sections.",
                     },
                     "dossier": FinalDossier.model_json_schema(),
                 },
-                "required": ["markdown_memo", "dossier"],
+                "required": ["executive_summary", "valuation_writeup", "dossier"],
             },
         },
     ]
@@ -558,7 +568,11 @@ def _h_reject_early(ctx, inp) -> ToolReply:
 
 def _h_submit_final(ctx, inp) -> ToolReply:
     return ToolReply(content="", terminal="submit",
-                     payload={"markdown_memo": inp.get("markdown_memo", ""),
+                     payload={"executive_summary": inp.get("executive_summary", ""),
+                              "valuation_writeup": inp.get("valuation_writeup", ""),
+                              "conclusion": inp.get("conclusion", ""),
+                              # legacy: if a PM still passes a full memo, keep it as a fallback.
+                              "markdown_memo": inp.get("markdown_memo", ""),
                               "dossier_raw": inp.get("dossier", {})})
 
 

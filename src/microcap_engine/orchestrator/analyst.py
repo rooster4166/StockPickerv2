@@ -33,7 +33,7 @@ class Analyst:
     """One standing sub-analyst with its own role, memory, and tool access."""
 
     def __init__(self, client: LLMClient, ctx: toolkit.ToolContext, *, analyst_id: str,
-                 role: str, model: str, max_turns: int = 10):
+                 role: str, model: str, max_turns: int = 6):
         self.client = client
         self.ctx = ctx
         self.id = analyst_id
@@ -120,7 +120,7 @@ class Analyst:
                 resp = self.client.tool_turn(
                     model=self.model, system=self.system, messages=self.messages,
                     tools=self._tools, ticker=self.ticker, phase="analyst",
-                    label=f"analyst:{self.id}:t{turn}", max_tokens=14000, thinking=True)
+                    label=f"analyst:{self.id}:t{turn}", max_tokens=10000, thinking=True)
             except Exception as e:  # pragma: no cover
                 log.warning("[%s] analyst %s turn failed: %s", self.ticker, self.id, e)
                 break

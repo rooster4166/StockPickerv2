@@ -129,7 +129,9 @@ class AgenticOrchestrator:
             resp = self.client.tool_turn(
                 model=self.model, system=PM_CHARTER, messages=messages, tools=tools,
                 ticker=t, phase="pm", label=f"pm:step{step}",
-                max_tokens=28000, thinking=True,  # room for a long, comprehensive memo + thinking
+                # Investigation + submit fit comfortably here: the PM never re-types section prose
+                # (the report is assembled in code), so it has no reason to emit 28k-token drafts.
+                max_tokens=10000, thinking=True,
             )
             messages.append({"role": "assistant", "content": resp.content})
             thinking = "".join(getattr(b, "thinking", "") or "" for b in resp.content
@@ -191,7 +193,10 @@ class AgenticOrchestrator:
     def _handle_submit(self, payload, red_rounds, judge_rounds, tool_calls):
         """Returns (accepted, message, outcome, gate) where gate in {red, judge, None}."""
         t = self.data.ticker
-        memo = payload.get("markdown_memo", "")
+        # The comprehensive report is ASSEMBLED IN CODE from the analyst-authored sections + the
+        # PM's executive_summary / valuation_writeup / conclusion. The PM never re-types section
+        # prose (that was the #1 cost: 28k-token memo redrafts on every gate bounce).
+        memo = _assemble_report(self.ctx, payload)
         try:
             dossier = FinalDossier.model_validate(payload.get("dossier_raw", {}))
         except Exception as e:
@@ -217,19 +222,9 @@ class AgenticOrchestrator:
                     "compute_valuation with your FINAL inputs and submit with that exact value.",
                     None, None)
 
-        # NO-COMPRESSION — specialist-authored sections must survive at full depth. The PM may
-        # EDIT/refine them, but the memo must not be materially shorter than the depth its
-        # specialists authored (this is what made ROOT read thin). Editing OK; compression not.
-        authored = sum(len((s or "").split()) for s in self.ctx.sections.values())
-        memo_words = len(memo.split())
-        if authored > 0 and memo_words < 0.85 * authored:
-            return (False,
-                    f"submit_final REJECTED — you COMPRESSED your specialists' work. Your analysts "
-                    f"authored ~{authored} words of section content, but the memo is only "
-                    f"{memo_words} words. You may EDIT and refine their sections for flow and fix "
-                    "errors, but you must NOT summarize their depth away — incorporate the "
-                    "commissioned sections (business, industry, science, financials) at full "
-                    "depth, then resubmit.", None, None)
+        # NO-COMPRESSION is now structural: the analyst-authored sections are stitched into the
+        # report verbatim by _assemble_report, so the PM cannot summarize their depth away. (The
+        # old word-count gate is obsolete — depth is guaranteed by construction.)
 
         # GATE 1 — red-team: real errors only (the prompt forbids flagging priced uncertainty).
         report = self._red_team(memo, dossier)
@@ -342,8 +337,16 @@ class AgenticOrchestrator:
             fair_value_high=last.fair_value_p90 or last.fair_value_per_share,
             valuation_method=last.method.value, confidence=0.3,
             thesis_summary="Budget reached before a finalized memo; last computed value used.")
+        # Even on a budget-truncated run, assemble whatever the analysts authored so the report is
+        # the real work product, not an empty stub.
+        body = _assemble_report(self.ctx, {})
+        note = ("> **Note:** the step/cost budget was reached before the PM finalized; this report "
+                "is assembled from the completed analyst sections and the last computed valuation "
+                f"(${last.fair_value_per_share}/sh, {last.method.value}).\n\n")
+        memo = (note + body) if body and body != "*(no report content produced)*" \
+            else "[incomplete — budget reached]"
         return AgenticOutcome(ticker=self.data.ticker, action="evaluated", dossier=dossier,
-                              memo_markdown="[incomplete — budget reached]",
+                              memo_markdown=memo,
                               red_team_rounds=red_rounds, tool_calls=tool_calls)
 
 
@@ -437,6 +440,39 @@ class AgenticOrchestrator:
             out.append("\n\n---\n\n## Structured Dossier\n```json\n"
                        + outcome.dossier.model_dump_json(indent=2) + "\n```")
         return "\n".join(out)
+
+
+_SECTION_ORDER = ["business", "industry", "competition", "science", "technology", "financials",
+                  "management", "governance", "ownership", "catalysts", "financing"]
+
+
+def _assemble_report(ctx, payload) -> str:
+    """Build the comprehensive markdown report in CODE from the analyst-authored sections
+    (verbatim, full depth) + the PM's executive summary, valuation write-up, and conclusion.
+    The PM never re-types section prose — this is what removed the 28k-token redraft cost and
+    guarantees the specialists' depth survives. Falls back to a legacy full memo if present."""
+    es = (payload.get("executive_summary") or "").strip()
+    vw = (payload.get("valuation_writeup") or "").strip()
+    cc = (payload.get("conclusion") or "").strip()
+    legacy = (payload.get("markdown_memo") or "").strip()
+    secs = dict(getattr(ctx, "sections", {}) or {})
+
+    parts: list[str] = []
+    if es:
+        parts.append("## Executive summary\n\n" + es)
+    ordered = [k for k in _SECTION_ORDER if k in secs] + \
+              [k for k in secs if k not in _SECTION_ORDER]
+    for k in ordered:
+        body = (secs[k] or "").strip()
+        if body:
+            parts.append(f"## {str(k).replace('_', ' ').title()}\n\n{body}")
+    if vw:
+        parts.append("## Valuation\n\n" + vw)
+    if cc:
+        parts.append("## Risks & conclusion\n\n" + cc)
+    assembled = "\n\n".join(parts).strip()
+    # Fallback: a PM that still passed a full legacy memo, or gave nothing structured.
+    return assembled or legacy or "*(no report content produced)*"
 
 
 def _tr(tool_use_id: str, content: str) -> dict:
