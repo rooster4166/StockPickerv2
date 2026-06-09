@@ -46,10 +46,14 @@ terminal tool. Price is joined only later, in `portfolio/book.py`.
   composite. Never forces a method. Discount rates must be built up (rf+ERP+beta+micro-cap size
   premium) and not double-count risk; both gates stress-test the rate and probabilities vs
   external base rates.
-- **Enforced reconciliation**: `submit_final(memo, dossier)` triggers a code-run red-team GATE;
-  unresolved valuation-changing concerns force the PM back to fix/rebut, repeating until the memo
-  survives (or `max_red_rounds`). `reject_early` drops. Output: an in-depth markdown memo +
-  structured `FinalDossier`.
+- **Code-assembled report**: `submit_final(executive_summary, valuation_writeup, conclusion,
+  dossier)` — the comprehensive report is ASSEMBLED IN CODE (`agentic._assemble_report`) from the
+  analyst-authored `as_section` sections (verbatim, full depth) + those PM-written fields. The PM
+  never re-types section prose (that re-drafting was 37% of cost). This also structurally
+  guarantees no compression. Submit triggers a code-run red-team GATE; unresolved valuation-
+  changing concerns force the PM back to fix/rebut (or `max_red_rounds`). `reject_early` drops.
+- **Decisive + bounded**: diagnose → one lens → commission sections → value → reconcile → submit,
+  in ~12-18 steps (`agentic_max_steps=22`, `agentic_max_cost_usd=16`, per-step `max_tokens=10000`).
 
 The older **phased** cascade (`Orchestrator`, fixed 0–7 phases + ensemble) remains under
 `engine_mode="phased"` for A/B.
