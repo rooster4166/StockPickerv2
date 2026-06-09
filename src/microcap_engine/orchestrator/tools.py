@@ -44,6 +44,13 @@ class ToolContext:
     valuations: list = field(default_factory=list)
     analysts: dict = field(default_factory=dict)  # analyst_id -> Analyst (persistent team)
     sections: dict = field(default_factory=dict)  # title -> specialist-authored section (verbatim)
+    research_calls: int = 0  # web-research budget counter (subagent sprawl was 82% of run cost)
+
+
+# Investigation budgets — the PM over-delegated (13 research + 13 analyst turns/name = 82% of
+# cost). These hard caps force decisiveness: gather what's needed, then VALUE it.
+MAX_RESEARCH_CALLS = 5
+MAX_ANALYSTS = 3
 
 
 @dataclass
@@ -500,8 +507,15 @@ def _redact_market_price(text: str) -> str:
 
 def _h_research(ctx, inp) -> ToolReply:
     q = inp.get("question", "")
+    if ctx.research_calls >= MAX_RESEARCH_CALLS:
+        return ToolReply(content=(
+            f"RESEARCH BUDGET REACHED ({MAX_RESEARCH_CALLS} calls used). Web research was 82% of "
+            "past cost with little marginal value. Do NOT request more — value the company with "
+            "what you and your analysts already have. Your analysts can pull a specific filing/"
+            "fact themselves if one number is genuinely missing."))
+    ctx.research_calls += 1
     ans = _redact_market_price(research(ctx.client, q, ticker=ctx.ticker, model=ctx.model))
-    return ToolReply(content=f"RESEARCH — {q}\n{ans}")
+    return ToolReply(content=f"RESEARCH ({ctx.research_calls}/{MAX_RESEARCH_CALLS}) — {q}\n{ans}")
 
 
 def _h_spawn_analyst(ctx, inp) -> ToolReply:
@@ -509,6 +523,12 @@ def _h_spawn_analyst(ctx, inp) -> ToolReply:
     analysis + a reusable analyst_id the PM can follow up with via ask_analyst."""
     from microcap_engine.orchestrator.analyst import Analyst
 
+    if len(ctx.analysts) >= MAX_ANALYSTS:
+        avail = ", ".join(ctx.analysts)
+        return ToolReply(content=(
+            f"ANALYST BUDGET REACHED ({MAX_ANALYSTS} analysts). Do NOT spawn more — use "
+            f"`ask_analyst` to follow up with an existing analyst ({avail}), who retains full "
+            "context, or proceed to value the company."))
     role = inp.get("role", "analyst")
     analyst_id = f"a{len(ctx.analysts) + 1}-{role.split()[0].lower()[:12]}"
     analyst = Analyst(ctx.client, ctx, analyst_id=analyst_id, role=role, model=ctx.model)

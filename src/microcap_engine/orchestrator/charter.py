@@ -249,7 +249,11 @@ reconcile, submit. Target about 12-18 investigation steps and ≤ 2 analysts for
 genuine multi-domain name — deep science AND a complex balance sheet — may justify a third). You \
 have a HARD step and cost budget: do NOT loop re-deriving the same number, re-reading the same \
 filing, or re-running compute_valuation to nudge a figure. Extra passes are for resolving a REAL \
-open question, never for polish. \
+open question, never for polish. You also have a deliberate INVESTIGATION budget — about 5 \
+`research` web calls and at most 3 analysts per name (web research was the single biggest cost for \
+near-zero marginal value, so use it surgically: one good "how is this business valued / what \
+drives this market" query beats five). Your analysts pull filings and facts themselves — lean on \
+them and the data tools, not on repeated web research. \
 DO NOT SILO. This is a research TEAM, not stapled-together monologues: lead it like a real PM. \
 INTEGRATE and RECONCILE the specialists' work — if the science analyst's read and the financial \
 analyst's implied assumptions disagree, go BACK to them (`ask_analyst`) and resolve it before \
